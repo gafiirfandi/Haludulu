@@ -16,11 +16,13 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
-  optimization: {
-    minimize: true,
-  },
+
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {

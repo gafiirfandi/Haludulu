@@ -1,0 +1,43 @@
+.Navbar-Page {
+}
+.Brand {
+  font-size: 55px;
+  text-align: center;
+}
+/* 
+untuk rownya */
+.RowNavbar {
+}
+
+/* Untuk nama Brand */
+.NamaBrand {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  font-weight: 1000;
+}
+.namaHalu {
+  color: #ff1620;
+}
+.namaDulu {
+  color: #025202;
+}
+
+.logo {
+  padding-top: 30px;
+  font-size: 30px;
+}
+
+.logo2 {
+  padding-top: 30px;
+  font-size: 40px;
+}
+
+.borderkiri {
+  background-color: #025202;
+  height: 18px;
+}
+.borderkanan {
+  background-color: #ff1620;
+  height: 18px;
+}

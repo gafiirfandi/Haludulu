@@ -1,0 +1,26 @@
+.HomePageContainer {
+  margin-top: 30px;
+}
+
+.BajuBox {
+  margin: auto;
+  width: 60%;
+  border: 5px solid #111111;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 200;
+  height: 250px;
+}
+
+.ColumnBaju {
+  padding-bottom: 30px;
+}
+
+@media only screen and (max-width: 1000px) {
+  /* .BajuBox {
+    margin-bottom: 20px;
+  } */
+  .ColumnBaju {
+    padding-bottom: 30px;
+  }
+}

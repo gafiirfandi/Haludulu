@@ -1,22 +1,21 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
-import { Col, Row, Container } from "react-bootstrap/Col";
-
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import { Col, Container, Row } from "react-bootstrap";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "../components/pages/Home";
+import Detail from "../components/pages/Detail";
+import Navbar from "../components/Navbar";
 function App() {
   return (
-    <div>
-      <Container>
-        <Row>
-          <Col sm={8}>sm=8</Col>
-          <Col sm={4}>sm=4</Col>
-        </Row>
-        <Row>
-          <Col sm>sm=true</Col>
-          <Col sm>sm=true</Col>
-          <Col sm>sm=true</Col>
-        </Row>
-      </Container>
-    </div>
+    <>
+      <Router>
+        <Navbar />
+        <Switch>
+          {/* <Route path="/" exact component={Home} /> */}
+          <Route path="/" exact component={Detail} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 

@@ -1,0 +1,33 @@
+.DetailContainer {
+  margin-top: 50px;
+}
+/* 
+pembagian 2 column utama */
+.DetailKiri {
+  border: 5px solid black;
+  border-radius: 10px;
+  height: 600px;
+}
+
+.DetailKanan {
+  border: 5px solid black;
+  border-radius: 10px;
+}
+
+/* dibagian kiri  */
+.KiriBaju {
+  border: 5px solid blue;
+  border-radius: 10px;
+  height: 600px;
+}
+
+.BajuUtama {
+  border: 5px solid red;
+  border-radius: 10px;
+  height: 400px;
+}
+.BajuDetail {
+  border: 5px solid pink;
+  border-radius: 10px;
+  height: 400px;
+}

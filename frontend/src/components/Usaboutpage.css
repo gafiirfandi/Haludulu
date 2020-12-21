@@ -1,0 +1,24 @@
+.AboutContainer {
+  margin-top: 80px;
+}
+.JudulAboutUs {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.TitleAboutUs {
+  color: black;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.DetailAbout {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.ContentAbout {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+}

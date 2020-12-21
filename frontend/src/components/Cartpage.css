@@ -1,0 +1,129 @@
+.CartContainer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.JudulCart {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.TitleCart {
+  color: black;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.DetailJudul {
+  font-size: 15px;
+  color: red;
+}
+
+/* 2Column */
+.RowCard {
+  margin-bottom: 30px;
+}
+.RowCardLast {
+  margin-bottom: 10px;
+}
+.ColumnDetailProduct {
+  margin-top: 50px;
+  border: 5px solid #111111;
+  border-radius: 5px;
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+
+.judultable {
+  margin-top: 0px;
+  border: 5px solid #111111;
+  border-radius: 5px;
+  height: 250px;
+}
+.ColProduk {
+  /* border: 5px solid #111111; */
+  border-radius: 5px;
+  height: 300px;
+  width: auto;
+}
+
+.GambarBaju {
+  margin-left: 20px;
+  margin-top: 40px;
+  border: 5px solid #111111;
+  border-radius: 5px;
+  height: 200px;
+}
+.DetailBaju {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.TitleBaju {
+  font-size: 18px;
+}
+
+.TitleBaju {
+  font-size: 18px;
+}
+.Hapus {
+  font-size: 15px;
+  color: #ff171a;
+}
+
+.PriceHarga {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.JudulTable {
+  font-size: 14px;
+}
+.HargaBaju {
+  font-size: 14px;
+  margin-top: 40%;
+}
+
+.QuantityBaju {
+  font-size: 14px;
+  padding-top: 37%;
+  margin: 0 auto;
+  width: 100px;
+  display: block;
+}
+
+/* ButtonPurchase */
+.ButtonKanan {
+  /* margin: 0 auto;
+  width: 100px;
+  display: block; */
+}
+.BlankKiri {
+  background-color: white;
+}
+
+.Btn-AddtoCart {
+  width: 300px;
+  background-color: #025202;
+  font-size: 15px;
+  margin: 0 auto;
+
+  display: block;
+  border-radius: 5px;
+}
+
+/* Subtotal Harga  */
+
+.SubtotalCard {
+  margin-bottom: 30px;
+}
+
+.SubTotalDetail {
+  /* border: 5px solid #111111; */
+  border-radius: 5px;
+  height: 50px;
+  width: auto;
+}

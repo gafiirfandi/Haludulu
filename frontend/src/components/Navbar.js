@@ -23,8 +23,8 @@ function Navbar() {
         </Col>
       </Row>
       <Row>
-        <Col className="DetailProdukkiri"></Col>
-        <Col className="DetailProdukkanan"></Col>
+        <Col className="borderkiri"></Col>
+        <Col className="borderkanan"></Col>
       </Row>
     </div>
   );

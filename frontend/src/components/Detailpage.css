@@ -4,30 +4,118 @@
 /* 
 pembagian 2 column utama */
 .DetailKiri {
-  border: 5px solid black;
+  /* border: 5px solid black; */
   border-radius: 10px;
   height: 600px;
 }
 
 .DetailKanan {
-  border: 5px solid black;
+  border: 5px solid white;
   border-radius: 10px;
 }
 
 /* dibagian kiri  */
 .KiriBaju {
-  border: 5px solid blue;
+  /* border: 5px solid blue; */
   border-radius: 10px;
   height: 600px;
+  margin-left: 30px;
 }
 
 .BajuUtama {
-  border: 5px solid red;
+  border: 5px solid #111111;
   border-radius: 10px;
-  height: 400px;
+  height: 500px;
 }
 .BajuDetail {
-  border: 5px solid pink;
+  /* border: 5px solid #111111; */
   border-radius: 10px;
-  height: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.RincianDetail {
+  border: 5px solid #111111;
+  border-radius: 5px;
+  height: 200px;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+/* Sebelah Kanan */
+.JudulBaju {
+  display: flex;
+  flex-direction: column;
+}
+
+.UkurandanQuantity {
+  display: flex;
+  flex-direction: column;
+}
+
+.Ukuran {
+  display: flex;
+  flex-direction: column;
+}
+.UkuranDropDown {
+  background-color: transparent;
+  color: #111111;
+  border-color: black;
+}
+
+.UkuranDropDown:hover {
+  background-color: #025202;
+  color: white;
+  border-color: #025202;
+}
+
+.Quantity {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.ButtonQuantity {
+  border: 1px solid #111111;
+  border-radius: 5px;
+  width: 100px;
+  transition: 0.3s;
+}
+.ButtonQuantity:hover {
+  background-color: #025202;
+  color: white;
+  transition-delay: 250ms;
+  opacity: 1;
+}
+
+.DuaButton {
+  display: flex;
+  flex-direction: column;
+  column-gap: 30px;
+}
+
+.Btn-AddtoCart {
+  margin-bottom: 20px;
+  width: 200px;
+  background-color: #025202;
+  font-size: 15px;
+}
+.Btn-SoldOut {
+  width: 200px;
+  background-color: #454642;
+  color: white;
+  font-size: 15px;
+}
+
+/* Kanan Description */
+.Description {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.IsiDesctiption {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
 }

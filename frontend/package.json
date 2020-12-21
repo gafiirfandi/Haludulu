@@ -27,6 +27,8 @@
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "bootstrap": "^4.5.3",
     "react-bootstrap": "^1.4.0",
+    "react-bootstrap-counter": "^1.0.1",
+    "react-counter-input": "^0.2.1",
     "react-icons": "^4.1.0",
     "react-router-dom": "^5.2.0"
   }

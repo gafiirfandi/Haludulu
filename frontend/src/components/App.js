@@ -6,14 +6,18 @@ import Home from "../components/pages/Home";
 import Detail from "../components/pages/Detail";
 import Cart from "../components/pages/Cart";
 import Navbar from "../components/Navbar";
+
+import "./App.css"
 function App() {
   return (
     <>
       <Router>
         <Navbar />
         <Switch>
-          {/* <Route path="/" exact component={Home} /> */}
-          <Route path="/" exact component={Cart} />
+          <Route path="/" exact component={Home} />
+          <Route path="/cart" exact component={Cart} />
+          <Route path="/detail" exact component={Detail} />
+
         </Switch>
       </Router>
     </>

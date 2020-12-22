@@ -9,6 +9,9 @@ untuk rownya */
 .RowNavbar {
 }
 
+.SearchIcon {
+  font-size: 30px !important;
+}
 /* Untuk nama Brand */
 .NamaBrand {
   display: flex;

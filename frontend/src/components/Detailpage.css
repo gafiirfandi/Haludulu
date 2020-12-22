@@ -48,6 +48,26 @@ pembagian 2 column utama */
   flex-direction: column;
 }
 
+.JudulBajuBold {
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0.2em;
+  text-align: left;
+}
+
+.TextDetail {
+  font-family: Roboto;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0.2em;
+  text-align: left;
+}
+
 .UkurandanQuantity {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,82 @@
+.UpdateItemContainer {
+  margin-top: 50px;
+}
+
+.TitleUpdateItem {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: 0.2em;
+}
+
+.DuaColumnUpdateItem {
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+/* KiriForm */
+.KiriFormUpdateItem {
+  /* border: 1px solid #111111; */
+  border-radius: 5px;
+  height: 300px;
+}
+
+.Label-Input {
+  width: 500px;
+  line-height: 16px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  font-style: normal;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.Input-Box {
+  width: 75%;
+  margin-left: 50px;
+  border: 1px solid #000000;
+  /* box-sizing: border-box; */
+  border-radius: 5px;
+  line-height: 1.5;
+}
+.Input-FileAddItem {
+  width: 75%;
+  margin-left: 50px;
+  border-radius: 5px;
+  line-height: 1.5;
+}
+
+.Input-Box-Size {
+  width: 75%;
+  margin-left: 50px;
+  border-radius: 5px;
+  height: 25px;
+  border: 1px solid #000000;
+}
+
+/* KananForm */
+
+.KananFormAddItem {
+  /* border: 1px solid #111111; */
+  border-radius: 5px;
+  height: 300px;
+}
+
+/* Button */
+.ButtonAddItem {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.Btn-AddItem {
+  width: 200px;
+  background-color: #025202;
+  font-size: 14px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 5px;
+  line-height: 25px;
+  letter-spacing: 0.2em;
+}

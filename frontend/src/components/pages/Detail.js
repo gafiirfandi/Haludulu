@@ -1,10 +1,10 @@
 import React from "react";
 import Detailpage from "../Detailpage";
 
-function Detail() {
+function Detail(props) {
   return (
     <div style={{ overflow: "hidden" }}>
-      <Detailpage />
+      <Detailpage id={props.location.state.id} />
     </div>
   );
 }

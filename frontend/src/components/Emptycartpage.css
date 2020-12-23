@@ -1,0 +1,27 @@
+.EmptyContainer {
+  margin-top: 40px;
+}
+.JudulEmptyCart {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.TitleEmptyCart {
+  color: black;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.DetailCartJudul {
+  font-size: 15px;
+  color: red;
+}
+
+.InformationEmptyCart {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.CartEmptyTitle {
+  font-size: 30px;
+}

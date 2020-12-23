@@ -23,6 +23,7 @@ pembagian 2 column utama */
 }
 
 .BajuUtama {
+  text-align: center;
   border: 5px solid #111111;
   border-radius: 10px;
   height: 500px;
@@ -35,6 +36,7 @@ pembagian 2 column utama */
   flex-direction: column;
 }
 .RincianDetail {
+  text-align: center;
   border: 5px solid #111111;
   border-radius: 5px;
   height: 200px;
@@ -138,4 +140,10 @@ pembagian 2 column utama */
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+}
+
+.MainImage,
+.SubImage {
+  width: 80%;
+  height: auto;
 }

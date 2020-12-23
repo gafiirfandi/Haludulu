@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALUDULU</title>
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.css"
+  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+  crossorigin="anonymous"
+/>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static "css/add_item.css" %}"
+    />
+
+</head>
+
+
+<body>
+  <div class="Navbar-Page container-fluid">
+  {% csrf_token %}
+    <div class="RowNavbar row">
+      <div class="d-flex justify-content-start logo col">
+        <svg class="MuiSvgIcon-root SearchIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+        </svg>
+      </div>
+      <div class="d-flex justify-content-center Brand col-lg-9">
+        <div class="NamaBrand">
+          <p class="namaHalu">HALU</p>
+          <p class="namaDulu">DULU</p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end logo2 col">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path d="M832 312H696v-16c0-101.6-82.4-184-184-184s-184 82.4-184 184v16H192c-17.7 0-32 14.3-32 32v536c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V344c0-17.7-14.3-32-32-32zm-432-16c0-61.9 50.1-112 112-112s112 50.1 112 112v16H400v-16zm392 544H232V384h96v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h224v88c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-88h96v456z"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="row">
+      <div class="borderkiri col"></div>
+      <div class="borderkanan col"></div>
+    </div>
+  </div>
+
+  
+  <div class="AddItemContainer">
+    <div class="JudulPageAdd">
+      <p class="TitleAddItem">ADD ITEM</p>
+    </div>
+    <form method="POST">
+      <div class="DuaColumnAddItem">
+        <div class="row">
+          <div class="col-lg col-sm-6">
+            <div class="KiriFormAddItem">
+              <div method="POST" class="form-group">
+                <div class="SebarisInput form-row">
+                  <label class="form-label col-form-label col-lg-2">
+                    <p class="Label-Input"><b>Product Name</b></p>
+                  </label>
+                  <div class="col"><input placeholder="Normal text" type="text" class="Input-Box form-control"></div>
+                </div>
+                <br>
+                <div class="SebarisInput form-row">
+                  <label class="form-label col-form-label col-lg-2">
+                    <p class="Label-Input"><b>Price</b></p>
+                  </label>
+                  <div class="col"><input placeholder="Normal text" type="text" class="Input-Box form-control"></div>
+                </div>
+                <br>
+                <div class="SebarisInput form-row">
+                  <label class="form-label col-form-label col-lg-2">
+                    <p class="Label-Input"><b>Minus</b></p>
+                  </label>
+                  <div class="col"><input placeholder="Normal text" type="text" class="Input-Box form-control"></div>
+                </div>
+                <br>
+                <div class="SebarisInput form-row">
+                  <label class="form-label col-form-label col-lg-2">
+                    <p class="Label-Input"><b>Condition</b></p>
+                  </label>
+                  <div class="col"><input placeholder="Normal text" type="text" class="Input-Box form-control"></div>
+                </div>
+                <br>
+                <div class="SebarisInput form-row">
+                  <label class="form-label col-form-label col-lg-2">
+                    <p class="Label-Input"><b>Main Image</b></p>
+                  </label>
+                  <div class="col"><input placeholder="Normal text" type="text" class="Input-Box form-control"></div>
+                </div>
+                <br>
+                <div class="SebarisInput form-row">
+                  <label class="form-label col-form-label col-lg-2">
+                    <p class="Label-Input"><b>1st Demo Image</b></p>
+                  </label>
+                  <div class="col">
+    <div class="Input-FileAddItem custom custom-file">
+    <input id="custom-file" type="file" class="custom-file-input"><label for="custom-file" class="custom-file-label">Custom file input</label></div></div></div></div></div></div><div class="col-lg col-sm-6"><div class="KananFormAddItem"><div class="form-group"><div class="SebarisInput form-row"><label class="form-label col-form-label col-lg-2"><p class="Label-Input"><b>2nd Demo Image</b></p></label><div class="col"><form class=""><div class="Input-FileAddItem custom custom-file"><input id="custom-file" type="file" class="custom-file-input"><label for="custom-file" class="custom-file-label">Custom file input</label></div></div></div><br><div class="SebarisInput form-row"><label class="form-label col-form-label col-lg-2"><p class="Label-Input"><b>3rd Demo Image</b></p></label><div class="col"><form class=""><div class="Input-FileAddItem custom custom-file"><input id="custom-file" type="file" class="custom-file-input"><label for="custom-file" class="custom-file-label">Custom file input</label></div></div></div><br><div class="SebarisInput form-row"><label class="form-label col-form-label col-lg-2"><p class="Label-Input"><b>Size S Stock</b></p></label><div class="col"><select class="Input-Box-Size custom-select custom-select-sm"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div><br><div class="SebarisInput form-row"><label class="form-label col-form-label col-lg-2"><p class="Label-Input"><b>Size M Stock</b></p></label><div class="col"><select class="Input-Box-Size custom-select custom-select-sm"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div><br><div class="SebarisInput form-row"><label class="form-label col-form-label col-lg-2"><p class="Label-Input"><b>Size L Stock</b></p></label><div class="col"><select class="Input-Box-Size custom-select custom-select-sm"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div><br><div class="SebarisInput form-row"><label class="form-label col-form-label col-lg-2"><p class="Label-Input"><b>Size XL Stock</b></p></label><div class="col"><select class="Input-Box-Size custom-select custom-select-sm"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></div></div></div></div></div></div>
+    <input type="submit" class="Btn-AddItem btn btn-success" value="ADD ITEM">
+    </form>
+  </div>
+
+  
+
+
+    <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
+
+    <script
+      src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
+      crossorigin></script>
+
+    <script
+      src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+      crossorigin></script>
+    <script src="{% static "frontend/main.js" %}"></script>
+
+</body>
+</html>

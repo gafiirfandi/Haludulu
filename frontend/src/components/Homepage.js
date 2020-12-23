@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./Homepage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from "react-bootstrap";
-function Homepage() {
+import axios from "./axios";
+import { Link } from "react-router-dom";
 
+function Homepage() {
   // const [width, setWidth] = useState(0)
-  
+
   // useEffect(() => {
   //   let bajuBox = document.getElementsByClassName("BajuBox");
   //   // width = bajuBox[0].clientWidth
@@ -17,7 +19,7 @@ function Homepage() {
   //     bajuBox[i].style.height = width + "px"
   //     console.log(bajuBox[i].clientHeight)
 
-  //   }  
+  //   }
   // })
 
   // let bajuBox = document.getElementsByClassName("BajuBox");
@@ -26,10 +28,46 @@ function Homepage() {
   //   element.height = width + 'px'
   // });
   // $('.child').css({'height':cw+'px'});
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      console.log(axios.defaults.baseURL + "/api");
+      const request = await axios.get(axios.defaults.baseURL + "/api");
+      console.log(request.data);
+      setProducts(request.data);
+      // setMovies(request.data.results);
+      return request;
+    }
+    fetchData();
+  }, []);
   return (
     <div className="HomePageContainer">
       <Row>
-        <Col xs="6" sm="6" lg className="ColumnBaju">
+        {products.map((product) => {
+          return (
+            <Col xs="6" sm="6" lg className="ColumnBaju">
+              <Link
+                to={{
+                  pathname: "/detail/" + product.id,
+                  state: { id: product.id },
+                }}>
+                {/* <Link
+                to={{
+                  pathname: "/detail/" + product.id,
+                  // search: "?sort=name",
+                  // hash: "#the-hash",
+                  state: { fromDashboard: true },
+                }}> */}
+                <div className="BajuBox">
+                  <img src={product.main_img} className="ImgBaju" alt="helo" />
+                </div>
+              </Link>
+            </Col>
+          );
+        })}
+        {/* <Col xs="6" sm="6" lg className="ColumnBaju">
           <div className="BajuBox">Halo</div>
         </Col>
         <Col xs="6" sm="6" lg className="ColumnBaju">
@@ -41,7 +79,6 @@ function Homepage() {
         <Col xs="6" sm="6" lg className="ColumnBaju">
           <div className="BajuBox">Halo</div>
         </Col>
-        
       </Row>
       <Row>
         <Col xs="6" sm="6" lg className="ColumnBaju">
@@ -69,7 +106,7 @@ function Homepage() {
         </Col>
         <Col xs="6" sm="6" lg className="ColumnBaju">
           <div className="BajuBox">Halo</div>
-        </Col>
+        </Col> */}
       </Row>
     </div>
   );

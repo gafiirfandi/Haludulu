@@ -150,7 +150,8 @@ function Detailpage({ id }) {
                     <Dropdown.Toggle
                       variant="success"
                       id="dropdown-basic"
-                      className="UkuranDropDown">
+                      className="UkuranDropDown"
+                    >
                       {size}
                     </Dropdown.Toggle>
 
@@ -185,13 +186,15 @@ function Detailpage({ id }) {
                   <Button
                     variant="success"
                     onClick={() => handleSubmit()}
-                    className="Btn-AddtoCart">
+                    className="Btn-addtocart"
+                  >
                     ADD TO CART
                   </Button>
                   <Button
                     onClick={() => console.log(listProductCart, " yey")}
                     variant="dark"
-                    className="Btn-SoldOut">
+                    className="Btn-SoldOut"
+                  >
                     SOLD OUT
                   </Button>
                 </div>

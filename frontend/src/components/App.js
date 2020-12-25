@@ -15,6 +15,8 @@ import { setCurrentCart } from "../redux/cart/cart.action";
 import rootReducer from "../redux/root-reducer";
 
 import "./App.css";
+import Footer from "./Footer";
+
 function App() {
   const currentCart = useSelector((state) => state.cart.currentCart);
   const dispatch = useDispatch();
@@ -44,6 +46,7 @@ function App() {
           <Route path="/about_us" exact component={AboutUs} />
         </Switch>
       </Router>
+      <Footer />
     </>
   );
 }

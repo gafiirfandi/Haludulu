@@ -1,5 +1,6 @@
 .DetailContainer {
   margin-top: 50px;
+  height: 800px;
 }
 /* 
 pembagian 2 column utama */
@@ -28,7 +29,7 @@ pembagian 2 column utama */
   vertical-align: middle; */
   border: 5px solid #111111;
   border-radius: 10px;
-  height: 500px;
+  max-height: 700px;
 }
 .BajuDetail {
   /* border: 5px solid #111111; */
@@ -44,8 +45,8 @@ pembagian 2 column utama */
   text-align: center;
   border: 5px solid #111111;
   border-radius: 5px;
-  height: 200px;
-  width: auto;
+  max-height: 500px;
+  max-width: 300px;
   margin-bottom: 10px;
 }
 
@@ -118,10 +119,11 @@ pembagian 2 column utama */
 .DuaButton {
   display: flex;
   flex-direction: column;
-  column-gap: 30px;
-}
 
-.Btn-AddtoCart {
+  /* column-gap: 30px;
+} */
+}
+.Btn-addtocart {
   margin-bottom: 20px;
   width: 200px;
   background-color: #025202;
@@ -147,8 +149,13 @@ pembagian 2 column utama */
   margin-top: 10px;
 }
 
-.MainImage,
 .SubImage {
-  width: 80%;
+  width: 50%;
   height: auto;
+}
+
+.MainImage {
+  width: 90%;
+  height: auto;
+  margin: auto;
 }

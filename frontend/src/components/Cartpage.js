@@ -116,7 +116,8 @@ function Cartpage() {
           <Button
             onClick={() => handlePurchase()}
             variant="success"
-            className="Btn-AddtoCart">
+            className="Btn-Purchase"
+          >
             PURCHASE
           </Button>
         </Col>

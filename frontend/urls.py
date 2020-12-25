@@ -2,12 +2,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from .views import index, add_item, ProductView, ProductGetView
+from .views import index, add_item, detail_item, ProductView, ProductGetView
 
 urlpatterns = [
-    path('', index),
+    path('', index,),
     path('cart', index),
-    path('detail', index),
+    path('detail/<int:id>', detail_item, name="index"),
     path('update_item', index),
     path('about_us', index),
     path('add_item', index),

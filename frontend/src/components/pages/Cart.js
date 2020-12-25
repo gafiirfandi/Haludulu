@@ -1,10 +1,10 @@
 import React from "react";
 import Cartpage from "../Cartpage";
 
-function Detail() {
+function Detail(props) {
   return (
     <div style={{ overflow: "hidden" }}>
-      <Cartpage />
+      <Cartpage {...props} />
     </div>
   );
 }

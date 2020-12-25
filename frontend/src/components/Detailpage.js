@@ -38,7 +38,7 @@ function Detailpage({ id }) {
     } else if (size == "M") {
       setStock(product.size_m_stock);
     } else if (size == "L") {
-      setStock(product.size_l_tock);
+      setStock(product.size_l_stock);
     } else if (size == "XL") {
       setStock(product.size_xl_stock);
     }
@@ -47,7 +47,36 @@ function Detailpage({ id }) {
   const handleSubmit = () => {
     const cart = currentCart;
     console.log(currentCart);
-    cart[id] = { stock: stock, size: size, ...product };
+    if (size == "S") {
+      cart[id] = {
+        stock: stock,
+        stock_max: product.size_s_stock,
+        size: size,
+        ...product,
+      };
+    } else if (size == "M") {
+      cart[id] = {
+        stock: stock,
+        stock_max: product.size_m_stock,
+        size: size,
+        ...product,
+      };
+    } else if (size == "L") {
+      cart[id] = {
+        stock: stock,
+        stock_max: product.size_l_stock,
+        size: size,
+        ...product,
+      };
+    } else if (size == "XL") {
+      cart[id] = {
+        stock: stock,
+        stock_max: product.size_xl_stock,
+        size: size,
+        ...product,
+      };
+    }
+
     console.log(currentCart, " new Cart");
     dispatch(setCurrentCart(cart));
     // const data = JSON.parse(localStorage.getItem("currentCart"));

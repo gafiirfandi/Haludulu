@@ -5,18 +5,23 @@ import { Col, Row, Form, Button } from "react-bootstrap";
 import axios from "./axios";
 
 function ItemAddpage() {
-  const [name, handleName] = useState("");
-  const [price, handlePrice] = useState("");
-  const [minus, handleMinus] = useState("");
-  const [condition, handleCondition] = useState("");
-  const [mainImg, handleMainImg] = useState("");
-  const [img1, handleImg1] = useState("");
-  const [img2, handleImg2] = useState("");
-  const [img3, handleImg3] = useState("");
-  const [sizeSStock, handleSizeSStock] = useState(0);
-  const [sizeMStock, handleSizeMStock] = useState(0);
-  const [sizeLStock, handleSizeLStock] = useState(0);
-  const [sizeXLStock, handleSizeXLStock] = useState(0);
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [minus, setMinus] = useState("");
+  const [condition, setCondition] = useState("");
+  const [mainImg, setMainImg] = useState("");
+  const [img1, setImg1] = useState("");
+  const [img2, setImg2] = useState("");
+  const [img3, setImg3] = useState("");
+  const [sizeSStock, setSizeSStock] = useState(0);
+  const [sizeMStock, setSizeMStock] = useState(0);
+  const [sizeLStock, setSizeLStock] = useState(0);
+  const [sizeXLStock, setSizeXLStock] = useState(0);
+
+  const [labelMainImg, setLabelMainImg] = useState("");
+  const [labelImg1, setLabelImg1] = useState("");
+  const [labelImg2, setLabelImg2] = useState("");
+  const [labelImg3, setLabelImg3] = useState("");
 
   const handleSubmit = () => {
     // console.log(name);
@@ -82,7 +87,7 @@ function ItemAddpage() {
                       className="Input-Box"
                       type="text"
                       placeholder="Name"
-                      onChange={(ev) => handleName(ev.target.value)}
+                      onChange={(ev) => setName(ev.target.value)}
                     />
                   </Col>
                 </Form.Row>
@@ -98,7 +103,7 @@ function ItemAddpage() {
                       className="Input-Box"
                       type="text"
                       placeholder="Price"
-                      onChange={(ev) => handlePrice(ev.target.value)}
+                      onChange={(ev) => setPrice(ev.target.value)}
                     />
                   </Col>
                 </Form.Row>
@@ -114,7 +119,7 @@ function ItemAddpage() {
                       className="Input-Box"
                       type="text"
                       placeholder="Minus"
-                      onChange={(ev) => handleMinus(ev.target.value)}
+                      onChange={(ev) => setMinus(ev.target.value)}
                     />
                   </Col>
                 </Form.Row>
@@ -130,7 +135,7 @@ function ItemAddpage() {
                       className="Input-Box"
                       type="text"
                       placeholder="Condition"
-                      onChange={(ev) => handleCondition(ev.target.value)}
+                      onChange={(ev) => setCondition(ev.target.value)}
                     />
                   </Col>
                 </Form.Row>
@@ -145,9 +150,13 @@ function ItemAddpage() {
                     <Form>
                       <Form.File
                         className="Input-FileAddItem"
-                        label="Custom file input"
+                        label={labelMainImg}
                         custom
-                        onChange={(ev) => handleMainImg(ev.target.files[0])}
+                        onChange={(ev) => {
+                          // console.log(ev.target.value[]);
+                          setLabelMainImg(ev.target.value);
+                          setMainImg(ev.target.files[0]);
+                        }}
                       />
                     </Form>
                   </Col>
@@ -165,7 +174,10 @@ function ItemAddpage() {
                         className="Input-FileAddItem"
                         label="Custom file input"
                         custom
-                        onChange={(ev) => handleImg1(ev.target.files[0])}
+                        onChange={(ev) => {
+                          setLabelImg1(ev.target.value);
+                          setImg1(ev.target.files[0]);
+                        }}
                       />
                     </Form>
                   </Col>
@@ -188,7 +200,10 @@ function ItemAddpage() {
                         className="Input-FileAddItem"
                         label="Custom file input"
                         custom
-                        onChange={(ev) => handleImg2(ev.target.files[0])}
+                        onChange={(ev) => {
+                          setLabelImg2(ev.target.value);
+                          setImg2(ev.target.files[0]);
+                        }}
                       />
                     </Form>
                   </Col>
@@ -206,7 +221,10 @@ function ItemAddpage() {
                         className="Input-FileAddItem"
                         label="Custom file input"
                         custom
-                        onChange={(ev) => handleImg3(ev.target.files[0])}
+                        onChange={(ev) => {
+                          setLabelImg3(ev.target.value);
+                          setImg3(ev.target.files[0]);
+                        }}
                       />
                     </Form>
                   </Col>
@@ -224,7 +242,7 @@ function ItemAddpage() {
                       size="sm"
                       custom
                       className="Input-Box-Size"
-                      onChange={(ev) => handleSizeSStock(ev.target.value)}>
+                      onChange={(ev) => setSizeSStock(ev.target.value)}>
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -246,7 +264,7 @@ function ItemAddpage() {
                       size="sm"
                       custom
                       className="Input-Box-Size"
-                      onChange={(ev) => handleSizeMStock(ev.target.value)}>
+                      onChange={(ev) => setSizeMStock(ev.target.value)}>
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -268,7 +286,7 @@ function ItemAddpage() {
                       size="sm"
                       custom
                       className="Input-Box-Size"
-                      onChange={(ev) => handleSizeLStock(ev.target.value)}>
+                      onChange={(ev) => setSizeLStock(ev.target.value)}>
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -290,7 +308,7 @@ function ItemAddpage() {
                       size="sm"
                       custom
                       className="Input-Box-Size"
-                      onChange={(ev) => handleSizeXLStock(ev.target.value)}>
+                      onChange={(ev) => setSizeXLStock(ev.target.value)}>
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework import generics
 from .models import Product
 from .serializers import ProductSerializer
@@ -24,6 +24,9 @@ class ProductGetView(generics.ListAPIView):
 def index(request):
     if request.method == "POST":
         print("berhasil yey")
+    return render(request, 'frontend/index.html')
+
+def detail_item(request, id):
     return render(request, 'frontend/index.html')
 
 def add_item(request):

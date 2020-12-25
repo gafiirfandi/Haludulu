@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./Detailpage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row, Dropdown, Button } from "react-bootstrap";
 import axios from "./axios";
+import { setCurrentCart } from "../redux/cart/cart.action";
 // import CounterInput from "react-bootstrap-counter";
 import CounterInput from "react-counter-input";
 function Detailpage({ id }) {
   const [size, handleSize] = useState("Size");
+  const [stock, setStock] = useState(1);
   const [product, setProduct] = useState([]);
+  const currentCart = useSelector((state) => state.cart.currentCart);
+  const dispatch = useDispatch();
   // const { id } = props.match.params;
 
   // const id = props.match;
@@ -17,17 +22,60 @@ function Detailpage({ id }) {
     async function fetchData() {
       console.log(axios.defaults.baseURL + "/api");
       const request = await axios.get(axios.defaults.baseURL + "/api/" + id);
-      // console.log(request.data);
+      console.log(request.data);
       setProduct(request.data[0]);
+      setStock(request.data[0].size_s_stock);
+      // console.log(request.data[0].sizeSStock, " stock s");
       // setMovies(request.data.results);
       return request;
     }
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (size == "S") {
+      setStock(product.size_s_stock);
+    } else if (size == "M") {
+      setStock(product.size_m_stock);
+    } else if (size == "L") {
+      setStock(product.size_l_tock);
+    } else if (size == "XL") {
+      setStock(product.size_xl_stock);
+    }
+  }, [size]);
+
   const handleSubmit = () => {
-    console.log(product);
+    const cart = currentCart;
+    console.log(currentCart);
+    cart[id] = { stock: stock, size: size, ...product };
+    console.log(currentCart, " new Cart");
+    dispatch(setCurrentCart(cart));
+    // const data = JSON.parse(localStorage.getItem("currentCart"));
+    // const data = localStorage.getItem("currentCart");
+    // console.log(typeof data);
+    // data.push({ id: id, size: size, stock: stock });
+    // localStorage.set Item("currentCart", JSON.stringify(data));
+    // const localStorageCart = localStorage.getItem("currentCart");
+    // console.log(data);
+    // localStorageCart.push({ id: id, size: size, stock: stock });
+    // localStorage.setItem("currentCart", localStorageCart);
+    // listProductCart.push({ id: id, size: size, stock: stock });
+    // handleProductCart(listProductCart);
+    // console.log(product);
   };
+
+  // const findSize = () => {
+  //   console.log(size);
+  //   if (size == "S") {
+  //     return product.sizeSStock;
+  //   } else if (size == "M") {
+  //     return product.sizeSStock;
+  //   } else if (size == "L") {
+  //     return product.sizeSStock;
+  //   } else if (size == "XL") {
+  //     return product.sizeSStock;
+  //   }
+  // };
 
   return (
     <div className="DetailContainer">
@@ -78,24 +126,16 @@ function Detailpage({ id }) {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      <Dropdown.Item
-                        href="#/action-1"
-                        onClick={() => handleSize("S")}>
+                      <Dropdown.Item onClick={() => handleSize("S")}>
                         S
                       </Dropdown.Item>
-                      <Dropdown.Item
-                        href="#/action-2"
-                        onClick={() => handleSize("M")}>
+                      <Dropdown.Item onClick={() => handleSize("M")}>
                         M
                       </Dropdown.Item>
-                      <Dropdown.Item
-                        href="#/action-3"
-                        onClick={() => handleSize("L")}>
+                      <Dropdown.Item onClick={() => handleSize("L")}>
                         L
                       </Dropdown.Item>
-                      <Dropdown.Item
-                        href="#/action-4"
-                        onClick={() => handleSize("XL")}>
+                      <Dropdown.Item onClick={() => handleSize("XL")}>
                         XL
                       </Dropdown.Item>
                     </Dropdown.Menu>
@@ -106,8 +146,8 @@ function Detailpage({ id }) {
                   <p className="TextDetail">Quantity:</p>
                   <div className="ButtonQuantity">
                     <CounterInput
-                      min={0}
-                      max={10}
+                      min={1}
+                      max={stock}
                       onCountChange={(count) => console.log(count)}
                     />
                   </div>
@@ -118,10 +158,13 @@ function Detailpage({ id }) {
                     onClick={() => handleSubmit()}
                     className="Btn-AddtoCart">
                     ADD TO CART
-                  </Button>{" "}
-                  <Button variant="dark" className="Btn-SoldOut">
+                  </Button>
+                  <Button
+                    onClick={() => console.log(listProductCart, " yey")}
+                    variant="dark"
+                    className="Btn-SoldOut">
                     SOLD OUT
-                  </Button>{" "}
+                  </Button>
                 </div>
               </div>
             </Col>
@@ -142,5 +185,9 @@ function Detailpage({ id }) {
     </div>
   );
 }
+
+// const mapStateToProps = (state) = ({
+//   currentCart: "tes",
+// });
 
 export default Detailpage;

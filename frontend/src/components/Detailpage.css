@@ -24,18 +24,23 @@ pembagian 2 column utama */
 
 .BajuUtama {
   text-align: center;
+  /* display: table-cell !important;
+  vertical-align: middle; */
   border: 5px solid #111111;
   border-radius: 10px;
   height: 500px;
 }
 .BajuDetail {
   /* border: 5px solid #111111; */
+
   border-radius: 10px;
   height: 500px;
   display: flex;
   flex-direction: column;
 }
 .RincianDetail {
+  /* display: table-cell !important;
+  vertical-align: middle; */
   text-align: center;
   border: 5px solid #111111;
   border-radius: 5px;

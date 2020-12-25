@@ -10,8 +10,10 @@ import AboutUs from "./pages/AboutUs";
 import Detail from "../components/pages/Detail";
 import Cart from "../components/pages/Cart";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 import "./App.css";
+
 function App() {
   return (
     <>
@@ -26,6 +28,7 @@ function App() {
           <Route path="/about_us" exact component={AboutUs} />
         </Switch>
       </Router>
+      <Footer />
     </>
   );
 }

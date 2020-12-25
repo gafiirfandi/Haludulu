@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Cartpage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row, Dropdown, Button } from "react-bootstrap";
 import CounterInput from "react-counter-input";
 import { useSelector, useDispatch } from "react-redux";
+import { setCurrentCart } from "../redux/cart/cart.action";
 function Cartpage() {
   const currentCart = useSelector((state) => state.cart.currentCart);
-  const [localCart, setLocalCart] = useState({});
+  // const [localCart, setLocalCart] = useState({});
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
@@ -14,14 +16,18 @@ function Cartpage() {
     // console.log(localStorage.getItem("currentCart"));
   };
 
-  useEffect(() => {
-    setLocalCart(currentCart);
-    // console.log(currentCart);
-  }, [currentCart]);
+  // useEffect(() => {
+  //   setLocalCart(currentCart);
+  // }, []);
 
-  // handleRemove = (id) => {
+  const handleRemove = (id) => {
+    const cart = currentCart;
+    delete cart[id];
 
-  // }
+    // setLocalCart(cart);
+
+    dispatch(setCurrentCart({ ...cart }));
+  };
 
   // const handleClear = () => {
   //   const cart = currentCart;
@@ -47,61 +53,63 @@ function Cartpage() {
     <div className="CartContainer">
       <div className="JudulCart">
         <h1 className="TitleCart">CART</h1>
-        <p className="DetailJudul">Continue shopping</p>
+        <Link to="/">
+          <p className="DetailJudul">Continue shopping</p>
+        </Link>
       </div>
-      {() => {
-        for (let key in Object.keys(currentCart)) {
-          return (
-            <Row className="RowCard">
-              <Col sm="2" className="ColProduk">
-                <div className="GambarBaju"></div>
-              </Col>
-              <Col sm="4" className="ColProduk">
-                <div className="DetailBaju">
-                  <p className="TitleBaju">
-                    <b>{localCart[id].name}</b>
-                  </p>
-                  <p className="Hapus">Remove</p>
-                </div>
-              </Col>
-              <Col sm="2" className="ColProduk">
-                <div className="PriceHarga">
-                  <p className="JudulTable">
-                    <b>Price</b>
-                  </p>
-                  <p className="HargaBaju">Rp.{localCart[id].price}</p>
-                </div>
-              </Col>
-              <Col sm="2" className="ColProduk">
-                <div className="PriceHarga">
-                  <p className="JudulTable">
-                    <b>Quantity</b>
-                  </p>
-                  <p className="QuantityBaju ">
-                    <CounterInput
-                      className="QuantityCounter"
-                      min={0}
-                      count={localCart[id].stock}
-                      max={localCart[id].sizeSStock}
-                      onCountChange={(count) => console.log(count)}
-                    />
-                  </p>
-                </div>
-              </Col>
-              <Col sm="2" className="ColProduk">
-                <div className="PriceHarga">
-                  <p className="JudulTable">
-                    <b>Total</b>
-                  </p>
-                  <p className="HargaBaju">
-                    Rp.{localCart[id].price * localCart[id].stock}
-                  </p>
-                </div>
-              </Col>
-            </Row>
-          );
-        }
-      }}
+      {Object.keys(currentCart).map((key) => {
+        return (
+          <Row className="RowCard">
+            <Col sm="2" className="ColProduk">
+              <div className="GambarBaju"></div>
+            </Col>
+            <Col sm="4" className="ColProduk">
+              <div className="DetailBaju">
+                <p className="TitleBaju">
+                  <b>{currentCart[key].name}</b>
+                </p>
+                <p className="Hapus" onClick={() => handleRemove(key)}>
+                  Remove
+                </p>
+              </div>
+            </Col>
+            <Col sm="2" className="ColProduk">
+              <div className="PriceHarga">
+                <p className="JudulTable">
+                  <b>Price</b>
+                </p>
+                <p className="HargaBaju">Rp.{currentCart[key].price}</p>
+              </div>
+            </Col>
+            <Col sm="2" className="ColProduk">
+              <div className="PriceHarga">
+                <p className="JudulTable">
+                  <b>Quantity</b>
+                </p>
+                <p className="QuantityBaju ">
+                  <CounterInput
+                    className="QuantityCounter"
+                    min={0}
+                    count={currentCart[key].stock}
+                    max={currentCart[key].sizeSStock}
+                    onCountChange={(count) => console.log(count)}
+                  />
+                </p>
+              </div>
+            </Col>
+            <Col sm="2" className="ColProduk">
+              <div className="PriceHarga">
+                <p className="JudulTable">
+                  <b>Total</b>
+                </p>
+                <p className="HargaBaju">
+                  Rp.{currentCart[key].price * currentCart[key].stock}
+                </p>
+              </div>
+            </Col>
+          </Row>
+        );
+      })}
       {/* <Row className="RowCard">
         <Col sm="2" className="ColProduk">
           <div className="GambarBaju"></div>

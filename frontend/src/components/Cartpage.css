@@ -72,6 +72,7 @@
 .Hapus {
   font-size: 15px;
   color: #ff171a;
+  cursor: pointer;
 }
 
 .PriceHarga {

@@ -1,263 +1,120 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Cartpage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Col, Container, Row, Dropdown, Button } from "react-bootstrap";
+import { Col, Container, Row, Form, Dropdown, Button } from "react-bootstrap";
 import CounterInput from "react-counter-input";
 import { useSelector, useDispatch } from "react-redux";
+import { setCurrentCart } from "../redux/cart/cart.action";
+import { BsConeStriped } from "react-icons/bs";
+import axios from "./axios";
+
 function Cartpage() {
   const currentCart = useSelector((state) => state.cart.currentCart);
-  const [localCart, setLocalCart] = useState({});
   const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
 
-  const handleSubmit = () => {
+  const handlePurchase = () => {
     console.log(currentCart);
-    // console.log(localStorage.getItem("currentCart"));
+    const cart = { ...currentCart };
+    cart["email"] = email;
+    const json_cart = JSON.stringify(cart);
+    console.log(cart, " diz is cart");
+    console.log(json_cart, " diz is json_cart");
+    // var formData = new FormData();
+    // formData.append("cart", cart);
+    axios.post("/purchase", json_cart).then(console.log("berhasil"));
+    console.log("hello");
+
+    alert("Succesfully add product");
   };
 
-  useEffect(() => {
-    setLocalCart(currentCart);
-    // console.log(currentCart);
-  }, [currentCart]);
+  const handleRemove = (id) => {
+    const cart = currentCart;
+    delete cart[id];
+    dispatch(setCurrentCart({ ...cart }));
+  };
 
-  // handleRemove = (id) => {
-
-  // }
-
-  // const handleClear = () => {
-  //   const cart = currentCart;
-
-  //   dispatch(clearCurrentCart());
-  // };
-
-  // useEffect(() => {
-  //   console.log(id);
-  //   async function fetchData() {
-  //     currentCart.map((productCart) => {
-  //       const request = await axios.get(axios.defaults.baseURL + "/api/" + productCart.id);
-  //       let product = request.data[0]
-  //     })
-  //     // console.log(request.data[0].sizeSStock, " stock s");
-  //     // setMovies(request.data.results);
-  //     return request;
-  //   }
-  //   fetchData();
-  // }, []);
+  const handleStock = (id, stock) => {
+    console.log(currentCart[id].stock_max, "- stock max");
+    const cart = currentCart;
+    cart[id].stock = stock;
+    dispatch(setCurrentCart({ ...cart }));
+  };
 
   return (
     <div className="CartContainer">
       <div className="JudulCart">
         <h1 className="TitleCart">CART</h1>
-        <p className="DetailJudul">Continue shopping</p>
+        <Link to="/">
+          <p className="DetailJudul">Continue shopping</p>
+        </Link>
       </div>
-      {() => {
-        for (let key in Object.keys(currentCart)) {
-          return (
-            <Row className="RowCard">
-              <Col sm="2" className="ColProduk">
-                <div className="GambarBaju"></div>
-              </Col>
-              <Col sm="4" className="ColProduk">
-                <div className="DetailBaju">
-                  <p className="TitleBaju">
-                    <b>{localCart[id].name}</b>
-                  </p>
-                  <p className="Hapus">Remove</p>
-                </div>
-              </Col>
-              <Col sm="2" className="ColProduk">
-                <div className="PriceHarga">
-                  <p className="JudulTable">
-                    <b>Price</b>
-                  </p>
-                  <p className="HargaBaju">Rp.{localCart[id].price}</p>
-                </div>
-              </Col>
-              <Col sm="2" className="ColProduk">
-                <div className="PriceHarga">
-                  <p className="JudulTable">
-                    <b>Quantity</b>
-                  </p>
-                  <p className="QuantityBaju ">
-                    <CounterInput
-                      className="QuantityCounter"
-                      min={0}
-                      count={localCart[id].stock}
-                      max={localCart[id].sizeSStock}
-                      onCountChange={(count) => console.log(count)}
-                    />
-                  </p>
-                </div>
-              </Col>
-              <Col sm="2" className="ColProduk">
-                <div className="PriceHarga">
-                  <p className="JudulTable">
-                    <b>Total</b>
-                  </p>
-                  <p className="HargaBaju">
-                    Rp.{localCart[id].price * localCart[id].stock}
-                  </p>
-                </div>
-              </Col>
-            </Row>
-          );
-        }
-      }}
-      {/* <Row className="RowCard">
-        <Col sm="2" className="ColProduk">
-          <div className="GambarBaju"></div>
-        </Col>
-        <Col sm="4" className="ColProduk">
-          <div className="DetailBaju">
-            <p className="TitleBaju">
-              <b>Vintage USA t-shirt</b>
-            </p>
-            <p className="Hapus">Remove</p>
-          </div>
-        </Col>
-        <Col sm="2" className="ColProduk">
-          <div className="PriceHarga">
-            <p className="JudulTable">
-              <b>Price</b>
-            </p>
-            <p className="HargaBaju">Rp.100.000,00</p>
-          </div>
-        </Col>
-        <Col sm="2" className="ColProduk">
-          <div className="PriceHarga">
-            <p className="JudulTable">
-              <b>Quantity</b>
-            </p>
-            <p className="QuantityBaju ">
-              <CounterInput
-                className="QuantityCounter"
-                min={0}
-                max={10}
-                onCountChange={(count) => console.log(count)}
-              />
-            </p>
-          </div>
-        </Col>
-        <Col sm="2" className="ColProduk">
-          <div className="PriceHarga">
-            <p className="JudulTable">
-              <b>Total</b>
-            </p>
-            <p className="HargaBaju">Rp.300.000,00</p>
-          </div>
-        </Col>
-      </Row> */}
-      {/* <Row className="RowCard">
-        <Col sm="2" className="ColProduk">
-          <div className="GambarBaju"></div>
-        </Col>
-        <Col sm="4" className="ColProduk">
-          <div className="DetailBaju">
-            <p className="TitleBaju">
-              <b>Vintage USA t-shirt</b>
-            </p>
-            <p className="Hapus">Remove</p>
-          </div>
-        </Col>
-        <Col sm="2" className="ColProduk">
-          <div className="PriceHarga">
-            <p className="JudulTable">
-              <b>Price</b>
-            </p>
-            <p className="HargaBaju">Rp.100.000,00</p>
-          </div>
-        </Col>
-        <Col sm="2" className="ColProduk">
-          <div className="PriceHarga">
-            <p className="JudulTable">
-              <b>Quantity</b>
-            </p>
-            <p className="QuantityBaju ">
-              <CounterInput
-                className="QuantityCounter"
-                min={0}
-                max={10}
-                onCountChange={(count) => console.log(count)}
-              />
-            </p>
-          </div>
-        </Col>
-        <Col sm="2" className="ColProduk">
-          <div className="PriceHarga">
-            <p className="JudulTable">
-              <b>Total</b>
-            </p>
-            <p className="HargaBaju">Rp.300.000,00</p>
-          </div>
-        </Col>
-      </Row>
-      <Row className="RowCardLast">
-        <Col sm="2" className="ColProduk">
-          <div className="GambarBaju"></div>
-        </Col>
-        <Col sm="4" className="ColProduk">
-          <div className="DetailBaju">
-            <p className="TitleBaju">
-              <b>Vintage USA t-shirt</b>
-            </p>
-            <p className="Hapus">Remove</p>
-          </div>
-        </Col>
-        <Col sm="2" className="ColProduk">
-          <div className="PriceHarga">
-            <p className="JudulTable">
-              <b>Price</b>
-            </p>
-            <p className="HargaBaju">Rp.100.000,00</p>
-          </div>
-        </Col>
-        <Col sm="2" className="ColProduk">
-          <div className="PriceHarga">
-            <p className="JudulTable">
-              <b>Quantity</b>
-            </p>
-            <p className="QuantityBaju ">
-              <CounterInput
-                className="QuantityCounter"
-                min={0}
-                max={10}
-                onCountChange={(count) => console.log(count)}
-              />
-            </p>
-          </div>
-        </Col>
-        <Col sm="2" className="ColProduk">
-          <div className="PriceHarga">
-            <p className="JudulTable">
-              <b>Total</b>
-            </p>
-            <p className="HargaBaju">Rp.300.000,00</p>
-          </div>
-        </Col>
-      </Row>
-      <Row className="SubtotalCard">
-        <Col sm="2" className="SubTotalDetail"></Col>
-        <Col sm="4" className="SubTotalDetail"></Col>
-        <Col sm="2" className="SubTotalDetail">
-          <div className="PriceHarga">
-            <p className="JudulTable">
-              <b>SubTotal</b>
-            </p>
-          </div>
-        </Col>
-        <Col sm="2" className="SubTotalDetail"></Col>
-        <Col sm="2" className="SubTotalDetail">
-          <div className="PriceHarga">
-            <p className="JudulTable">
-              <b>Rp.1000.000.000,00</b>
-            </p>
-          </div>
-        </Col>
-      </Row> */}
+      {Object.keys(currentCart).map((key) => {
+        return (
+          <Row className="RowCard">
+            <Col sm="2" className="ColProduk">
+              <div className="GambarBaju"></div>
+            </Col>
+            <Col sm="4" className="ColProduk">
+              <div className="DetailBaju">
+                <p className="TitleBaju">
+                  <b>{currentCart[key].name}</b>
+                </p>
+                <p className="Hapus" onClick={() => handleRemove(key)}>
+                  Remove
+                </p>
+              </div>
+            </Col>
+            <Col sm="2" className="ColProduk">
+              <div className="PriceHarga">
+                <p className="JudulTable">
+                  <b>Price</b>
+                </p>
+                <p className="HargaBaju">Rp.{currentCart[key].price}</p>
+              </div>
+            </Col>
+            <Col sm="2" className="ColProduk">
+              <div className="PriceHarga">
+                <p className="JudulTable">
+                  <b>Quantity</b>
+                </p>
+                <p className="QuantityBaju ">
+                  <CounterInput
+                    className="QuantityCounter"
+                    min={0}
+                    count={currentCart[key].stock}
+                    max={currentCart[key].stock_max}
+                    onCountChange={(count) => handleStock(key, count)}
+                  />
+                </p>
+              </div>
+            </Col>
+            <Col sm="2" className="ColProduk">
+              <div className="PriceHarga">
+                <p className="JudulTable">
+                  <b>Total</b>
+                </p>
+                <p className="HargaBaju">
+                  Rp.{currentCart[key].price * currentCart[key].stock}
+                </p>
+              </div>
+            </Col>
+          </Row>
+        );
+      })}
       <Row className="RowCard">
-        <Col sm="6" className="BlankKiri"></Col>
+        <Col sm="6" className="BlankKiri">
+          <Form.Control
+            className="Input-Box"
+            type="text"
+            placeholder="Email"
+            onChange={(ev) => setEmail(ev.target.value)}
+          />
+        </Col>
         <Col sm="6" className="ButtonKanan">
           <Button
-            onClick={() => handleSubmit()}
+            onClick={() => handlePurchase()}
             variant="success"
             className="Btn-Purchase"
           >

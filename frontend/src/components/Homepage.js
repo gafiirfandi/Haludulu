@@ -49,10 +49,12 @@ function Homepage({ products, admin }) {
           return (
             <Col xs="6" sm="6" lg className="ColumnBaju">
               <Link
+                className="Link_BajuBox"
                 to={{
                   pathname: "/detail/" + product.id,
                   state: { id: product.id },
-                }}>
+                }}
+              >
                 {/* <Link
                 to={{
                   pathname: "/detail/" + product.id,
@@ -64,15 +66,16 @@ function Homepage({ products, admin }) {
                   <img src={product.main_img} className="ImgBaju" alt="helo" />
                   {admin && (
                     <div className="ButtonAdmin">
-                      <Link
+                      {/* <Link
                         to={{
                           pathname: "/update_item/" + product.id,
                           state: { id: product.id },
-                        }}>
-                        <button type="button" className="ButtonUpdate">
-                          Update
-                        </button>
-                      </Link>
+                        }}
+                      > */}
+                      <button type="button" className="ButtonUpdate">
+                        Update
+                      </button>
+                      {/* </Link> */}
                       <button type="button" className="ButtonDelete">
                         Delete
                       </button>

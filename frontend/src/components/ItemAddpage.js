@@ -238,17 +238,11 @@ function ItemAddpage() {
                   </Form.Label>
                   <Col>
                     <Form.Control
-                      as="select"
-                      size="lg"
-                      custom
-                      className="Input-Box-Size"
-                      onChange={(ev) => setSizeSStock(ev.target.value)}>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </Form.Control>
+                      className="Input-Box"
+                      type="number"
+                      placeholder="Size S"
+                      onChange={(ev) => setName(ev.target.value)}
+                    />
                   </Col>
                 </Form.Row>
                 <br />
@@ -260,17 +254,11 @@ function ItemAddpage() {
                   </Form.Label>
                   <Col>
                     <Form.Control
-                      as="select"
-                      size="lg"
-                      custom
-                      className="Input-Box-Size"
-                      onChange={(ev) => setSizeMStock(ev.target.value)}>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </Form.Control>
+                      className="Input-Box"
+                      type="number"
+                      placeholder="Size M"
+                      onChange={(ev) => setName(ev.target.value)}
+                    />
                   </Col>
                 </Form.Row>
                 <br />
@@ -282,17 +270,11 @@ function ItemAddpage() {
                   </Form.Label>
                   <Col>
                     <Form.Control
-                      as="select"
-                      size="lg"
-                      custom
-                      className="Input-Box-Size"
-                      onChange={(ev) => setSizeLStock(ev.target.value)}>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </Form.Control>
+                      className="Input-Box"
+                      type="number"
+                      placeholder="Size L"
+                      onChange={(ev) => setName(ev.target.value)}
+                    />
                   </Col>
                 </Form.Row>
                 <br />
@@ -304,17 +286,11 @@ function ItemAddpage() {
                   </Form.Label>
                   <Col>
                     <Form.Control
-                      as="select"
-                      size="lg"
-                      custom
-                      className="Input-Box-Size"
-                      onChange={(ev) => setSizeXLStock(ev.target.value)}>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </Form.Control>
+                      className="Input-Box"
+                      type="number"
+                      placeholder="Size XL"
+                      onChange={(ev) => setName(ev.target.value)}
+                    />
                   </Col>
                 </Form.Row>
               </Form.Group>
@@ -327,7 +303,8 @@ function ItemAddpage() {
           type="submit"
           variant="success"
           onClick={() => handleSubmit()}
-          className="Btn-AddItem">
+          className="Btn-AddItem"
+        >
           ADD ITEM
         </Button>
       </div>

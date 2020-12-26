@@ -172,7 +172,7 @@ function ItemAddpage() {
                     <Form>
                       <Form.File
                         className="Input-FileAddItem"
-                        label="Custom file input"
+                        label={labelImg1}
                         custom
                         onChange={(ev) => {
                           setLabelImg1(ev.target.value);
@@ -198,7 +198,7 @@ function ItemAddpage() {
                     <Form>
                       <Form.File
                         className="Input-FileAddItem"
-                        label="Custom file input"
+                        label={labelImg2}
                         custom
                         onChange={(ev) => {
                           setLabelImg2(ev.target.value);
@@ -219,7 +219,7 @@ function ItemAddpage() {
                     <Form>
                       <Form.File
                         className="Input-FileAddItem"
-                        label="Custom file input"
+                        label={labelImg3}
                         custom
                         onChange={(ev) => {
                           setLabelImg3(ev.target.value);

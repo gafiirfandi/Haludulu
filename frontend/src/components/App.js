@@ -27,6 +27,7 @@ function App() {
   const [productsFixed, setProductsFixed] = useState([]);
   const [products, setProducts] = useState([]);
   const [searchKeyword, setSearchKeyword] = useState("null");
+  const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -64,9 +65,19 @@ function App() {
         <h1>Cart: {currentCart}</h1>
       </div> */}
       <Router>
-        <NavbarPage setSearchKeyword={setSearchKeyword} />
+        <NavbarPage
+          showSearch={showSearch}
+          setShowSearch={setShowSearch}
+          setSearchKeyword={setSearchKeyword}
+        />
         <Switch>
-          <Route path="/" exact render={() => <Home products={products} />} />
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <Home products={products} setShowSearch={setShowSearch} />
+            )}
+          />
           <Route path="/cart" exact render={() => <Cart />} />
           <Route
             path="/detail/:productId"
@@ -83,7 +94,9 @@ function App() {
           <Route
             path="/admin_home"
             exact
-            render={() => <AdminHome products={products} />}
+            render={() => (
+              <AdminHome products={products} setShowSearch={setShowSearch} />
+            )}
           />
         </Switch>
       </Router>

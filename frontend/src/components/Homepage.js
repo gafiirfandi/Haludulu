@@ -5,7 +5,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import axios from "./axios";
 import { Link } from "react-router-dom";
 
-function Homepage({ products, admin }) {
+function Homepage({ products, admin, setShowSearch }) {
   // const [width, setWidth] = useState(0)
 
   // useEffect(() => {
@@ -42,6 +42,11 @@ function Homepage({ products, admin }) {
   //   }
   //   fetchData();
   // }, []);
+
+  const handleDelete = (id) => {
+    axios.post("/api/delete_product", id);
+  };
+
   return (
     <div className="HomePageContainer">
       <Row>
@@ -60,7 +65,12 @@ function Homepage({ products, admin }) {
                   // hash: "#the-hash",
                   state: { fromDashboard: true },
                 }}> */}
-                <div className="BajuBox">
+                <div
+                  className="BajuBox"
+                  onClick={() => {
+                    console.log("yey");
+                    setShowSearch(false);
+                  }}>
                   <img src={product.main_img} className="ImgBaju" alt="helo" />
                   {admin && (
                     <div className="ButtonAdmin">
@@ -73,9 +83,14 @@ function Homepage({ products, admin }) {
                           Update
                         </button>
                       </Link>
-                      <button type="button" className="ButtonDelete">
-                        Delete
-                      </button>
+                      <Link>
+                        <button
+                          onClick={() => handleDelete(product.id)}
+                          type="button"
+                          className="ButtonDelete">
+                          Delete
+                        </button>
+                      </Link>
                     </div>
                   )}
                 </div>

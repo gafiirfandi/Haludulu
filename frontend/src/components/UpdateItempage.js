@@ -1,12 +1,80 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./UpdateItempage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Row, Form, Button } from "react-bootstrap";
+import axios from "../components/axios";
 
 function UpdateItempage(props) {
-  // useEffect(() => {
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [minus, setMinus] = useState("");
+  const [condition, setCondition] = useState("");
+  const [mainImg, setMainImg] = useState("");
+  const [img1, setImg1] = useState("");
+  const [img2, setImg2] = useState("");
+  const [img3, setImg3] = useState("");
+  const [sizeSStock, setSizeSStock] = useState(0);
+  const [sizeMStock, setSizeMStock] = useState(0);
+  const [sizeLStock, setSizeLStock] = useState(0);
+  const [sizeXLStock, setSizeXLStock] = useState(0);
 
-  // }, []);
+  const [labelMainImg, setLabelMainImg] = useState("");
+  const [labelImg1, setLabelImg1] = useState("");
+  const [labelImg2, setLabelImg2] = useState("");
+  const [labelImg3, setLabelImg3] = useState("");
+
+  useEffect(() => {
+    console.log(props.id);
+    async function fetchData() {
+      console.log(axios.defaults.baseURL + "/api");
+      const request = await axios.get(
+        axios.defaults.baseURL + "/api/" + props.id
+      );
+      console.log(request.data);
+      setName(request.data[0].name);
+      setPrice(request.data[0].price);
+      setMinus(request.data[0].minus);
+      setCondition(request.data[0].condition);
+      setMainImg(request.data[0].main_img);
+      setImg1(request.data[0].img1);
+      setImg2(request.data[0].img2);
+      setImg3(request.data[0].img3);
+      setSizeSStock(request.data[0].size_s_stock);
+      setSizeMStock(request.data[0].size_m_stock);
+      setSizeLStock(request.data[0].size_l_stock);
+      setSizeXLStock(request.data[0].size_xl_stock);
+      // setStock(request.data[0].size_s_stock);
+      // setMainImage(request.data[0].main_img);
+      // console.log(request.data[0].sizeSStock, " stock s");
+      // setMovies(request.data.results);
+      return request;
+    }
+    fetchData();
+  }, []);
+
+  const handleSubmit = () => {
+    var formData = new FormData();
+    formData.append("id", props.id);
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("minus", minus);
+    formData.append("condition", condition);
+    formData.append("mainImg", mainImg);
+    formData.append("img1", img1);
+    formData.append("img2", img2);
+    formData.append("img3", img3);
+    formData.append("sizeSStock", sizeSStock);
+    formData.append("sizeMStock", sizeMStock);
+    formData.append("sizeLStock", sizeLStock);
+    formData.append("sizeXLStock", sizeXLStock);
+    axios.post("/api/update_product", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    alert("Succesfully update product");
+  };
 
   return (
     <div className="UpdateItemContainer">
@@ -28,7 +96,8 @@ function UpdateItempage(props) {
                     <Form.Control
                       className="Input-Box"
                       type="text"
-                      placeholder="Normal text"
+                      placeholder={name}
+                      onChange={(ev) => setName(ev.target.value)}
                     />
                   </Col>
                 </Form.Row>
@@ -43,7 +112,8 @@ function UpdateItempage(props) {
                     <Form.Control
                       className="Input-Box"
                       type="text"
-                      placeholder="Normal text"
+                      placeholder={price}
+                      onChange={(ev) => setPrice(ev.target.value)}
                     />
                   </Col>
                 </Form.Row>
@@ -58,7 +128,8 @@ function UpdateItempage(props) {
                     <Form.Control
                       className="Input-Box"
                       type="text"
-                      placeholder="Normal text"
+                      placeholder={minus}
+                      onChange={(ev) => setMinus(ev.target.value)}
                     />
                   </Col>
                 </Form.Row>
@@ -73,7 +144,8 @@ function UpdateItempage(props) {
                     <Form.Control
                       className="Input-Box"
                       type="text"
-                      placeholder="Normal text"
+                      placeholder={condition}
+                      onChange={(ev) => setCondition(ev.target.value)}
                     />
                   </Col>
                 </Form.Row>
@@ -85,11 +157,18 @@ function UpdateItempage(props) {
                     </p>
                   </Form.Label>
                   <Col>
-                    <Form.Control
-                      className="Input-Box"
-                      type="text"
-                      placeholder="Normal text"
-                    />
+                    <Form>
+                      <Form.File
+                        className="Input-FileAddItem"
+                        label="Main image"
+                        custom
+                        onChange={(ev) => {
+                          // console.log(ev.target.value[]);
+                          // setLabelMainImg(ev.target.value);
+                          setMainImg(ev.target.files[0]);
+                        }}
+                      />
+                    </Form>
                   </Col>
                 </Form.Row>
                 <br />
@@ -103,9 +182,12 @@ function UpdateItempage(props) {
                     <Form>
                       <Form.File
                         className="Input-FileAddItem"
-                        id="custom-file"
-                        label="Custom file input"
+                        label=""
                         custom
+                        onChange={(ev) => {
+                          // setLabelImg1(ev.target.value);
+                          setImg1(ev.target.files[0]);
+                        }}
                       />
                     </Form>
                   </Col>
@@ -126,9 +208,12 @@ function UpdateItempage(props) {
                     <Form>
                       <Form.File
                         className="Input-FileAddItem"
-                        id="custom-file"
-                        label="Custom file input"
+                        label=""
                         custom
+                        onChange={(ev) => {
+                          // setLabelImg2(ev.target.value);
+                          setImg2(ev.target.files[0]);
+                        }}
                       />
                     </Form>
                   </Col>
@@ -144,9 +229,12 @@ function UpdateItempage(props) {
                     <Form>
                       <Form.File
                         className="Input-FileAddItem"
-                        id="custom-file"
-                        label="Custom file input"
+                        label=""
                         custom
+                        onChange={(ev) => {
+                          setLabelImg3(ev.target.value);
+                          setImg3(ev.target.files[0]);
+                        }}
                       />
                     </Form>
                   </Col>
@@ -163,12 +251,33 @@ function UpdateItempage(props) {
                       as="select"
                       size="lg"
                       custom
-                      className="Input-Box-Size">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      className="Input-Box-Size"
+                      onChange={(ev) => setSizeSStock(ev.target.value)}>
+                      {sizeSStock == 1 ? (
+                        <option selected>1</option>
+                      ) : (
+                        <option>1</option>
+                      )}
+                      {sizeSStock == 2 ? (
+                        <option selected>2</option>
+                      ) : (
+                        <option>2</option>
+                      )}
+                      {sizeSStock == 3 ? (
+                        <option selected>3</option>
+                      ) : (
+                        <option>3</option>
+                      )}
+                      {sizeSStock == 4 ? (
+                        <option selected>4</option>
+                      ) : (
+                        <option>4</option>
+                      )}
+                      {sizeSStock == 5 ? (
+                        <option selected>5</option>
+                      ) : (
+                        <option>5</option>
+                      )}
                     </Form.Control>
                   </Col>
                 </Form.Row>
@@ -184,12 +293,33 @@ function UpdateItempage(props) {
                       as="select"
                       size="lg"
                       custom
-                      className="Input-Box-Size">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      className="Input-Box-Size"
+                      onChange={(ev) => setSizeMStock(ev.target.value)}>
+                      {sizeMStock == 1 ? (
+                        <option selected>1</option>
+                      ) : (
+                        <option>1</option>
+                      )}
+                      {sizeMStock == 2 ? (
+                        <option selected>2</option>
+                      ) : (
+                        <option>2</option>
+                      )}
+                      {sizeMStock == 3 ? (
+                        <option selected>3</option>
+                      ) : (
+                        <option>3</option>
+                      )}
+                      {sizeMStock == 4 ? (
+                        <option selected>4</option>
+                      ) : (
+                        <option>4</option>
+                      )}
+                      {sizeMStock == 5 ? (
+                        <option selected>5</option>
+                      ) : (
+                        <option>5</option>
+                      )}
                     </Form.Control>
                   </Col>
                 </Form.Row>
@@ -205,12 +335,33 @@ function UpdateItempage(props) {
                       as="select"
                       size="lg"
                       custom
-                      className="Input-Box-Size">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      className="Input-Box-Size"
+                      onChange={(ev) => setSizeLStock(ev.target.value)}>
+                      {sizeLStock == 1 ? (
+                        <option selected>1</option>
+                      ) : (
+                        <option>1</option>
+                      )}
+                      {sizeLStock == 2 ? (
+                        <option selected>2</option>
+                      ) : (
+                        <option>2</option>
+                      )}
+                      {sizeLStock == 3 ? (
+                        <option selected>3</option>
+                      ) : (
+                        <option>3</option>
+                      )}
+                      {sizeLStock == 4 ? (
+                        <option selected>4</option>
+                      ) : (
+                        <option>4</option>
+                      )}
+                      {sizeLStock == 5 ? (
+                        <option selected>5</option>
+                      ) : (
+                        <option>5</option>
+                      )}
                     </Form.Control>
                   </Col>
                 </Form.Row>
@@ -226,12 +377,33 @@ function UpdateItempage(props) {
                       as="select"
                       size="lg"
                       custom
-                      className="Input-Box-Size">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      className="Input-Box-Size"
+                      onChange={(ev) => setSizeXLStock(ev.target.value)}>
+                      {sizeXLStock == 1 ? (
+                        <option selected>1</option>
+                      ) : (
+                        <option>1</option>
+                      )}
+                      {sizeXLStock == 2 ? (
+                        <option selected>2</option>
+                      ) : (
+                        <option>2</option>
+                      )}
+                      {sizeXLStock == 3 ? (
+                        <option selected>3</option>
+                      ) : (
+                        <option>3</option>
+                      )}
+                      {sizeXLStock == 4 ? (
+                        <option selected>4</option>
+                      ) : (
+                        <option>4</option>
+                      )}
+                      {sizeXLStock == 5 ? (
+                        <option selected>5</option>
+                      ) : (
+                        <option>5</option>
+                      )}
                     </Form.Control>
                   </Col>
                 </Form.Row>
@@ -241,7 +413,10 @@ function UpdateItempage(props) {
         </Row>
       </div>
       <div className="ButtonAddItem">
-        <Button variant="success" className="Btn-AddItem">
+        <Button
+          onClick={() => handleSubmit()}
+          variant="success"
+          className="Btn-AddItem">
           UPDATE
         </Button>{" "}
       </div>

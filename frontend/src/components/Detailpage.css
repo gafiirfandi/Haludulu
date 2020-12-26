@@ -42,6 +42,7 @@ pembagian 2 column utama */
 .RincianDetail {
   /* display: table-cell !important;
   vertical-align: middle; */
+  cursor: pointer;
   text-align: center;
   border: 5px solid #111111;
   border-radius: 5px;

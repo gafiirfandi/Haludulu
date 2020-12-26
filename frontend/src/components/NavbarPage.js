@@ -8,22 +8,23 @@ import { AiOutlineShopping } from "react-icons/ai";
 import { HiSearch } from "react-icons/hi";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 
-function NavbarPage({ setSearchKeyword }) {
-  const [showSearch, setShowSearch] = useState(false);
-
+function NavbarPage({ setSearchKeyword, showSearch, setShowSearch }) {
   return (
     <div className="NavbarContainer">
       <Navbar>
         {showSearch ? (
-          <Form.Control
-            className="Input-Box"
-            type="text"
-            placeholder="search"
-            onChange={(ev) => {
-              setSearchKeyword(ev.target.value);
-              console.log(ev.target.value);
-            }}
-          />
+          <>
+            <Form.Control
+              className="Input-Box"
+              type="text"
+              placeholder="search"
+              onChange={(ev) => {
+                setSearchKeyword(ev.target.value);
+                console.log(ev.target.value);
+              }}
+            />
+            <button onClick={() => setShowSearch(false)}>X</button>
+          </>
         ) : (
           <>
             <Navbar.Toggle />

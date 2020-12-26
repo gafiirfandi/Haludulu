@@ -85,6 +85,69 @@ def add_item(request):
         Product.objects.create(name=name, price=price, minus=minus, condition=condition, main_img=main_img, img1=img1, img2=img2, img3=img3, size_s_stock=size_s_stock, size_m_stock=size_m_stock, size_l_stock=size_l_stock, size_xl_stock=size_xl_stock)
 
 
+def db_update_item(request):
 
+    if request.method == "POST":
+        print("berhasil yey")
+        print(request.POST)
+        print(request.FILES)
+        id_product = request.POST['id']
+        name = request.POST['name']
+        price = request.POST['price']
+        minus = request.POST['minus']
+        condition = request.POST['condition']
+        product = Product.objects.get(pk=id_product)
+        if 'main_img' in request.POST:
+            main_img = request.POST['mainImg']
+        else:
+            main_img = request.FILES['mainImg']
+            product.main_img = main_img
 
-    return render(request, 'frontend/add_item.html')
+        if 'img1' in request.POST:
+            img1 = request.POST['img1']
+        else:
+            img1 = request.FILES['img1']
+            product.img1 = img1
+
+        if 'img2' in request.POST:
+            img2 = request.POST['img2']
+        else:
+            img2 = request.FILES['img2']
+            product.img2 = img2
+
+        if 'img3' in request.POST:
+            img3 = request.POST['img3']
+        else:
+            img3 = request.FILES['img3']
+            product.img3 = img3
+        
+        # img1 = request.POST['img1']
+        # img2 = request.POST['img2']
+        # img3 = request.POST['img3']
+        size_s_stock = request.POST['sizeSStock']
+        size_m_stock = request.POST['sizeMStock']
+        size_l_stock = request.POST['sizeLStock']
+        size_xl_stock = request.POST['sizeXLStock']
+
+        
+        print(product)
+
+        product.name = name
+        product.price = price
+        product.minus = minus
+        product.condition = condition
+        product.size_s_stock = size_s_stock
+        product.size_m_stock = size_m_stock
+        product.size_l_stock = size_l_stock
+        product.size_xl_stock = size_xl_stock
+        product.save()
+
+    return render(request, 'frontend/index.html')
+
+def db_delete_item(request):
+    if request.method == "POST":
+        id = list(request.POST.keys())[0]
+        Product.objects.get(pk=id).delete()
+        
+
+    return render(request, 'frontend/index.html')

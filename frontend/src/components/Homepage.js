@@ -54,6 +54,7 @@ function Homepage({ products, admin, setShowSearch }) {
           return (
             <Col xs="6" sm="6" lg className="ColumnBaju">
               <Link
+                className="Link_BajuBox"
                 to={{
                   pathname: "/detail/" + product.id,
                   state: { id: product.id },

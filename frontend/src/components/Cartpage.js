@@ -17,13 +17,15 @@ function Cartpage() {
   const handlePurchase = () => {
     console.log(currentCart);
     const cart = { ...currentCart };
-    cart["email"] = email;
+    // cart["email"] = email;
+    const str_email = JSON.stringify(email)
     const json_cart = JSON.stringify(cart);
     console.log(cart, " diz is cart");
     console.log(json_cart, " diz is json_cart");
-    // var formData = new FormData();
-    // formData.append("cart", cart);
-    axios.post("/purchase", json_cart).then(console.log("berhasil"));
+    var formData = new FormData();
+    formData.append("cart", json_cart);
+    formData.append("email", email)
+    axios.post("/purchase", formData).then(console.log("berhasil"));
     console.log("hello");
 
     alert("Succesfully add product");

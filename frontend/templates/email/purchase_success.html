@@ -1,5 +1,31 @@
-{% autoescape off %} Hi! Thank you for purchasing at Haludulu, {% comment %}
-Details of your purchasement can be seen below: {% for product in products %} {%
-forloop.counter1 %} {product.name} {product.size} {% endfor%} http://{{ domain
-}}{% url 'login:activate' uidb64=uid token=token %} If you think, it's not you,
-then just ignore this email. {% endcomment %} {% endautoescape %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    Hi! Thank you for purchasing at Haludulu, 
+    Details of your purchasement can be seen below: 
+    {% for key, values in products %} 
+    {{ forloop.counter }} {{values.name}} 
+    <img src={{values.main_img}} />
+    Size: {{values.size}} 
+    Stock: {{values.stock}}
+    Price: {{values.price}}
+    {% endfor%}
+
+    Payment can be done by making a transfer to this account below:
+
+    - BCA: 160954620 an Haludulu
+
+    After completing the payment please Whatsapp this number below and send the payment confirmation:
+    Whatsapp: 081239468122
+
+    Thank you for shopping at Haludulu!
+
+    Best regards,
+    Haludulu
+</body>
+</html>

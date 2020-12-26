@@ -13,6 +13,7 @@ function Detailpage({ id }) {
   const [product, setProduct] = useState([]);
   const currentCart = useSelector((state) => state.cart.currentCart);
   const dispatch = useDispatch();
+  const [mainImage, setMainImage] = useState("")
   // const { id } = props.match.params;
 
   // const id = props.match;
@@ -25,6 +26,7 @@ function Detailpage({ id }) {
       console.log(request.data);
       setProduct(request.data[0]);
       setStock(request.data[0].size_s_stock);
+      setMainImage(request.data[0].main_img)
       // console.log(request.data[0].sizeSStock, " stock s");
       // setMovies(request.data.results);
       return request;
@@ -114,19 +116,19 @@ function Detailpage({ id }) {
             <Row>
               <Col sm={8}>
                 <div className="BajuUtama">
-                  <img src={product.main_img} className="MainImage" alt="" />
+                  <img src={mainImage} className="MainImage" alt="" />
                 </div>
               </Col>
               <Col sm={4}>
                 <div className="BajuDetail">
                   <div className="RincianDetail">
-                    <img src={product.img1} className="SubImage" alt="" />
+                    <img src={product.main_img} onClick={() => setMainImage(product.main_img)} className="SubImage" alt="" />
                   </div>
                   <div className="RincianDetail">
-                    <img src={product.img2} className="SubImage" alt="" />
+                    <img src={product.img1} onClick={() => setMainImage(product.img1)} className="SubImage" alt="" />
                   </div>
                   <div className="RincianDetail">
-                    <img src={product.img3} className="SubImage" alt="" />
+                    <img src={product.img2} onClick={() => setMainImage(product.img2)} className="SubImage" alt="" />
                   </div>
                 </div>
               </Col>

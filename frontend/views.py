@@ -6,6 +6,7 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 import json
+from django.conf import settings
 
 
 class ProductView(generics.ListCreateAPIView):
@@ -23,18 +24,26 @@ class ProductGetView(generics.ListAPIView):
         return product
 
 def purchase(request):
-    # mail_subject = 'Purchasement Successful.'
-    # message = render_to_string('email/purchase_success.html')
-    # to_email = email
-    # email_send = EmailMessage(
-    #     mail_subject, message, settings.EMAIL_HOST_USER, [to_email]
-    # )
-    # email_send.fail_silently = False
-    # email_send.send()
+    
     if request.method == "POST":
-        print(request.POST)
-        cart_dict = json.loads(list(request.POST.keys())[0])
-        print(cart_dict)
+        # print(request.POST)
+        cart_list = list(json.loads(request.POST['cart']).values())
+        email = request.POST['email']
+        # print("-"*30)
+        # print(cart_list)
+        # print("-"*30)
+        # print(email)
+        
+        mail_subject = 'Purchasement Successful.'
+        message = render_to_string('email/purchase_success.html', {
+            'products': cart_dict
+        })
+        to_email = "gafiirfandi45@gmail.com"
+        email_send = EmailMessage(
+            mail_subject, message, settings.EMAIL_HOST_USER, [to_email]
+        )
+        email_send.fail_silently = False
+        email_send.send()
 
     return render(request, 'frontend/add_item.html')
 

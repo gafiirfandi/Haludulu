@@ -36,4 +36,23 @@
   .ColumnBaju {
     padding-bottom: 30px;
   }
+  .BajuBox {
+    width: 45vw;
+    height: 45vw;
+
+    /* max-width: 200; */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .ColumnBaju {
+    /* padding-bottom: 30px; */
+    padding: auto auto;
+  }
+  .BajuBox {
+    width: 40vw;
+    height: 40vw;
+
+    /* max-width: 200; */
+  }
 }

@@ -2,6 +2,7 @@
   margin-top: 40px;
   display: flex;
   flex-direction: column;
+  max-height: 2000px;
 }
 
 .JudulCart {
@@ -106,16 +107,6 @@
   background-color: white;
 }
 
-.Btn-Purchase {
-  width: 300px;
-  background-color: #025202;
-  font-size: 15px;
-  margin: 0 auto;
-
-  display: block;
-  border-radius: 5px;
-}
-
 /* Subtotal Harga  */
 
 .SubtotalCard {
@@ -123,8 +114,51 @@
 }
 
 .SubTotalDetail {
-  /* border: 5px solid #111111; */
   border-radius: 5px;
   height: 50px;
   width: auto;
+}
+
+/* Button and Email */
+.IsiEmail {
+  font-size: 18px;
+}
+.ButtonDanEmail {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  margin: auto;
+}
+.Btn-Purchase {
+  width: 300px;
+  background-color: #025202;
+  font-size: 15px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+.Input-Email {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.Input-Email:hover {
+  color: #025202;
+  box-shadow: 0 1px 0 0 #025202 !important;
+
+  border: 1px solid #025202;
+}
+
+.Input-Email input[type="text"]:focus:not([readonly]) {
+  border: 1px solid #025202;
+  box-shadow: 0 1px 0 0 #025202;
+}
+.Input-Email input[type="text"] {
+  border: 1px solid #025202;
+  box-shadow: 0 1px 0 0 #025202;
 }

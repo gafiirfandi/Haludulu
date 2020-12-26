@@ -15,20 +15,12 @@
 .ImageFooter {
   width: 300px;
   height: 200px;
+  padding-right: 30px;
 }
 
 .SosmedFooter {
   width: 300px;
   height: auto;
-}
-
-.Logo_Baru {
-  width: 200px;
-  height: auto;
-  margin-left: 75px;
-}
-
-.SosmedFooter {
   padding-top: 40px;
   display: flex;
   flex-direction: column;
@@ -66,62 +58,55 @@
   width: auto;
   height: 24px;
 }
-
-/* .FooterContainer {
-  height: 200px;
-  background-color: #000000;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-.SosmedFooter {
-  padding-top: 50px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-}
-
-.ImageFooter {
-}
-
-.LogoFooter {
-  margin-top: -100px;
-  width: 400px;
+.Logo_Baru {
+  width: 200px;
   height: auto;
+  float: right;
 }
 
-.SatubarisSosmed {
-  display: flex;
-  flex-direction: row;
-  color: white;
-  column-gap: 15px;
-}
-.JudulContactUs {
-  font-size: 14px;
-  line-height: 14px;
-  letter-spacing: 0.2em;
-  padding-bottom: 12px;
-}
+@media only screen and (max-width: 600px) {
+  .Logo_Baru {
+    width: 30vw;
+    height: auto;
+    float: right;
+  }
+  .ImageFooter {
+    width: 250px;
+    height: auto;
+  }
 
-.DetailSosmed {
-  font-size: 14px;
-  line-height: 22px;
-  letter-spacing: 0.2em;
-}
+  .SosmedFooter {
+    width: max-content;
+    height: auto;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+  }
 
-.Logo_instagram {
-  color: white;
-  font-size: 22px;
+  .JudulContactUs {
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 0.2em;
+    padding-bottom: 12px;
+  }
+
+  .DetailSosmed {
+    font-size: 10px;
+    line-height: 22px;
+    letter-spacing: 0.2em;
+  }
+
+  .Logo_instagram {
+    color: #ffffff;
+    font-size: 18px;
+  }
+  .Logo_email {
+    color: #ffffff;
+    font-size: 18px;
+  }
+  .logo_line {
+    width: auto;
+    height: 18px;
+  }
 }
-.Logo_email {
-  color: white;
-  font-size: 22px;
-}
-.logo_line {
-  width: auto;
-  height: 24px;
-} */

@@ -44,3 +44,32 @@ untuk rownya */
   background-color: #ff1620;
   height: 18px;
 }
+
+.link2 {
+  color: #111111;
+}
+.link2:hover {
+  color: #111111;
+  border-bottom: 5px solid #ff1620;
+}
+
+.Brand-Link:hover {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+@media only screen and (max-width: 600px) {
+  .Brand {
+    font-size: 40px;
+    text-align: center;
+  }
+  .logo {
+    padding-top: 10px;
+    font-size: 15px;
+  }
+
+  .logo2 {
+    padding-top: 10px;
+    font-size: 35px;
+  }
+}

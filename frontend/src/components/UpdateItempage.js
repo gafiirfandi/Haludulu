@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./UpdateItempage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Row, Form, Button } from "react-bootstrap";
 
-function UpdateItempage() {
+function UpdateItempage(props) {
+  // useEffect(() => {
+
+  // }, []);
+
   return (
     <div className="UpdateItemContainer">
       <div className="JudulPageAdd">
@@ -11,7 +15,7 @@ function UpdateItempage() {
       </div>
       <div className="DuaColumnUpdateItem">
         <Row>
-          <Col sm="6" lg>
+          <Col lg="6" className="ColumnKiri">
             <div className="KiriFormUpdateItem">
               <Form.Group>
                 <Form.Row className="SebarisInput">
@@ -109,7 +113,7 @@ function UpdateItempage() {
               </Form.Group>
             </div>
           </Col>
-          <Col sm="6" lg>
+          <Col lg="6" className="ColumnKanan">
             <div className="KananFormAddItem">
               <Form.Group>
                 <Form.Row className="SebarisInput">
@@ -157,10 +161,9 @@ function UpdateItempage() {
                   <Col>
                     <Form.Control
                       as="select"
-                      size="sm"
+                      size="lg"
                       custom
-                      className="Input-Box-Size"
-                    >
+                      className="Input-Box-Size">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -179,10 +182,9 @@ function UpdateItempage() {
                   <Col>
                     <Form.Control
                       as="select"
-                      size="sm"
+                      size="lg"
                       custom
-                      className="Input-Box-Size"
-                    >
+                      className="Input-Box-Size">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -201,10 +203,9 @@ function UpdateItempage() {
                   <Col>
                     <Form.Control
                       as="select"
-                      size="sm"
+                      size="lg"
                       custom
-                      className="Input-Box-Size"
-                    >
+                      className="Input-Box-Size">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -223,10 +224,9 @@ function UpdateItempage() {
                   <Col>
                     <Form.Control
                       as="select"
-                      size="sm"
+                      size="lg"
                       custom
-                      className="Input-Box-Size"
-                    >
+                      className="Input-Box-Size">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>

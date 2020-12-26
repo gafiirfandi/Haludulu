@@ -1,5 +1,6 @@
 .AboutContainer {
   margin-top: 80px;
+  height: 500px;
 }
 .JudulAboutUs {
   display: flex;
@@ -18,7 +19,20 @@
   margin-top: 50px;
 }
 .ContentAbout {
+  /* text-align: center; */
+  margin: auto;
   text-align: center;
+
   font-size: 15px;
   font-weight: 400;
+}
+
+@media only screen and (max-width: 600px) {
+  .ContentAbout {
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    max-width: 200px;
+  }
 }

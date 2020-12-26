@@ -18,13 +18,13 @@ function Cartpage() {
     console.log(currentCart);
     const cart = { ...currentCart };
     // cart["email"] = email;
-    const str_email = JSON.stringify(email)
+    const str_email = JSON.stringify(email);
     const json_cart = JSON.stringify(cart);
     console.log(cart, " diz is cart");
     console.log(json_cart, " diz is json_cart");
     var formData = new FormData();
     formData.append("cart", json_cart);
-    formData.append("email", email)
+    formData.append("email", email);
     axios.post("/purchase", formData).then(console.log("berhasil"));
     console.log("hello");
 
@@ -52,59 +52,77 @@ function Cartpage() {
           <p className="DetailJudul">Continue shopping</p>
         </Link>
       </div>
-      {Object.keys(currentCart).map((key) => {
-        return (
-          <Row className="RowCard">
-            <Col sm="2" className="ColProduk">
-              <div className="GambarBaju"></div>
-            </Col>
-            <Col sm="4" className="ColProduk">
-              <div className="DetailBaju">
-                <p className="TitleBaju">
-                  <b>{currentCart[key].name}</b>
-                </p>
-                <p className="Hapus" onClick={() => handleRemove(key)}>
-                  Remove
-                </p>
-              </div>
-            </Col>
-            <Col sm="2" className="ColProduk">
-              <div className="PriceHarga">
-                <p className="JudulTable">
-                  <b>Price</b>
-                </p>
-                <p className="HargaBaju">Rp.{currentCart[key].price}</p>
-              </div>
-            </Col>
-            <Col sm="2" className="ColProduk">
-              <div className="PriceHarga">
-                <p className="JudulTable">
-                  <b>Quantity</b>
-                </p>
-                <p className="QuantityBaju ">
-                  <CounterInput
-                    className="QuantityCounter"
-                    min={0}
-                    count={currentCart[key].stock}
-                    max={currentCart[key].stock_max}
-                    onCountChange={(count) => handleStock(key, count)}
+      <Row className="RowCard">
+        {Object.keys(currentCart).map((key) => {
+          return (
+            <>
+              <Col xs={6} sm={4} md={4} xl={3} className="ColProduk">
+                <div className="GambarBaju">
+                  <img
+                    src={currentCart[key].main_img}
+                    className="ProductImage"
+                    alt=""
                   />
-                </p>
-              </div>
-            </Col>
-            <Col sm="2" className="ColProduk">
-              <div className="PriceHarga">
-                <p className="JudulTable">
-                  <b>Total</b>
-                </p>
-                <p className="HargaBaju">
-                  Rp.{currentCart[key].price * currentCart[key].stock}
-                </p>
-              </div>
-            </Col>
-          </Row>
-        );
-      })}
+                </div>
+              </Col>
+              <Col xs={6} sm={2} md={2} xl={3} className="ColProduk">
+                <div className="DetailBaju">
+                  <p className="TitleBaju">
+                    <b>{currentCart[key].name}</b>
+                  </p>
+                  <p className="Hapus" onClick={() => handleRemove(key)}>
+                    Remove
+                  </p>
+                </div>
+              </Col>
+              <Col
+                xs={6}
+                sm={3}
+                md={2}
+                xl={2}
+                className="ColProduk ColHargaQuantity">
+                <div className="PriceHarga">
+                  <p className="JudulTable">
+                    <b>Price</b>
+                  </p>
+                  <p className="HargaBaju">Rp.{currentCart[key].price}</p>
+                </div>
+              </Col>
+              <Col
+                xs={6}
+                sm={3}
+                md={2}
+                xl={2}
+                className="ColProduk ColHargaQuantity">
+                <div className="PriceHarga">
+                  <p className="JudulTable">
+                    <b>Quantity</b>
+                  </p>
+                  <p className="QuantityBaju ">
+                    <CounterInput
+                      className="QuantityCounter"
+                      min={0}
+                      count={currentCart[key].stock}
+                      max={currentCart[key].stock_max}
+                      onCountChange={(count) => handleStock(key, count)}
+                    />
+                  </p>
+                </div>
+              </Col>
+              <Col xs={12} sm={12} md={2} xl={2} className="ColProduk">
+                <div className="PriceHarga">
+                  <p className="JudulTable">
+                    <b>Total</b>
+                  </p>
+                  <p className="HargaBaju">
+                    Rp.{currentCart[key].price * currentCart[key].stock}
+                  </p>
+                </div>
+              </Col>
+            </>
+          );
+        })}
+      </Row>
       <div className="ButtonDanEmail">
         <p className="IsiEmail">
           <b>Please input your email for further detail about the payment</b>
@@ -118,8 +136,7 @@ function Cartpage() {
         <Button
           onClick={() => handlePurchase()}
           variant="success"
-          className="Btn-Purchase"
-        >
+          className="Btn-Purchase">
           PURCHASE
         </Button>
       </div>

@@ -1,10 +1,10 @@
 import React from "react";
 import UpdateItempage from "../UpdateItempage";
 
-function UpdateItem() {
+function UpdateItem(props) {
   return (
     <div style={{ overflow: "hidden" }}>
-      <UpdateItempage />
+      <UpdateItempage id={props.location.state.id} {...props} />
     </div>
   );
 }

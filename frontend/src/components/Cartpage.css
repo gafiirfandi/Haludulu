@@ -2,7 +2,7 @@
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  max-height: 2000px;
+  height: max-content;
 }
 
 .JudulCart {
@@ -24,6 +24,7 @@
 /* 2Column */
 .RowCard {
   margin-bottom: 30px;
+  max-height: 3000px;
 }
 .RowCardLast {
   margin-bottom: 10px;
@@ -55,7 +56,7 @@
   margin-top: 40px;
   border: 5px solid #111111;
   border-radius: 5px;
-  height: 200px;
+  height: min-content;
 }
 .DetailBaju {
   margin-top: 40px;
@@ -161,4 +162,50 @@
 .Input-Email input[type="text"] {
   border: 1px solid #025202;
   box-shadow: 0 1px 0 0 #025202;
+}
+
+.ProductImage {
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .ColProduk {
+    height: auto !important;
+  }
+
+  .ButtonDanEmail {
+    width: min-content;
+  }
+
+  .HargaBaju {
+    margin-top: auto !important;
+    padding-top: 7%;
+  }
+
+  .QuantityBaju {
+    padding-top: 0px !important;
+  }
+
+  .ColHargaQuantity {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 949px) and (max-width: 1199px) {
+  .RowCard {
+    row-gap: 10vw;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .RowCard {
+    row-gap: 10vw;
+  }
+}
+
+@media only screen and (min-width: 1960px) {
+  .RowCard {
+    row-gap: 10vw;
+  }
 }

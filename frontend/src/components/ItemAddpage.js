@@ -73,7 +73,7 @@ function ItemAddpage() {
 
       <div className="DuaColumnAddItem">
         <Row>
-          <Col sm="6" lg>
+          <Col lg="6" className="ColumnKiri">
             <div className="KiriFormAddItem">
               <Form.Group method="POST">
                 <Form.Row className="SebarisInput">
@@ -185,7 +185,7 @@ function ItemAddpage() {
               </Form.Group>
             </div>
           </Col>
-          <Col sm="6" lg>
+          <Col lg="6" className="ColumnKanan">
             <div className="KananFormAddItem">
               <Form.Group>
                 <Form.Row className="SebarisInput">
@@ -239,7 +239,7 @@ function ItemAddpage() {
                   <Col>
                     <Form.Control
                       as="select"
-                      size="sm"
+                      size="lg"
                       custom
                       className="Input-Box-Size"
                       onChange={(ev) => setSizeSStock(ev.target.value)}>
@@ -261,7 +261,7 @@ function ItemAddpage() {
                   <Col>
                     <Form.Control
                       as="select"
-                      size="sm"
+                      size="lg"
                       custom
                       className="Input-Box-Size"
                       onChange={(ev) => setSizeMStock(ev.target.value)}>
@@ -283,7 +283,7 @@ function ItemAddpage() {
                   <Col>
                     <Form.Control
                       as="select"
-                      size="sm"
+                      size="lg"
                       custom
                       className="Input-Box-Size"
                       onChange={(ev) => setSizeLStock(ev.target.value)}>
@@ -305,7 +305,7 @@ function ItemAddpage() {
                   <Col>
                     <Form.Control
                       as="select"
-                      size="sm"
+                      size="lg"
                       custom
                       className="Input-Box-Size"
                       onChange={(ev) => setSizeXLStock(ev.target.value)}>

@@ -4,7 +4,7 @@ import Homepage from "../Homepage";
 function Home({ products }) {
   return (
     <div style={{ overflow: "hidden" }}>
-      <Homepage products={products} />
+      <Homepage products={products} admin={true} />
     </div>
   );
 }

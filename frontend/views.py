@@ -62,6 +62,9 @@ def index(request):
 def detail_item(request, id):
     return render(request, 'frontend/index.html')
 
+def update_item(request, id):
+    return render(request, 'frontend/index.html')
+
 def add_item(request):
     if request.method == "POST":
         print("berhasil yey")

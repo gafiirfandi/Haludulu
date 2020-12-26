@@ -1,5 +1,3 @@
-.Navbar-Page {
-}
 .Brand {
   font-size: 55px;
   text-align: center;
@@ -11,6 +9,7 @@ untuk rownya */
 
 .SearchIcon {
   font-size: 30px !important;
+  cursor: pointer;
 }
 /* Untuk nama Brand */
 .NamaBrand {
@@ -36,6 +35,11 @@ untuk rownya */
   font-size: 40px;
 }
 
+.Border {
+  display: flex;
+  flex-direction: row;
+}
+
 .borderkiri {
   background-color: #025202;
   height: 18px;
@@ -43,6 +47,11 @@ untuk rownya */
 .borderkanan {
   background-color: #ff1620;
   height: 18px;
+}
+
+.borderkanan,
+.borderkiri {
+  width: 50%;
 }
 
 .link2 {
@@ -71,5 +80,32 @@ untuk rownya */
   .logo2 {
     padding-top: 10px;
     font-size: 35px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Brand {
+    font-size: 30px;
+    text-align: center;
+    margin-right: 0px !important;
+  }
+  .logo {
+    padding-top: 0px;
+    font-size: 35px;
+  }
+
+  .logo2 {
+    padding-top: 0px;
+    font-size: 35px;
+  }
+
+  .navbar {
+    margin-bottom: 0px !important;
+  }
+  .navbar,
+  .NavbarContainer {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* overflow: hidden !important; */
   }
 }

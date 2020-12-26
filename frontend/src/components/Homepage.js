@@ -5,7 +5,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import axios from "./axios";
 import { Link } from "react-router-dom";
 
-function Homepage() {
+function Homepage({ products, admin }) {
   // const [width, setWidth] = useState(0)
 
   // useEffect(() => {
@@ -29,19 +29,19 @@ function Homepage() {
   // });
   // $('.child').css({'height':cw+'px'});
 
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      console.log(axios.defaults.baseURL + "/api");
-      const request = await axios.get(axios.defaults.baseURL + "/api");
-      console.log(request.data);
-      setProducts(request.data);
-      // setMovies(request.data.results);
-      return request;
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     console.log(axios.defaults.baseURL + "/api");
+  //     const request = await axios.get(axios.defaults.baseURL + "/api");
+  //     console.log(request.data);
+  //     setProducts(request.data);
+  //     // setMovies(request.data.results);
+  //     return request;
+  //   }
+  //   fetchData();
+  // }, []);
   return (
     <div className="HomePageContainer">
       <Row>
@@ -62,6 +62,22 @@ function Homepage() {
                 }}> */}
                 <div className="BajuBox">
                   <img src={product.main_img} className="ImgBaju" alt="helo" />
+                  {admin && (
+                    <div className="ButtonAdmin">
+                      <Link
+                        to={{
+                          pathname: "/update_item/" + product.id,
+                          state: { id: product.id },
+                        }}>
+                        <button type="button" className="ButtonUpdate">
+                          Update
+                        </button>
+                      </Link>
+                      <button type="button" className="ButtonDelete">
+                        Delete
+                      </button>
+                    </div>
+                  )}
                 </div>
               </Link>
             </Col>

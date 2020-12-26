@@ -2,7 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from .views import index, add_item, detail_item, purchase, ProductView, ProductGetView
+from .views import index, add_item, detail_item, purchase, update_item,ProductView, ProductGetView
 
 urlpatterns = [
     path('', index,),
@@ -14,6 +14,8 @@ urlpatterns = [
     path('api', ProductView.as_view()),
     path('api/<int:id>', ProductGetView.as_view()),
     path('api/product', add_item, name="add_item"),
-    path('purchase', purchase)
+    path('purchase', purchase),
+    path('admin_home', index),
+    path('update_item/<int:id>', update_item, name="update"),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

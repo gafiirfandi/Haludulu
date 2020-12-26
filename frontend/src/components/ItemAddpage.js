@@ -73,7 +73,7 @@ function ItemAddpage() {
 
       <div className="DuaColumnAddItem">
         <Row>
-          <Col sm="6" lg>
+          <Col sm="6" lg className="ColumnKiri">
             <div className="KiriFormAddItem">
               <Form.Group method="POST">
                 <Form.Row className="SebarisInput">
@@ -185,7 +185,7 @@ function ItemAddpage() {
               </Form.Group>
             </div>
           </Col>
-          <Col sm="6" lg>
+          <Col sm="6" lg className="ColumnKanan">
             <div className="KananFormAddItem">
               <Form.Group>
                 <Form.Row className="SebarisInput">
@@ -242,7 +242,8 @@ function ItemAddpage() {
                       size="sm"
                       custom
                       className="Input-Box-Size"
-                      onChange={(ev) => setSizeSStock(ev.target.value)}>
+                      onChange={(ev) => setSizeSStock(ev.target.value)}
+                    >
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -264,7 +265,8 @@ function ItemAddpage() {
                       size="sm"
                       custom
                       className="Input-Box-Size"
-                      onChange={(ev) => setSizeMStock(ev.target.value)}>
+                      onChange={(ev) => setSizeMStock(ev.target.value)}
+                    >
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -286,7 +288,8 @@ function ItemAddpage() {
                       size="sm"
                       custom
                       className="Input-Box-Size"
-                      onChange={(ev) => setSizeLStock(ev.target.value)}>
+                      onChange={(ev) => setSizeLStock(ev.target.value)}
+                    >
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -308,7 +311,8 @@ function ItemAddpage() {
                       size="sm"
                       custom
                       className="Input-Box-Size"
-                      onChange={(ev) => setSizeXLStock(ev.target.value)}>
+                      onChange={(ev) => setSizeXLStock(ev.target.value)}
+                    >
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -327,7 +331,8 @@ function ItemAddpage() {
           type="submit"
           variant="success"
           onClick={() => handleSubmit()}
-          className="Btn-AddItem">
+          className="Btn-AddItem"
+        >
           ADD ITEM
         </Button>
       </div>

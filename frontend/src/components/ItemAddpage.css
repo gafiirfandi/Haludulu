@@ -81,3 +81,19 @@
   line-height: 25px;
   letter-spacing: 0.2em;
 }
+
+@media only screen and (max-width: 600px) {
+  .AddItemContainer {
+    margin-top: 50px;
+    height: 1200px;
+  }
+  .ColumnKanan {
+    margin-top: 150px;
+  }
+  .ButtonAddItem {
+    margin-top: 250px !important;
+  }
+  .Label-Input {
+    text-align: left;
+  }
+}

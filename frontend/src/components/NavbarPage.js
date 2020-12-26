@@ -5,16 +5,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row, Navbar } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { AiOutlineShopping } from "react-icons/ai";
+import { HiSearch } from "react-icons/hi";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 
 function NavbarPage() {
   return (
-    <div className="NavbarContainer">
+    <div className="NavbarContainer container-fluid">
       <Navbar>
         <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-start">
+        <Navbar.Collapse className="justify-content-start ">
           <div className="logo">
-            <SearchRoundedIcon className="SearchIcon" />
+            <HiSearch className="SearchIcon" />
           </div>
         </Navbar.Collapse>
         <Navbar.Brand href="#home" className="justify-content-center Brand">

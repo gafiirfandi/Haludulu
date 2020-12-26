@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect
 from rest_framework import generics
 from .models import Product
 from .serializers import ProductSerializer
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 import json
 from django.conf import settings
+from django.utils.html import strip_tags
 
 
 class ProductView(generics.ListCreateAPIView):
@@ -36,16 +37,20 @@ def purchase(request):
         
         mail_subject = 'Purchasement Successful.'
         message = render_to_string('email/purchase_success.html', {
-            'products': cart_dict
+            'products': cart_list
         })
+        message_strip = strip_tags(message)
         to_email = "gafiirfandi45@gmail.com"
-        email_send = EmailMessage(
-            mail_subject, message, settings.EMAIL_HOST_USER, [to_email]
+        email_send = EmailMultiAlternatives(
+            mail_subject, message_strip, settings.EMAIL_HOST_USER, [to_email]
         )
+        email_send.attach_alternative(message, "text/html")
         email_send.fail_silently = False
         email_send.send()
+    
+    return render(request, 'email/purchase_success.html', {})
 
-    return render(request, 'frontend/add_item.html')
+    # return render(request, 'frontend/add_item.html', {'products': cart_list})
 
 
 # Create your views here.

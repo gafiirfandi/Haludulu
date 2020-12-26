@@ -105,25 +105,24 @@ function Cartpage() {
           </Row>
         );
       })}
-      <Row className="RowCard">
-        <Col sm="6" className="BlankKiri">
-          <Form.Control
-            className="Input-Box"
-            type="text"
-            placeholder="Email"
-            onChange={(ev) => setEmail(ev.target.value)}
-          />
-        </Col>
-        <Col sm="6" className="ButtonKanan">
-          <Button
-            onClick={() => handlePurchase()}
-            variant="success"
-            className="Btn-Purchase"
-          >
-            PURCHASE
-          </Button>
-        </Col>
-      </Row>
+      <div className="ButtonDanEmail">
+        <p className="IsiEmail">
+          <b>Please input your email for further detail about the payment</b>
+        </p>
+        <Form.Control
+          className="Input-Email"
+          type="text"
+          placeholder="Email"
+          onChange={(ev) => setEmail(ev.target.value)}
+        />
+        <Button
+          onClick={() => handlePurchase()}
+          variant="success"
+          className="Btn-Purchase"
+        >
+          PURCHASE
+        </Button>
+      </div>
     </div>
   );
 }

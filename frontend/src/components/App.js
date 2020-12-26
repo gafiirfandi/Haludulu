@@ -10,7 +10,7 @@ import UpdateItem from "../components/pages/UpdateItem";
 import AboutUs from "./pages/AboutUs";
 import Detail from "../components/pages/Detail";
 import Cart from "../components/pages/Cart";
-import Navbar from "../components/Navbar";
+import NavbarPage from "../components/NavbarPage";
 import { setCurrentCart } from "../redux/cart/cart.action";
 import rootReducer from "../redux/root-reducer";
 
@@ -32,7 +32,7 @@ function App() {
         <h1>Cart: {currentCart}</h1>
       </div> */}
       <Router>
-        <Navbar />
+        {/* <NavbarPage /> */}
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/cart" exact render={() => <Cart />} />

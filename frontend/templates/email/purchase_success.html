@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-
-<body>
-    Hi! Thank you for purchasing at Haludulu, 
-    Details of your purchasement can be seen below: 
-    {% for key, values in products %} 
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALUDULU</title>
+    </head>
+    <body>
+    <p style="background-color: red;">Hi! Thank you for purchasing at Haludulu, </p>
+    <p>Details of your purchasement can be seen below:</p> 
+    {% for values in products %} 
     {{ forloop.counter }} {{values.name}} 
-    <img src={{values.main_img}} />
-    Size: {{values.size}} 
-    Stock: {{values.stock}}
-    Price: {{values.price}}
-    {% endfor%}
-
+    <img src={{values.main_img}} alt="product image" />
+    <p>Size: {{values.size}}<p>
+    <p>Stock: {{values.stock}}<p>
+    <p>Price: {{values.price}}<p>
+    {% endfor %}
+    <p>
     Payment can be done by making a transfer to this account below:
 
     - BCA: 160954620 an Haludulu
@@ -27,5 +27,6 @@
 
     Best regards,
     Haludulu
+    </p>
 </body>
 </html>

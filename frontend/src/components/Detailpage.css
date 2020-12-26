@@ -1,6 +1,6 @@
 .DetailContainer {
   margin-top: 50px;
-  height: 800px;
+  max-height: 5000px;
 }
 /* 
 pembagian 2 column utama */
@@ -158,4 +158,40 @@ pembagian 2 column utama */
   width: 90%;
   height: auto;
   margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .DetailKanan {
+    margin-top: 250px;
+  }
+  .BajuDetail {
+    margin-bottom: 700px;
+  }
+  .DetailKiri {
+    margin-bottom: 250px;
+  }
+  .DuaButton {
+    margin: auto;
+  }
+  .Quantity {
+    margin: auto;
+    padding-bottom: 20px;
+  }
+  .Ukuran {
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  .JudulBaju {
+    width: max-content;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  .JudulBajuBold {
+    margin: auto;
+  }
+  .Description {
+    margin-top: 20px !important;
+    width: max-content;
+    margin: auto;
+  }
 }

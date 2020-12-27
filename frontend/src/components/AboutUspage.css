@@ -14,7 +14,11 @@
 }
 
 .DetailAbout {
-  width: 500px;
+  padding-left: 20%;
+  padding-right: 20%;
+  justify-content: center;
+
+  text-align: center;
   margin: 0 auto;
   margin-top: 50px;
 }
@@ -23,16 +27,35 @@
   margin: auto;
   text-align: center;
 
-  font-size: 15px;
+  font-size: 1vw;
   font-weight: 400;
 }
 
 @media only screen and (max-width: 600px) {
-  .ContentAbout {
-    margin: auto;
+  .DetailAbout {
+    padding-left: 5%;
+    padding-right: 5%;
+    justify-content: center;
+
     text-align: center;
-    font-size: 15px;
-    font-weight: 400;
-    max-width: 200px;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+  .ContentAbout {
+    font-size: 3vw;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .DetailAbout {
+    padding-left: 5%;
+    padding-right: 5%;
+    justify-content: center;
+
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+  .ContentAbout {
+    font-size: 2vw;
   }
 }

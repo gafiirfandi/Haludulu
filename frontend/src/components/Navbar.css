@@ -69,6 +69,10 @@ untuk rownya */
   color: #111111;
   border-bottom: 5px solid #ff1620;
 }
+.Brand-Link {
+  color: none;
+  border-bottom: hidden;
+}
 
 .Brand-Link:hover {
   color: #fff;

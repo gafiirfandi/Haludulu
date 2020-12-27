@@ -131,7 +131,7 @@
   width: max-content;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 30vh;
+  margin-top: 30vh !important;
 }
 .Btn-Purchase {
   width: 300px;
@@ -173,6 +173,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .IsiEmail {
+    font-size: 4vw;
+  }
   .ColProduk {
     height: auto !important;
   }
@@ -194,6 +197,11 @@
   .ColHargaQuantity {
     margin-top: 40px;
   }
+  .Btn-Purchase {
+    width: 300px;
+
+    font-size: 4vw;
+  }
 }
 
 @media only screen and (min-width: 949px) and (max-width: 1199px) {
@@ -211,5 +219,11 @@
 @media only screen and (min-width: 1960px) {
   .RowCard {
     row-gap: 20vw;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ButtonDanEmail {
+    margin-top: 70px;
   }
 }

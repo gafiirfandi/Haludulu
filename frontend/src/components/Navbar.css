@@ -1,6 +1,6 @@
 .Brand {
   font-size: 55px;
-  text-align: center;
+  /* text-align: center; */
 }
 /* 
 untuk rownya */
@@ -10,6 +10,12 @@ untuk rownya */
 .SearchIcon {
   font-size: 30px !important;
   cursor: pointer;
+  /* transition: border 0.5s ease-out; */
+  border-bottom: 5px solid white;
+}
+
+.SearchIconBorder {
+  border-bottom: 5px solid #ff1620;
 }
 /* Untuk nama Brand */
 .NamaBrand {
@@ -28,11 +34,13 @@ untuk rownya */
 .logo {
   padding-top: 30px;
   font-size: 30px;
+  display: flex;
+  text-align: center;
 }
 
 .logo2 {
   padding-top: 30px;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .Border {
@@ -71,6 +79,52 @@ untuk rownya */
   border-bottom: 1px solid #fff;
 }
 
+.InputSearch {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  box-shadow: none;
+  border-radius: 0px;
+  border-color: white;
+  border-bottom: 5px solid white;
+  /* -webkit-appearance: none; */
+  /* width: 20vw;
+  height: 30px; */
+  width: 0px;
+  height: 30px;
+  font-size: 15px;
+  /* display: none; */
+  transition: width 0.5s ease-in, height 0.5s ease-in;
+}
+
+.InputSearch:focus {
+  /* text-decoration: none !important;
+  border: none !important; */
+  outline: none !important;
+}
+
+.SearchOn {
+  border-bottom: 5px solid #ff1620;
+  width: 20vw;
+
+  /* display: block; */
+}
+
+.LogoNav {
+  height: 80px;
+  width: auto;
+  position: absolute;
+  /* top: 0px; */
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.NavLeft {
+  padding-top: 10px;
+}
+
 @media only screen and (max-width: 600px) {
   .Brand {
     font-size: 40px;
@@ -79,6 +133,10 @@ untuk rownya */
   .logo {
     padding-top: 10px;
     font-size: 15px;
+  }
+
+  .LogoNav {
+    height: 50px;
   }
 
   .logo2 {

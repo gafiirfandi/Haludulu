@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   height: max-content;
+  margin-bottom: 20vh;
 }
 
 .JudulCart {
@@ -128,7 +129,9 @@
   display: flex;
   flex-direction: column;
   width: max-content;
-  margin: auto;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 30vh !important;
 }
 .Btn-Purchase {
   width: 300px;
@@ -170,12 +173,16 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .IsiEmail {
+    font-size: 4vw;
+  }
   .ColProduk {
     height: auto !important;
   }
 
   .ButtonDanEmail {
     width: min-content;
+    margin-top: 10vh;
   }
 
   .HargaBaju {
@@ -189,6 +196,11 @@
 
   .ColHargaQuantity {
     margin-top: 40px;
+  }
+  .Btn-Purchase {
+    width: 300px;
+
+    font-size: 4vw;
   }
 }
 
@@ -206,7 +218,7 @@
 
 @media only screen and (min-width: 1960px) {
   .RowCard {
-    row-gap: 10vw;
+    row-gap: 20vw;
   }
 }
 

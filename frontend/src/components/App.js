@@ -11,6 +11,7 @@ import AboutUs from "./pages/AboutUs";
 import AdminHome from "./pages/AdminHome";
 import Detail from "../components/pages/Detail";
 import Cart from "../components/pages/Cart";
+import LoginAdmin from "../components/pages/LoginAdmin";
 import NavbarPage from "../components/NavbarPage";
 import { setCurrentCart } from "../redux/cart/cart.action";
 import rootReducer from "../redux/root-reducer";
@@ -98,6 +99,7 @@ function App() {
               <AdminHome products={products} setShowSearch={setShowSearch} />
             )}
           />
+          <Route path="/login_admin" exact render={() => <LoginAdmin />} />
         </Switch>
       </Router>
       <Footer />

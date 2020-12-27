@@ -10,9 +10,10 @@ import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 
 function NavbarPage({ setSearchKeyword, showSearch, setShowSearch }) {
   return (
-    <div className="NavbarContainer">
+    // <div className="NavbarContainer">
+    <>
       <Navbar>
-        {showSearch ? (
+        {/* {showSearch ? (
           <>
             <Form.Control
               className="Input-Box"
@@ -25,40 +26,64 @@ function NavbarPage({ setSearchKeyword, showSearch, setShowSearch }) {
             />
             <button onClick={() => setShowSearch(false)}>X</button>
           </>
-        ) : (
-          <>
-            <Navbar.Toggle />
-            <Navbar.Collapse className="justify-content-start ">
-              <div className="logo">
-                <HiSearch
-                  onClick={() => setShowSearch(true)}
-                  className="SearchIcon"
+        ) : ( */}
+        <>
+          <Navbar.Toggle />
+          <Navbar.Collapse className="justify-content-start NavLeft">
+            <div className="logo">
+              <input
+                className={`InputSearch ${showSearch && "SearchOn"}`}
+                type="search"
+                onChange={(ev) => {
+                  setSearchKeyword(ev.target.value);
+                  console.log(ev.target.value);
+                }}
+                placeholder="search"
+              />
+              <HiSearch
+                onClick={() => {
+                  if (showSearch) setShowSearch(false);
+                  else setShowSearch(true);
+                }}
+                className={`SearchIcon ${showSearch && "SearchIconBorder"}`}
+              />
+              {/* <Form.Control
+                className="InputSearch"
+                type="text"
+                placeholder="search"
+                onChange={(ev) => {
+                  setSearchKeyword(ev.target.value);
+                  console.log(ev.target.value);
+                }}
+              /> */}
+            </div>
+          </Navbar.Collapse>
+          <Navbar.Brand href="#home" className="justify-content-center Brand">
+            <Link to="/" className="Brand-Link">
+              <div className="NamaBrand">
+                <img
+                  className="LogoNav"
+                  src="/media/logo_haludulu_real_cropped.png"
+                  alt=""
                 />
               </div>
-            </Navbar.Collapse>
-            <Navbar.Brand href="#home" className="justify-content-center Brand">
-              <Link to="/" className="Brand-Link">
-                <div className="NamaBrand">
-                  <p className="namaHalu">HALU</p>
-                  <p className="namaDulu">DULU</p>
-                </div>
+            </Link>
+          </Navbar.Brand>
+          <Navbar.Collapse className="justify-content-end">
+            <div className="logo2">
+              <Link to="/cart" className="link2">
+                <AiOutlineShopping />
               </Link>
-            </Navbar.Brand>
-            <Navbar.Collapse className="justify-content-end">
-              <div className="logo2">
-                <Link to="/cart" className="link2">
-                  <AiOutlineShopping />
-                </Link>
-              </div>
-            </Navbar.Collapse>
-          </>
-        )}
+            </div>
+          </Navbar.Collapse>
+        </>
       </Navbar>
       <div className="Border">
         <div className="borderkiri"></div>
         <div className="borderkanan"></div>
       </div>
-    </div>
+      {/* </div> */}
+    </>
   );
 }
 

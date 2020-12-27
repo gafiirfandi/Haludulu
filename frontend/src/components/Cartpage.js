@@ -80,7 +80,8 @@ function Cartpage() {
                 sm={3}
                 md={2}
                 xl={2}
-                className="ColProduk ColHargaQuantity">
+                className="ColProduk ColHargaQuantity"
+              >
                 <div className="PriceHarga">
                   <p className="JudulTable">
                     <b>Price</b>
@@ -93,7 +94,8 @@ function Cartpage() {
                 sm={3}
                 md={2}
                 xl={2}
-                className="ColProduk ColHargaQuantity">
+                className="ColProduk ColHargaQuantity"
+              >
                 <div className="PriceHarga">
                   <p className="JudulTable">
                     <b>Quantity</b>
@@ -136,7 +138,8 @@ function Cartpage() {
         <Button
           onClick={() => handlePurchase()}
           variant="success"
-          className="Btn-Purchase">
+          className="Btn-Purchase"
+        >
           PURCHASE
         </Button>
       </div>

@@ -241,7 +241,8 @@ function ItemAddpage() {
                       className="Input-Box"
                       type="number"
                       placeholder="Size S"
-                      onChange={(ev) => setName(ev.target.value)}
+                      min="0"
+                      onChange={(ev) => setSizeSStock(ev.target.value)}
                     />
                   </Col>
                 </Form.Row>
@@ -257,7 +258,8 @@ function ItemAddpage() {
                       className="Input-Box"
                       type="number"
                       placeholder="Size M"
-                      onChange={(ev) => setName(ev.target.value)}
+                      min="0"
+                      onChange={(ev) => setSizeMStock(ev.target.value)}
                     />
                   </Col>
                 </Form.Row>
@@ -273,7 +275,8 @@ function ItemAddpage() {
                       className="Input-Box"
                       type="number"
                       placeholder="Size L"
-                      onChange={(ev) => setName(ev.target.value)}
+                      min="0"
+                      onChange={(ev) => setSizeLStock(ev.target.value)}
                     />
                   </Col>
                 </Form.Row>
@@ -289,7 +292,8 @@ function ItemAddpage() {
                       className="Input-Box"
                       type="number"
                       placeholder="Size XL"
-                      onChange={(ev) => setName(ev.target.value)}
+                      min="0"
+                      onChange={(ev) => setSizeXLStock(ev.target.value)}
                     />
                   </Col>
                 </Form.Row>
@@ -303,8 +307,7 @@ function ItemAddpage() {
           type="submit"
           variant="success"
           onClick={() => handleSubmit()}
-          className="Btn-AddItem"
-        >
+          className="Btn-AddItem">
           ADD ITEM
         </Button>
       </div>

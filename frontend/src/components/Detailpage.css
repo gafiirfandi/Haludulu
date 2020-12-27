@@ -7,7 +7,7 @@ pembagian 2 column utama */
 .DetailKiri {
   /* border: 5px solid black; */
   border-radius: 10px;
-  height: 600px;
+  height: 100vh;
 }
 
 .DetailKanan {
@@ -19,7 +19,6 @@ pembagian 2 column utama */
 .KiriBaju {
   /* border: 5px solid blue; */
   border-radius: 10px;
-  height: 600px;
   margin-left: 30px;
 }
 
@@ -29,13 +28,13 @@ pembagian 2 column utama */
   vertical-align: middle; */
   border: 5px solid #111111;
   border-radius: 10px;
-  max-height: 700px;
+  /* max-height: 700px; */
 }
 .BajuDetail {
   /* border: 5px solid #111111; */
 
   border-radius: 10px;
-  height: 500px;
+  /* height: 500px; */
   display: flex;
   flex-direction: column;
 }
@@ -46,7 +45,7 @@ pembagian 2 column utama */
   text-align: center;
   border: 5px solid #111111;
   border-radius: 5px;
-  max-height: 500px;
+  /* max-height: 500px; */
   max-width: 300px;
   margin-bottom: 10px;
 }

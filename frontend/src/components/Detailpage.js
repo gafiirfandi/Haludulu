@@ -1,23 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./Detailpage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row, Dropdown, Button } from "react-bootstrap";
+import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import axios from "./axios";
 import { setCurrentCart } from "../redux/cart/cart.action";
 // import CounterInput from "react-bootstrap-counter";
 import CounterInput from "react-counter-input";
+
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
+}
+
 function Detailpage(props) {
+  const [windowWidth, windowHeight] = useWindowSize();
   const [size, handleSize] = useState("Size");
   const [stock, setStock] = useState(1);
   const [product, setProduct] = useState([]);
   const currentCart = useSelector((state) => state.cart.currentCart);
   const dispatch = useDispatch();
   const [mainImage, setMainImage] = useState("");
+  const settingsCarousel = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: true,
+    arrows: false,
+    infinite: false,
+  };
   // const { id } = props.match.params;
 
   // const id = props.match;
   // console.log(id);
+
   useEffect(() => {
     console.log(props.id);
     async function fetchData() {
@@ -113,45 +139,72 @@ function Detailpage(props) {
   return (
     <div className="DetailContainer">
       <Row>
-        <Col lg="6" className="DetailKiri">
-          <div className="KiriBaju">
-            <Row>
-              <Col sm={8}>
-                <div className="BajuUtama">
-                  <img src={mainImage} className="MainImage" alt="" />
-                </div>
-              </Col>
-              <Col sm={4}>
-                <div className="BajuDetail">
-                  <div className="RincianDetail">
-                    <img
-                      src={product.main_img}
-                      onClick={() => setMainImage(product.main_img)}
-                      className="SubImage"
-                      alt=""
-                    />
-                  </div>
-                  <div className="RincianDetail">
-                    <img
-                      src={product.img1}
-                      onClick={() => setMainImage(product.img1)}
-                      className="SubImage"
-                      alt=""
-                    />
-                  </div>
-                  <div className="RincianDetail">
-                    <img
-                      src={product.img2}
-                      onClick={() => setMainImage(product.img2)}
-                      className="SubImage"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </Col>
-            </Row>
+        {windowWidth <= 600 ? (
+          <div className="container-fluid">
+            <Slider {...settingsCarousel} className="slider1">
+              <img
+                src={product.main_img}
+                onClick={() => setMainImage(product.main_img)}
+                className="SubImage"
+                alt=""
+              />
+
+              <img
+                src={product.img1}
+                onClick={() => setMainImage(product.img1)}
+                className="SubImage"
+                alt=""
+              />
+
+              <img
+                src={product.img2}
+                onClick={() => setMainImage(product.img2)}
+                className="SubImage"
+                alt=""
+              />
+            </Slider>
           </div>
-        </Col>
+        ) : (
+          <Col lg="6" className="DetailKiri">
+            <div className="KiriBaju">
+              <Row>
+                <Col sm={8}>
+                  <div className="BajuUtama">
+                    <img src={mainImage} className="MainImage" alt="" />
+                  </div>
+                </Col>
+                <Col sm={4}>
+                  <div className="BajuDetail">
+                    <div className="RincianDetail">
+                      <img
+                        src={product.main_img}
+                        onClick={() => setMainImage(product.main_img)}
+                        className="SubImage"
+                        alt=""
+                      />
+                    </div>
+                    <div className="RincianDetail">
+                      <img
+                        src={product.img1}
+                        onClick={() => setMainImage(product.img1)}
+                        className="SubImage"
+                        alt=""
+                      />
+                    </div>
+                    <div className="RincianDetail">
+                      <img
+                        src={product.img2}
+                        onClick={() => setMainImage(product.img2)}
+                        className="SubImage"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </div>
+          </Col>
+        )}
         <Col lg="6" className="DetailKanan">
           <div className="JudulBaju">
             <p>
@@ -220,6 +273,9 @@ function Detailpage(props) {
               <div className="Description">
                 <div className="JudulDescription">
                   <p className="TextDetail">Description</p>
+                  <p>
+                    Width {windowWidth} x Height {windowHeight}
+                  </p>
                 </div>
                 <div className="IsiDesctiption">
                   <p className="TextDetail">Minus : {product.minus}</p>

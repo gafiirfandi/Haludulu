@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from rest_framework import generics
-from .models import Product
+from .models import Product, Admin
 from .serializers import ProductSerializer
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
@@ -23,6 +23,28 @@ class ProductGetView(generics.ListAPIView):
         id = self.kwargs.get("id")
         product = Product.objects.filter(pk=id)
         return product
+
+def login(request):
+    return render(request, 'frontend/index.html')
+
+def db_login(request):
+    if request.method == "POST":
+        print(request.POST)
+        print("-"*30)
+        for key, value in request.session.items():
+            print('{} => {}'.format(key, value))
+        username = request.POST['username']
+        password = request.POST['password']
+
+
+        # admin = Admin.objects.get(username=username, password=password)
+        # if admin:
+        #     admin.isLoggedIn = True
+        #     admin.save()
+        return render(request, 'frontend/index.html', {'isLogin': True})
+        
+
+    return render(request, 'frontend/index.html')
 
 def purchase(request):
     

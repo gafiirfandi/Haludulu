@@ -14,3 +14,8 @@ class Product(models.Model):
     size_m_stock = models.IntegerField()
     size_l_stock = models.IntegerField()
     size_xl_stock = models.IntegerField()
+
+class Admin(models.Model):
+    username = models.CharField(max_length=20)
+    password = models.CharField(max_length=50)
+    isLoggedIn = models.BooleanField()

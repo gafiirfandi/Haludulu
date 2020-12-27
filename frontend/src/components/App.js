@@ -11,7 +11,7 @@ import AboutUs from "./pages/AboutUs";
 import AdminHome from "./pages/AdminHome";
 import Detail from "../components/pages/Detail";
 import Cart from "../components/pages/Cart";
-import LoginAdmin from "../components/pages/LoginAdmin";
+import AdminLogin from "../components/pages/AdminLogin";
 import NavbarPage from "../components/NavbarPage";
 import { setCurrentCart } from "../redux/cart/cart.action";
 import rootReducer from "../redux/root-reducer";
@@ -20,6 +20,7 @@ import axios from "./axios";
 
 import "./App.css";
 import Footer from "./Footer";
+// import AdminLogin from "./pages/AdminLogin";
 
 function App() {
   const currentCart = useSelector((state) => state.cart.currentCart);
@@ -99,7 +100,7 @@ function App() {
               <AdminHome products={products} setShowSearch={setShowSearch} />
             )}
           />
-          <Route path="/login_admin" exact render={() => <LoginAdmin />} />
+          <Route path="/login_admin" exact render={() => <AdminLogin />} />
         </Switch>
       </Router>
       <Footer />

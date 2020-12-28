@@ -10,8 +10,13 @@ import { AiOutlineShopping } from "react-icons/ai";
 import { HiSearch } from "react-icons/hi";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 
-function NavbarPage({ setSearchKeyword, showSearch, setShowSearch }) {
+function NavbarPage(props) {
   const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(actions.logout());
+    props.history.push("/login_admin");
+  };
 
   return (
     // <div className="NavbarContainer">
@@ -24,7 +29,7 @@ function NavbarPage({ setSearchKeyword, showSearch, setShowSearch }) {
               type="text"
               placeholder="search"
               onChange={(ev) => {
-                setSearchKeyword(ev.target.value);
+                props.setSearchKeyword(ev.target.value);
                 console.log(ev.target.value);
               }}
             />
@@ -36,27 +41,29 @@ function NavbarPage({ setSearchKeyword, showSearch, setShowSearch }) {
           <Navbar.Collapse className="justify-content-start NavLeft">
             <div className="logo">
               <input
-                className={`InputSearch ${showSearch && "SearchOn"}`}
+                className={`InputSearch ${props.showSearch && "SearchOn"}`}
                 type="search"
                 onChange={(ev) => {
-                  setSearchKeyword(ev.target.value);
+                  props.setSearchKeyword(ev.target.value);
                   console.log(ev.target.value);
                 }}
                 placeholder="search"
               />
               <HiSearch
                 onClick={() => {
-                  if (showSearch) setShowSearch(false);
-                  else setShowSearch(true);
+                  if (showSearch) props.setShowSearch(false);
+                  else props.setShowSearch(true);
                 }}
-                className={`SearchIcon ${showSearch && "SearchIconBorder"}`}
+                className={`SearchIcon ${
+                  props.showSearch && "SearchIconBorder"
+                }`}
               />
               {/* <Form.Control
                 className="InputSearch"
                 type="text"
                 placeholder="search"
                 onChange={(ev) => {
-                  setSearchKeyword(ev.target.value);
+                  props.setSearchKeyword(ev.target.value);
                   console.log(ev.target.value);
                 }}
               /> */}
@@ -78,7 +85,7 @@ function NavbarPage({ setSearchKeyword, showSearch, setShowSearch }) {
               <Link to="/cart" className="link2">
                 <AiOutlineShopping />
               </Link>
-              <button onClick={() => dispatch(actions.logout())}>LOGOUT</button>
+              <button onClick={() => handleLogout()}>LOGOUT</button>
             </div>
           </Navbar.Collapse>
         </>

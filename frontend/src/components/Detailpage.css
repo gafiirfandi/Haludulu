@@ -160,6 +160,11 @@ pembagian 2 column utama */
   margin: auto;
 }
 
+.slick-list,
+.slick-track {
+  touch-action: pan-y;
+}
+
 @media only screen and (max-width: 600px) {
   .DetailKanan {
     margin-top: 100px !important;

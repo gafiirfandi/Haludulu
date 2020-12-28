@@ -4,14 +4,15 @@ import "./Detailpage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row, Dropdown, Button } from "react-bootstrap";
 import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
 import axios from "./axios";
 import { setCurrentCart } from "../redux/cart/cart.action";
-// import CounterInput from "react-bootstrap-counter";
 import CounterInput from "react-counter-input";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 function useWindowSize() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   const [size, setSize] = useState([0, 0]);
   useLayoutEffect(() => {
     function updateSize() {
@@ -138,30 +139,34 @@ function Detailpage(props) {
 
   return (
     <div className="DetailContainer">
-      <Row>
+      <Row data-aos="fade">
         {windowWidth <= 600 ? (
           <div className="container-fluid">
             <Slider {...settingsCarousel} className="slider1">
-              <img
-                src={product.main_img}
-                onClick={() => setMainImage(product.main_img)}
-                className="SubImage"
-                alt=""
-              />
-
-              <img
-                src={product.img1}
-                onClick={() => setMainImage(product.img1)}
-                className="SubImage"
-                alt=""
-              />
-
-              <img
-                src={product.img2}
-                onClick={() => setMainImage(product.img2)}
-                className="SubImage"
-                alt=""
-              />
+              <div className="GambarCorousal">
+                <img
+                  src={product.main_img}
+                  onClick={() => setMainImage(product.main_img)}
+                  className="SubImageCorousal"
+                  alt=""
+                />
+              </div>
+              <div className="GambarCorousal">
+                <img
+                  src={product.img1}
+                  onClick={() => setMainImage(product.img1)}
+                  className="SubImageCorousal"
+                  alt=""
+                />
+              </div>
+              <div className="GambarCorousal">
+                <img
+                  src={product.img2}
+                  onClick={() => setMainImage(product.img2)}
+                  className="SubImageCorousal"
+                  alt=""
+                />
+              </div>
             </Slider>
           </div>
         ) : (
@@ -222,7 +227,8 @@ function Detailpage(props) {
                     <Dropdown.Toggle
                       variant="success"
                       id="dropdown-basic"
-                      className="UkuranDropDown">
+                      className="UkuranDropDown"
+                    >
                       {size}
                     </Dropdown.Toggle>
 
@@ -257,13 +263,15 @@ function Detailpage(props) {
                   <Button
                     variant="success"
                     onClick={() => handleSubmit()}
-                    className="Btn-addtocart">
+                    className="Btn-addtocart"
+                  >
                     ADD TO CART
                   </Button>
                   <Button
                     onClick={() => console.log(listProductCart, " yey")}
                     variant="dark"
-                    className="Btn-SoldOut">
+                    className="Btn-SoldOut"
+                  >
                     SOLD OUT
                   </Button>
                 </div>

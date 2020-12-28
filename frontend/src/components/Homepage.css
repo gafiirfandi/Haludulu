@@ -18,6 +18,11 @@
   padding: 0px;
 }
 
+.BajuBox:hover {
+  opacity: 0.5s !important;
+  transition-duration: 0.5s !important;
+}
+
 .ColumnBaju {
   /* padding-bottom: 30px; */
   padding: 20px 80px;

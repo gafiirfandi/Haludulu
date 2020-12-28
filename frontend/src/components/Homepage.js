@@ -4,8 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from "react-bootstrap";
 import axios from "./axios";
 import { Link } from "react-router-dom";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function Homepage({ products, admin, setShowSearch }) {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   // const [width, setWidth] = useState(0)
 
   // useEffect(() => {
@@ -52,13 +57,14 @@ function Homepage({ products, admin, setShowSearch }) {
       <Row>
         {products.map((product) => {
           return (
-            <Col xs="6" sm="6" lg className="ColumnBaju">
+            <Col data-aos="fade-in" xs="6" sm="6" lg className="ColumnBaju">
               <Link
                 className="Link_BajuBox"
                 to={{
                   pathname: "/detail/" + product.id,
                   state: { id: product.id },
-                }}>
+                }}
+              >
                 {/* <Link
                 to={{
                   pathname: "/detail/" + product.id,
@@ -71,7 +77,8 @@ function Homepage({ products, admin, setShowSearch }) {
                   onClick={() => {
                     console.log("yey");
                     setShowSearch(false);
-                  }}>
+                  }}
+                >
                   <img src={product.main_img} className="ImgBaju" alt="helo" />
                   {admin && (
                     <div className="ButtonAdmin">
@@ -79,7 +86,8 @@ function Homepage({ products, admin, setShowSearch }) {
                         to={{
                           pathname: "/update_item/" + product.id,
                           state: { id: product.id },
-                        }}>
+                        }}
+                      >
                         <button type="button" className="ButtonUpdate">
                           Update
                         </button>
@@ -88,7 +96,8 @@ function Homepage({ products, admin, setShowSearch }) {
                         <button
                           onClick={() => handleDelete(product.id)}
                           type="button"
-                          className="ButtonDelete">
+                          className="ButtonDelete"
+                        >
                           Delete
                         </button>
                       </Link>

@@ -1,25 +1,29 @@
 import axios from "../axios";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setLoggedIn } from "../../redux/admin/admin.action";
+import * as actions from "../../redux/auth/auth.action";
+// import { setLoggedIn } from "../../redux/admin/auth.action";
 import { Redirect } from "react-router-dom";
 import { useEffect } from "react";
 
-function AdminLogin() {
+function AdminLogin(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
-  const isLoggedIn = useSelector((state) => state.admin.isLoggedIn);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   //   useEffect(() => {
 
   //   }, [isLoggedIn])
 
   const handleLogin = () => {
-    var formData = new FormData();
-    formData.append("username", username);
-    formData.append("password", password);
-    axios.post("/api/login", formData);
+    // var formData = new FormData();
+    // formData.append("username", username);
+    // formData.append("password", password);
+    // axios.post("/api/login", formData);
+    dispatch(actions.authLogin(username, password));
+    props.history.push("/admin_home");
   };
 
   return (

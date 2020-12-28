@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import * as actions from "../redux/auth/auth.action";
 import "./Navbar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row, Navbar, Form } from "react-bootstrap";
@@ -9,6 +11,8 @@ import { HiSearch } from "react-icons/hi";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 
 function NavbarPage({ setSearchKeyword, showSearch, setShowSearch }) {
+  const dispatch = useDispatch();
+
   return (
     // <div className="NavbarContainer">
     <>
@@ -74,6 +78,7 @@ function NavbarPage({ setSearchKeyword, showSearch, setShowSearch }) {
               <Link to="/cart" className="link2">
                 <AiOutlineShopping />
               </Link>
+              <button onClick={() => dispatch(actions.logout())}>LOGOUT</button>
             </div>
           </Navbar.Collapse>
         </>

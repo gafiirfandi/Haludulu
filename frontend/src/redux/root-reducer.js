@@ -3,24 +3,24 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import storageSession from "redux-persist/lib/storage/session";
 import { cartReducer } from "./cart/cart.reducer";
-import { adminReducer } from "./admin/admin.reducer";
+import { authReducer } from "./auth/auth.reducer";
 
 const persistCartConfig = {
   key: "cart",
   storage,
   whitelist: ["cart"],
-  blacklist: ["admin"],
+  blacklist: ["auth"],
 };
 
-const adminPersistConfig = {
-  key: "admin",
+const authPersistConfig = {
+  key: "auth",
   storage: storageSession,
 };
 
 const rootReducer = combineReducers({
   cart: cartReducer,
   // admin: persistReducer(persistAdminConfig, adminReducer),
-  admin: persistReducer(adminPersistConfig, adminReducer),
+  auth: persistReducer(authPersistConfig, authReducer),
   // admin: adminReducer,
 });
 

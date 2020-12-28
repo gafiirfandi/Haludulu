@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'frontend',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth'
 ]
 
 MIDDLEWARE = [
@@ -144,3 +146,6 @@ DEFAULT_FROM_EMAIL = 'gafirazi.test@gmail.com'
 SERVER_EMAIL = 'gafirazi.test@gmail.com'
 EMAIL_USE_TLS =True
 EMAIL_PORT = 587
+
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_EMAIL_REQUIRED = False

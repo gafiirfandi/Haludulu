@@ -36,14 +36,14 @@
 .JudulContactUs {
   font-size: 14px;
   line-height: 14px;
-  letter-spacing: 0.2em;
+  /* letter-spacing: 0.2em; */
   padding-bottom: 12px;
 }
 
 .DetailSosmed {
   font-size: 14px;
   line-height: 22px;
-  letter-spacing: 0.2em;
+  /* letter-spacing: 0.2em; */
 }
 
 .Logo_instagram {
@@ -87,14 +87,14 @@
   .JudulContactUs {
     font-size: 10px;
     line-height: 14px;
-    letter-spacing: 0.2em;
+    /* letter-spacing: 0.2em; */
     padding-bottom: 12px;
   }
 
   .DetailSosmed {
     font-size: 10px;
     line-height: 22px;
-    letter-spacing: 0.2em;
+    /* letter-spacing: 0.2em; */
   }
 
   .Logo_instagram {

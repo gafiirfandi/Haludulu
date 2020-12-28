@@ -44,17 +44,18 @@ function App() {
         // setMovies(request.data.results);
         return request;
       } else if (searchKeyword == "") {
+        console.log("else if");
         console.log(products);
         setProducts([...productsFixed]);
         return products;
       } else {
         console.log("else");
-        const filterProduct = [...products];
+        const filterProduct = [...productsFixed];
         const filter = filterProduct.filter((product) => {
           return product.name.includes(searchKeyword);
         });
-
-        setProducts(filter);
+        console.log(filter, "- filter");
+        setProducts([...filter]);
         return filter;
       }
     }
@@ -67,11 +68,18 @@ function App() {
         <h1>Cart: {currentCart}</h1>
       </div> */}
       <Router>
-        <NavbarPage
-          showSearch={showSearch}
-          setShowSearch={setShowSearch}
-          setSearchKeyword={setSearchKeyword}
+        <Route
+          path="/"
+          render={(props) => (
+            <NavbarPage
+              showSearch={showSearch}
+              setShowSearch={setShowSearch}
+              setSearchKeyword={setSearchKeyword}
+              {...props}
+            />
+          )}
         />
+
         <Switch>
           <Route
             path="/"
@@ -100,7 +108,11 @@ function App() {
               <AdminHome products={products} setShowSearch={setShowSearch} />
             )}
           />
-          <Route path="/login_admin" exact render={() => <AdminLogin />} />
+          <Route
+            path="/login_admin"
+            exact
+            render={(props) => <AdminLogin {...props} />}
+          />
         </Switch>
       </Router>
       <Footer />

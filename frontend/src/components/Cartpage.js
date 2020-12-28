@@ -2,11 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Cartpage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Col, Container, Row, Form, Dropdown, Button } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Row,
+  Form,
+  Dropdown,
+  Button,
+  Spinner,
+} from "react-bootstrap";
 import CounterInput from "react-counter-input";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentCart } from "../redux/cart/cart.action";
-import { BsConeStriped } from "react-icons/bs";
+import { FcCheckmark } from "react-icons/fc";
 import axios from "./axios";
 
 function Cartpage() {
@@ -135,13 +143,21 @@ function Cartpage() {
           placeholder="Email"
           onChange={(ev) => setEmail(ev.target.value)}
         />
-        <Button
-          onClick={() => handlePurchase()}
-          variant="success"
-          className="Btn-Purchase"
-        >
-          PURCHASE
-        </Button>
+        <div className="ButtonandSpinner">
+          <Button
+            onClick={() => handlePurchase()}
+            variant="success"
+            className="Btn-Purchase"
+          >
+            PURCHASE
+          </Button>
+          <Spinner animation="border" role="status" className="loadingSpinner">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+          <div className="Checklist">
+            <FcCheckmark />
+          </div>
+        </div>
       </div>
     </div>
   );

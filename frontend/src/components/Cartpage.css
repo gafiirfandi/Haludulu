@@ -171,6 +171,18 @@
   width: 100%;
   height: auto;
 }
+.ButtonandSpinner {
+  display: flex;
+  flex-direction: row;
+}
+.loadingSpinner {
+  margin-left: -20%;
+  margin-top: 1%;
+}
+.Checklist {
+  font-size: 30px;
+  margin-top: -2%;
+}
 
 @media only screen and (max-width: 600px) {
   .IsiEmail {
@@ -201,6 +213,15 @@
     width: 300px;
 
     font-size: 4vw;
+  }
+  .loadingSpinner {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .Checklist {
+    font-size: 5vw;
+    margin-top: 0%;
   }
 }
 

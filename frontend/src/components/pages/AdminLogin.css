@@ -1,0 +1,42 @@
+.LoginContainerPage {
+  margin-top: 50px;
+  height: 800px;
+}
+
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 500px;
+  border: 5px solid #1c6ea4;
+  margin: 0 auto;
+}
+.InputDiv {
+  margin: 0 auto;
+  border: 5px solid #1c6ea4;
+  width: 300px;
+  height: 100px;
+}
+.BarisSatuLogin {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.BarisDuaLogin {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+}
+.InputJawab {
+  float: right !important;
+}
+.DetailInput {
+  font-size: 14px;
+}
+
+.ButtonLogin {
+  margin: 0 auto;
+  width: 30%;
+  height: auto;
+}

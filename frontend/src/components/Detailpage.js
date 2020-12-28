@@ -110,32 +110,7 @@ function Detailpage(props) {
 
     console.log(currentCart, " new Cart");
     dispatch(setCurrentCart(cart));
-    // const data = JSON.parse(localStorage.getItem("currentCart"));
-    // const data = localStorage.getItem("currentCart");
-    // console.log(typeof data);
-    // data.push({ id: id, size: size, stock: stock });
-    // localStorage.set Item("currentCart", JSON.stringify(data));
-    // const localStorageCart = localStorage.getItem("currentCart");
-    // console.log(data);
-    // localStorageCart.push({ id: id, size: size, stock: stock });
-    // localStorage.setItem("currentCart", localStorageCart);
-    // listProductCart.push({ id: id, size: size, stock: stock });
-    // handleProductCart(listProductCart);
-    // console.log(product);
   };
-
-  // const findSize = () => {
-  //   console.log(size);
-  //   if (size == "S") {
-  //     return product.sizeSStock;
-  //   } else if (size == "M") {
-  //     return product.sizeSStock;
-  //   } else if (size == "L") {
-  //     return product.sizeSStock;
-  //   } else if (size == "XL") {
-  //     return product.sizeSStock;
-  //   }
-  // };
 
   return (
     <div className="DetailContainer">
@@ -219,7 +194,7 @@ function Detailpage(props) {
           </div>
 
           <Row>
-            <Col sm="4" lg>
+            <Col sm="4" lg className="UkuranDabQuantityCol">
               <div className="UkurandanQuantity">
                 <div className="Ukuran">
                   <p className="TextDetail">Size: </p>
@@ -277,7 +252,7 @@ function Detailpage(props) {
                 </div>
               </div>
             </Col>
-            <Col sm="8" lg>
+            <Col sm="8" lg className="DeskripsidanKondisiCol">
               <div className="Description">
                 <div className="JudulDescription">
                   <p className="TextDetail">Description</p>

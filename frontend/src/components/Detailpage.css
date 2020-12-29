@@ -221,7 +221,7 @@ pembagian 2 column utama */
   }
 
   /* penukaran tempat */
-  .UkuranDabQuantityCol {
+  .UkuranDanQuantityCol {
     position: absolute;
     margin-top: 30%;
   }
@@ -234,9 +234,9 @@ pembagian 2 column utama */
   }
 }
 @media only screen and (max-width: 400px) {
-  .UkuranDabQuantityCol {
+  .UkuranDanQuantityCol {
     position: absolute;
-    margin-top: 40%;
+    margin-top: 50%;
   }
   .DeskripsidanKondisiCol {
     position: absolute;
@@ -250,5 +250,11 @@ pembagian 2 column utama */
   .DetailContainer {
     margin-top: 50px;
     height: 1000px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .DetailKanan {
+    padding-left: 30px;
   }
 }

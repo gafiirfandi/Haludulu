@@ -31,3 +31,18 @@
   color: black;
   width: 20%;
 }
+
+.buttonandspinner {
+  margin: auto;
+  text-align: center !important;
+}
+.loadingSpinnerlogin {
+  color: #025202;
+  margin-left: 10px;
+}
+.showSpinner {
+  visibility: visible;
+}
+.hideSpinner {
+  visibility: hidden;
+}

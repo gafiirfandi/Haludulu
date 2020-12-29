@@ -9,6 +9,7 @@ import { BsSearch } from "react-icons/bs";
 import { AiOutlineShopping } from "react-icons/ai";
 import { HiSearch } from "react-icons/hi";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
+import { IoIosLogOut } from "react-icons/io";
 
 function NavbarPage(props) {
   const dispatch = useDispatch();
@@ -86,8 +87,12 @@ function NavbarPage(props) {
               <Link to="/cart" className="link2">
                 <AiOutlineShopping />
               </Link>
-              {isLoggedIn && <button onClick={() => handleLogout()}>LOGOUT</button>}
-              
+              {isLoggedIn && (
+                <IoIosLogOut
+                  onClick={() => handleLogout()}
+                  className="LogoutButton"
+                />
+              )}
             </div>
           </Navbar.Collapse>
         </>

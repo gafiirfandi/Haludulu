@@ -42,6 +42,9 @@ untuk rownya */
   padding-top: 30px;
   font-size: 30px;
 }
+.LogoutButton {
+  margin-left: 10px;
+}
 
 .Border {
   display: flex;

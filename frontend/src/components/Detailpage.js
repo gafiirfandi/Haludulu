@@ -194,7 +194,7 @@ function Detailpage(props) {
           </div>
 
           <Row>
-            <Col sm="4" lg className="UkuranDabQuantityCol">
+            <Col sm="4" lg className="UkuranDanQuantityCol">
               <div className="UkurandanQuantity">
                 <div className="Ukuran">
                   <p className="TextDetail">Size: </p>
@@ -256,9 +256,6 @@ function Detailpage(props) {
               <div className="Description">
                 <div className="JudulDescription">
                   <p className="TextDetail">Description</p>
-                  <p>
-                    Width {windowWidth} x Height {windowHeight}
-                  </p>
                 </div>
                 <div className="IsiDesctiption">
                   <p className="TextDetail">Minus : {product.minus}</p>

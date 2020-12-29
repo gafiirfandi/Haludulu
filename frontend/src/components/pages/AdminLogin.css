@@ -1,20 +1,22 @@
 .LoginContainerPage {
-  margin-top: 50px;
-  height: 800px;
+  /* margin-top: 50px; */
+  height: 620px;
+  width: 60vw;
+  padding-top: 150px;
+  margin: auto;
 }
 
 .LoginForm {
   display: flex;
   flex-direction: column;
   height: 300px;
-  width: 500px;
   border: 5px solid #1c6ea4;
   margin: 0 auto;
 }
 .InputDiv {
   margin: 0 auto;
   border: 5px solid #1c6ea4;
-  width: 300px;
+  width: 100%;
   height: 100px;
 }
 .BarisSatuLogin {

@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../redux/auth/auth.action";
 // import { setLoggedIn } from "../../redux/admin/auth.action";
 import { Redirect } from "react-router-dom";
-import { useEffect } from "react";
 import "./AdminLogin.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {

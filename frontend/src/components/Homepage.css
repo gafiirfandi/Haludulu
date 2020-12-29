@@ -40,6 +40,13 @@
   margin-top: 2px;
 }
 
+.LinkUpdate,
+.LinkUpdate:hover {
+  text-decoration: none !important;
+  color: white;
+  outline: none;
+}
+
 .ButtonDelete,
 .ButtonUpdate {
   border: none;
@@ -47,18 +54,32 @@
 }
 
 .ButtonUpdate {
-  width: 100%;
+  width: 110%;
   background-color: #025202 !important;
   border-bottom-left-radius: 3px;
 }
 
 .ButtonDelete {
-  width: 100%;
+  width: 110%;
   background-color: #ff1620 !important;
   border-bottom-right-radius: 3px;
 }
 .Link_BajuBox:hover {
   color: transparent;
+  text-decoration: none;
+}
+
+.ProductHeader {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* .ProductNameHomepage {
+  font-size: 16px;
+} */
+
+.ProductPriceHomepage {
+  font-size: 12px;
 }
 
 @media only screen and (max-width: 1000px) {

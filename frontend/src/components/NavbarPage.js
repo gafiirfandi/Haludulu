@@ -12,6 +12,7 @@ import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 
 function NavbarPage(props) {
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.auth.token);
 
   const handleLogout = () => {
     dispatch(actions.logout());
@@ -51,7 +52,7 @@ function NavbarPage(props) {
               />
               <HiSearch
                 onClick={() => {
-                  if (showSearch) props.setShowSearch(false);
+                  if (props.showSearch) props.setShowSearch(false);
                   else props.setShowSearch(true);
                 }}
                 className={`SearchIcon ${
@@ -85,7 +86,8 @@ function NavbarPage(props) {
               <Link to="/cart" className="link2">
                 <AiOutlineShopping />
               </Link>
-              <button onClick={() => handleLogout()}>LOGOUT</button>
+              {isLoggedIn && <button onClick={() => handleLogout()}>LOGOUT</button>}
+              
             </div>
           </Navbar.Collapse>
         </>

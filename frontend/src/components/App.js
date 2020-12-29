@@ -85,7 +85,11 @@ function App() {
             path="/"
             exact
             render={() => (
-              <Home products={products} setShowSearch={setShowSearch} />
+              <Home
+                setSearchKeyword={setSearchKeyword}
+                products={products}
+                setShowSearch={setShowSearch}
+              />
             )}
           />
           <Route path="/cart" exact render={() => <Cart />} />

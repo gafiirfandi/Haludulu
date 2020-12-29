@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-function Homepage({ products, admin, setShowSearch }) {
+function Homepage({ products, admin, setShowSearch, setSearchKeyword }) {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
@@ -48,6 +48,25 @@ function Homepage({ products, admin, setShowSearch }) {
   //   fetchData();
   // }, []);
 
+  const getPrice = (price) => {
+    // console.log(price, "- price");
+    let str_price = price.toString().split("").reverse().join("");
+    let str_price_idr = "";
+    let counter = 1;
+    // console.log(str_price, "- str price");
+    let len = str_price.length;
+    for (let char in str_price) {
+      str_price_idr += str_price[char];
+      if (counter == 3 && char != len - 1) {
+        counter = 0;
+        str_price_idr += ".";
+      }
+      counter++;
+    }
+    // console.log(str_price_idr.split().reverse().join(""));
+    return str_price_idr.split("").reverse().join("");
+  };
+
   const handleDelete = (id) => {
     axios.post("/api/delete_product", id);
   };
@@ -63,8 +82,7 @@ function Homepage({ products, admin, setShowSearch }) {
                 to={{
                   pathname: "/detail/" + product.id,
                   state: { id: product.id },
-                }}
-              >
+                }}>
                 {/* <Link
                 to={{
                   pathname: "/detail/" + product.id,
@@ -76,35 +94,39 @@ function Homepage({ products, admin, setShowSearch }) {
                   className="BajuBox"
                   onClick={() => {
                     console.log("yey");
+                    setSearchKeyword("");
                     setShowSearch(false);
-                  }}
-                >
+                  }}>
                   <img src={product.main_img} className="ImgBaju" alt="helo" />
                   {admin && (
                     <div className="ButtonAdmin">
-                      <Link
-                        to={{
-                          pathname: "/update_item/" + product.id,
-                          state: { id: product.id },
-                        }}
-                      >
-                        <button type="button" className="ButtonUpdate">
+                      <button type="button" className="ButtonUpdate">
+                        <Link
+                          className="LinkUpdate"
+                          to={{
+                            pathname: "/update_item/" + product.id,
+                            state: { id: product.id },
+                          }}>
                           Update
-                        </button>
-                      </Link>
-                      <Link>
-                        <button
-                          onClick={() => handleDelete(product.id)}
-                          type="button"
-                          className="ButtonDelete"
-                        >
-                          Delete
-                        </button>
-                      </Link>
+                        </Link>
+                      </button>
+
+                      <button
+                        onClick={() => handleDelete(product.id)}
+                        type="button"
+                        className="ButtonDelete">
+                        Delete
+                      </button>
                     </div>
                   )}
                 </div>
               </Link>
+              <div className="ProductHeader">
+                <p className="ProductNameHomepage">{product.name}</p>
+                <p className="ProductPriceHomepage">
+                  Rp{getPrice(product.price)}
+                </p>
+              </div>
             </Col>
           );
         })}

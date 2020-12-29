@@ -9,6 +9,7 @@ import { setCurrentCart } from "../redux/cart/cart.action";
 import CounterInput from "react-counter-input";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { FcCheckmark } from "react-icons/fc";
 function useWindowSize() {
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -33,6 +34,7 @@ function Detailpage(props) {
   const currentCart = useSelector((state) => state.cart.currentCart);
   const dispatch = useDispatch();
   const [mainImage, setMainImage] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
   const settingsCarousel = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -110,6 +112,7 @@ function Detailpage(props) {
 
     console.log(currentCart, " new Cart");
     dispatch(setCurrentCart(cart));
+    setIsChecked(true);
   };
 
   return (
@@ -194,7 +197,7 @@ function Detailpage(props) {
           </div>
 
           <Row>
-            <Col sm="4" lg className="UkuranDabQuantityCol">
+            <Col sm="4" lg className="UkuranDanQuantityCol">
               <div className="UkurandanQuantity">
                 <div className="Ukuran">
                   <p className="TextDetail">Size: </p>
@@ -202,8 +205,7 @@ function Detailpage(props) {
                     <Dropdown.Toggle
                       variant="success"
                       id="dropdown-basic"
-                      className="UkuranDropDown"
-                    >
+                      className="UkuranDropDown">
                       {size}
                     </Dropdown.Toggle>
 
@@ -238,17 +240,24 @@ function Detailpage(props) {
                   <Button
                     variant="success"
                     onClick={() => handleSubmit()}
-                    className="Btn-addtocart"
-                  >
+                    className="Btn-addtocart">
                     ADD TO CART
                   </Button>
-                  <Button
-                    onClick={() => console.log(listProductCart, " yey")}
-                    variant="dark"
-                    className="Btn-SoldOut"
-                  >
-                    SOLD OUT
-                  </Button>
+
+                  <FcCheckmark
+                    className={`${isChecked ? "showChecked" : "hideChecked"}`}
+                  />
+                  {product.size_s_stock == 0 &&
+                    product.size_m_stock == 0 &&
+                    product.size_l_stock == 0 &&
+                    product.size_xl_stock == 0 && (
+                      <Button
+                        onClick={() => console.log(listProductCart, " yey")}
+                        variant="dark"
+                        className="Btn-SoldOut">
+                        SOLD OUT
+                      </Button>
+                    )}
                 </div>
               </div>
             </Col>
@@ -256,9 +265,6 @@ function Detailpage(props) {
               <div className="Description">
                 <div className="JudulDescription">
                   <p className="TextDetail">Description</p>
-                  <p>
-                    Width {windowWidth} x Height {windowHeight}
-                  </p>
                 </div>
                 <div className="IsiDesctiption">
                   <p className="TextDetail">Minus : {product.minus}</p>

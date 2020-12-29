@@ -1,43 +1,39 @@
-import axios from "../axios";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../redux/auth/auth.action";
-// import { setLoggedIn } from "../../redux/admin/auth.action";
-import { Redirect } from "react-router-dom";
 import "./AdminLogin.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Col,
-  Container,
-  Row,
-  Form,
-  Dropdown,
-  Button,
-  Spinner,
-} from "react-bootstrap";
+import { Form, Button, Spinner } from "react-bootstrap";
 
 function AdminLogin(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-
+  const [isSpinner, setIsSpinner] = useState(false);
+  const [failedLogIn, setFailedLogin] = useState(false);
   const isLoggedIn = useSelector((state) => state.auth.token);
+  const error = useSelector((state) => state.auth.error);
 
-  //   useEffect(() => {
-
-  //   }, [isLoggedIn])
   useEffect(() => {
     if (isLoggedIn != null) props.history.push("/admin_home");
   }, [isLoggedIn]);
 
+  useEffect(() => {
+    if (error != null) {
+      setIsSpinner(false);
+      setFailedLogin(true);
+    }
+  }, [error]);
+
   const handleLogin = () => {
-    // var formData = new FormData();
-    // formData.append("username", username);
-    // formData.append("password", password);
-    // axios.post("/api/login", formData);
-    dispatch(actions.authLogin(username, password));
-    // console.log(value);
-    // if (isLoggedIn != null) props.history.push("/admin_home");
+    setIsSpinner(true);
+    try {
+      dispatch(actions.authLogin(username, password));
+    } catch (error) {
+      console.log(error);
+    }
+
+    console.log(isLoggedIn);
   };
 
   return (
@@ -48,6 +44,7 @@ function AdminLogin(props) {
             <Form.Label className="LabelText">
               <b>Username</b>{" "}
             </Form.Label>
+
             <Form.Control
               type="text"
               placeholder="Enter Username"
@@ -66,16 +63,24 @@ function AdminLogin(props) {
               onChange={(ev) => setPassword(ev.target.value)}
             />
           </Form.Group>
-          <div className="text-center">
+          <div className="text-center buttonandspinner">
             <Button
               className="ButtonLogin"
               variant="primary"
-              
-              onClick={() => handleLogin()}
-            >
+              type="button"
+              onClick={() => handleLogin()}>
               Login
             </Button>
+            <Spinner
+              animation="border"
+              role="status"
+              className={`loadingSpinnerlogin ${
+                isSpinner ? "showSpinner" : "hideSpinner"
+              }`}>
+              <span className="sr-only">Loading...</span>
+            </Spinner>
           </div>
+          {failedLogIn && <p>Login failed, incorrect username and password</p>}
         </Form>
       </div>
     </div>

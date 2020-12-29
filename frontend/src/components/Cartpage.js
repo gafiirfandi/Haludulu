@@ -21,8 +21,11 @@ function Cartpage() {
   const currentCart = useSelector((state) => state.cart.currentCart);
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isFinished, setIsFinished] = useState(false);
 
   const handlePurchase = () => {
+    setIsLoading(true);
     console.log(currentCart);
     const cart = { ...currentCart };
     // cart["email"] = email;
@@ -35,6 +38,8 @@ function Cartpage() {
     formData.append("email", email);
     axios.post("/purchase", formData).then(console.log("berhasil"));
     console.log("hello");
+    setIsLoading(false);
+    setIsFinished(true);
 
     alert("Succesfully add product");
   };
@@ -88,8 +93,7 @@ function Cartpage() {
                 sm={3}
                 md={2}
                 xl={2}
-                className="ColProduk ColHargaQuantity"
-              >
+                className="ColProduk ColHargaQuantity">
                 <div className="PriceHarga">
                   <p className="JudulTable">
                     <b>Price</b>
@@ -102,8 +106,7 @@ function Cartpage() {
                 sm={3}
                 md={2}
                 xl={2}
-                className="ColProduk ColHargaQuantity"
-              >
+                className="ColProduk ColHargaQuantity">
                 <div className="PriceHarga">
                   <p className="JudulTable">
                     <b>Quantity</b>
@@ -147,15 +150,21 @@ function Cartpage() {
           <Button
             onClick={() => handlePurchase()}
             variant="success"
-            className="Btn-Purchase"
-          >
+            className="Btn-Purchase">
             PURCHASE
           </Button>
-          <Spinner animation="border" role="status" className="loadingSpinner">
+          <Spinner
+            animation="border"
+            role="status"
+            className={`loadingSpinner ${
+              isLoading ? "showItemCart" : "hideItemCart"
+            }`}>
             <span className="sr-only">Loading...</span>
           </Spinner>
           <div className="Checklist">
-            <FcCheckmark />
+            <FcCheckmark
+              className={`${isFinished ? "showItemCart" : "hideItemCart"}`}
+            />
           </div>
         </div>
       </div>

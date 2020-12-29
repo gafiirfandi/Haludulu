@@ -178,10 +178,19 @@
 .loadingSpinner {
   margin-left: -20%;
   margin-top: 1%;
+  color: #025202;
 }
 .Checklist {
   font-size: 30px;
   margin-top: -2%;
+}
+
+.showItemCart {
+  visibility: visible;
+}
+
+.hideItemCart {
+  visibility: hidden;
 }
 
 @media only screen and (max-width: 600px) {

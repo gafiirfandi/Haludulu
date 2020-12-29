@@ -49,7 +49,7 @@ function AdminLogin(props) {
               <b>Username</b>{" "}
             </Form.Label>
             <Form.Control
-              type="email"
+              type="text"
               placeholder="Enter Username"
               onChange={(ev) => setUsername(ev.target.value)}
             />
@@ -70,7 +70,7 @@ function AdminLogin(props) {
             <Button
               className="ButtonLogin"
               variant="primary"
-              type="submit"
+              
               onClick={() => handleLogin()}
             >
               Login

@@ -41,38 +41,77 @@ function AdminLogin(props) {
   };
 
   return (
-    <div className="LoginContainerPage">
-      <div className="LoginForm">
-        <div className="InputDiv">
-          <div className="BarisSatuLogin">
-            <p className="DetailInput">
-              <b>Email: </b>{" "}
-            </p>
-            <input
-              className="InputJawab"
-              type="text"
-              placeholder="Username "
+    <div className="LoginContainer">
+      <div className="LoginBox">
+        <Form>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label className="LabelText">
+              <b>Username</b>{" "}
+            </Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter Username"
               onChange={(ev) => setUsername(ev.target.value)}
             />
-          </div>
-          <div className="BarisDuaLogin">
-            <p className="DetailInput">
-              <b>Passsword: </b>{" "}
-            </p>
-            <input
-              className="InputJawab"
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label className="LabelText">
+              {" "}
+              <b>Password</b>{" "}
+            </Form.Label>
+            <Form.Control
               type="password"
               placeholder="Password"
               onChange={(ev) => setPassword(ev.target.value)}
             />
+          </Form.Group>
+          <div className="text-center">
+            <Button
+              className="ButtonLogin"
+              variant="primary"
+              type="submit"
+              onClick={() => handleLogin()}
+            >
+              Login
+            </Button>
           </div>
-        </div>
-
-        <button onClick={() => handleLogin()} className="ButtonLogin">
-          Login
-        </button>
+        </Form>
       </div>
     </div>
+
+    // <div className="LoginContainerPage">
+    //   <div className="LoginForm">
+    //     <div className="InputDiv">
+    //       <div className="BarisSatuLogin">
+    //         <p className="DetailInput">
+    //           <b>Email: </b>{" "}
+    //         </p>
+    //         <input
+    //           className="InputJawab"
+    //           type="text"
+    //           placeholder="Username "
+    //           onChange={(ev) => setUsername(ev.target.value)}
+    //         />
+    //       </div>
+    //       <div className="BarisDuaLogin">
+    //         <p className="DetailInput">
+    //           <b>Passsword: </b>{" "}
+    //         </p>
+    //         <input
+    //           className="InputJawab"
+    //           type="password"
+    //           placeholder="Password"
+    //           onChange={(ev) => setPassword(ev.target.value)}
+    //         />
+    //       </div>
+    //     </div>
+
+    //     <button onClick={() => handleLogin()} className="ButtonLogin">
+    //       Login
+    //     </button>
+    //   </div>
+    // </div>
   );
 }
 

@@ -1,44 +1,33 @@
-.LoginContainerPage {
-  /* margin-top: 50px; */
-  height: 620px;
-  width: 60vw;
-  padding-top: 150px;
-  margin: auto;
-}
-
-.LoginForm {
-  display: flex;
-  flex-direction: column;
+.LoginContainer {
   height: 300px;
-  border: 5px solid #1c6ea4;
-  margin: 0 auto;
-}
-.InputDiv {
-  margin: 0 auto;
-  border: 5px solid #1c6ea4;
-  width: 100%;
-  height: 100px;
-}
-.BarisSatuLogin {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-}
-.BarisDuaLogin {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 40px;
-}
-.InputJawab {
-  float: right !important;
-}
-.DetailInput {
-  font-size: 14px;
+  margin-top: 100px;
 }
 
-.ButtonLogin {
+.LoginBox {
   margin: 0 auto;
-  width: 30%;
+  width: 40%;
   height: auto;
+}
+
+.LabelText {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 20%;
+}
+.ButtonLogin {
+  margin: 0 auto !important;
+  border: 1px solid transparent;
+  background-color: #025202;
+  color: white;
+  width: 20%;
+}
+
+.ButtonLogin:hover {
+  font-weight: 1000;
+  border: 1px solid #025202;
+  margin: 0 auto !important;
+  background-color: transparent;
+  color: black;
+  width: 20%;
 }

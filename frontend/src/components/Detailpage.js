@@ -240,6 +240,7 @@ function Detailpage(props) {
                   <p className="TextDetail">Quantity:</p>
                   <div className="ButtonQuantity">
                     <CounterInput
+                      className="CounterInputCart"
                       min={1}
                       max={stock}
                       onCountChange={(count) => console.log(count)}

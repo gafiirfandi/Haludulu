@@ -46,6 +46,7 @@ function AdminLogin(props) {
             </Form.Label>
 
             <Form.Control
+              className="Input-Control"
               type="text"
               placeholder="Enter Username"
               onChange={(ev) => setUsername(ev.target.value)}
@@ -58,6 +59,7 @@ function AdminLogin(props) {
               <b>Password</b>{" "}
             </Form.Label>
             <Form.Control
+              className="Input-Control"
               type="password"
               placeholder="Password"
               onChange={(ev) => setPassword(ev.target.value)}

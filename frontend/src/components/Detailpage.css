@@ -109,6 +109,10 @@ pembagian 2 column utama */
   width: 100px;
   transition: 0.3s;
 }
+.CounterInputCart {
+  width: 30px !important;
+  height: 10px;
+}
 .ButtonQuantity:hover {
   background-color: #025202;
   color: white;

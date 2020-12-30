@@ -76,7 +76,7 @@ function Homepage({ products, admin, setShowSearch, setSearchKeyword }) {
       <Row>
         {products.map((product) => {
           return (
-            <Col data-aos="fade-in" xs="6" sm="6" lg className="ColumnBaju">
+            <Col data-aos="fade-in" xs="6" sm="6" lg="3" className="ColumnBaju">
               <Link
                 className="Link_BajuBox"
                 to={{

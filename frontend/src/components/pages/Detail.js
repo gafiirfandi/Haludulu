@@ -4,14 +4,15 @@ import Detailpage from "../Detailpage";
 function Detail(props) {
   useEffect(() => {
     console.log(
-      props.location.pathname[props.location.pathname.length - 1],
+      props.location.pathname.slice(8, props.location.pathname.length),
       "pathname"
     );
+    console.log(props.location.pathname);
   }, []);
   return (
     <div style={{ overflow: "hidden" }}>
       <Detailpage
-        id={props.location.pathname[props.location.pathname.length - 1]}
+        id={props.location.pathname.slice(8, props.location.pathname.length)}
         {...props}
       />
     </div>

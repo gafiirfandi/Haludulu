@@ -35,6 +35,7 @@ function Detailpage(props) {
   const dispatch = useDispatch();
   const [mainImage, setMainImage] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const [fade, setFade] = useState(false);
   const settingsCarousel = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -50,7 +51,7 @@ function Detailpage(props) {
   useEffect(() => {
     console.log(props.id);
     async function fetchData() {
-      console.log(axios.defaults.baseURL + "/api");
+      console.log(axios.defaults.baseURL + "/api/" + props.id);
       const request = await axios.get(
         axios.defaults.baseURL + "/api/" + props.id
       );
@@ -76,6 +77,10 @@ function Detailpage(props) {
       setStock(product.size_xl_stock);
     }
   }, [size]);
+
+  const sleep = (ms) => {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  };
 
   const handleSubmit = () => {
     const cart = currentCart;
@@ -154,9 +159,11 @@ function Detailpage(props) {
                 <Col sm={8}>
                   <div className="BajuUtama">
                     <img
-                      data-aos="fade-in"
                       src={mainImage}
-                      className="MainImage"
+                      className={`MainImage ${
+                        fade ? "ImageFade" : "ImageNoFade"
+                      }`}
+                      id="RefreshMainImage"
                       alt=""
                     />
                   </div>
@@ -167,7 +174,12 @@ function Detailpage(props) {
                       <img
                         data-aos="fade-in"
                         src={product.main_img}
-                        onClick={() => setMainImage(product.main_img)}
+                        onClick={async () => {
+                          setMainImage(product.main_img);
+                          setFade(true);
+                          await sleep(500);
+                          setFade(false);
+                        }}
                         className="SubImage"
                         alt=""
                       />
@@ -176,7 +188,12 @@ function Detailpage(props) {
                       <img
                         data-aos="fade-in"
                         src={product.img1}
-                        onClick={() => setMainImage(product.img1)}
+                        onClick={async () => {
+                          setMainImage(product.img1);
+                          setFade(true);
+                          await sleep(500);
+                          setFade(false);
+                        }}
                         className="SubImage"
                         alt=""
                       />
@@ -185,7 +202,12 @@ function Detailpage(props) {
                       <img
                         data-aos="fade-in"
                         src={product.img2}
-                        onClick={() => setMainImage(product.img2)}
+                        onClick={async () => {
+                          setMainImage(product.img2);
+                          setFade(true);
+                          await sleep(500);
+                          setFade(false);
+                        }}
                         className="SubImage"
                         alt=""
                       />
@@ -214,8 +236,7 @@ function Detailpage(props) {
                     <Dropdown.Toggle
                       variant="success"
                       id="dropdown-basic"
-                      className="UkuranDropDown"
-                    >
+                      className="UkuranDropDown">
                       {size}
                     </Dropdown.Toggle>
 
@@ -240,6 +261,20 @@ function Detailpage(props) {
                   <p className="TextDetail">Quantity:</p>
                   <div className="ButtonQuantity">
                     <CounterInput
+                      className="CounterInputStock"
+                      wrapperStyle={{
+                        width: "min-content",
+                      }}
+                      btnStyle={{
+                        fontSize: "14px",
+                        width: "10px",
+                        padding: 0,
+                      }}
+                      inputStyle={{
+                        width: 24,
+                        // height: 10,
+                        fontSize: "14px",
+                      }}
                       min={1}
                       max={stock}
                       onCountChange={(count) => console.log(count)}
@@ -247,13 +282,17 @@ function Detailpage(props) {
                   </div>
                 </div>
                 <div className="DuaButton">
-                  <Button
-                    variant="success"
-                    onClick={() => handleSubmit()}
-                    className="Btn-addtocart"
-                  >
-                    ADD TO CART
-                  </Button>
+                  {(product.size_s_stock != 0 ||
+                    product.size_m_stock != 0 ||
+                    product.size_l_stock != 0 ||
+                    product.size_xl_stock != 0) && (
+                    <Button
+                      variant="success"
+                      onClick={() => handleSubmit()}
+                      className="Btn-addtocart">
+                      ADD TO CART
+                    </Button>
+                  )}
 
                   <FcCheckmark
                     className={`${isChecked ? "showChecked" : "hideChecked"}`}
@@ -263,10 +302,9 @@ function Detailpage(props) {
                     product.size_l_stock == 0 &&
                     product.size_xl_stock == 0 && (
                       <Button
-                        onClick={() => console.log(listProductCart, " yey")}
+                        onClick={() => alert("Sorry it's sold out")}
                         variant="dark"
-                        className="Btn-SoldOut"
-                      >
+                        className="Btn-SoldOut">
                         SOLD OUT
                       </Button>
                     )}

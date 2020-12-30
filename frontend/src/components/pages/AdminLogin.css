@@ -46,3 +46,7 @@
 .hideSpinner {
   visibility: hidden;
 }
+.failedLogin {
+  color: red;
+  margin-top: 20px;
+}

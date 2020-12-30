@@ -68,7 +68,8 @@ function AdminLogin(props) {
               className="ButtonLogin"
               variant="primary"
               type="button"
-              onClick={() => handleLogin()}>
+              onClick={() => handleLogin()}
+            >
               Login
             </Button>
             <Spinner
@@ -76,11 +77,16 @@ function AdminLogin(props) {
               role="status"
               className={`loadingSpinnerlogin ${
                 isSpinner ? "showSpinner" : "hideSpinner"
-              }`}>
+              }`}
+            >
               <span className="sr-only">Loading...</span>
             </Spinner>
           </div>
-          {failedLogIn && <p>Login failed, incorrect username and password</p>}
+          {failedLogIn && (
+            <p className="failedLogin">
+              Login failed, incorrect username and password
+            </p>
+          )}
         </Form>
       </div>
     </div>

@@ -93,7 +93,8 @@ function Cartpage() {
                 sm={3}
                 md={2}
                 xl={2}
-                className="ColProduk ColHargaQuantity">
+                className="ColProduk ColHargaQuantity"
+              >
                 <div className="PriceHarga">
                   <p className="JudulTable">
                     <b>Price</b>
@@ -106,7 +107,8 @@ function Cartpage() {
                 sm={3}
                 md={2}
                 xl={2}
-                className="ColProduk ColHargaQuantity">
+                className="ColProduk ColHargaQuantity"
+              >
                 <div className="PriceHarga">
                   <p className="JudulTable">
                     <b>Quantity</b>
@@ -150,17 +152,18 @@ function Cartpage() {
           <Button
             onClick={() => handlePurchase()}
             variant="success"
-            className="Btn-Purchase">
+            className="Btn-Purchase"
+          >
             PURCHASE
           </Button>
-          <Spinner
+          {/* <Spinner
             animation="border"
             role="status"
             className={`loadingSpinner ${
               isLoading ? "showItemCart" : "hideItemCart"
             }`}>
             <span className="sr-only">Loading...</span>
-          </Spinner>
+          </Spinner> */}
           <div className="Checklist">
             <FcCheckmark
               className={`${isFinished ? "showItemCart" : "hideItemCart"}`}

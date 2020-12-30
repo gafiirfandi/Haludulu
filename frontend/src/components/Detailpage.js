@@ -153,13 +153,19 @@ function Detailpage(props) {
               <Row>
                 <Col sm={8}>
                   <div className="BajuUtama">
-                    <img src={mainImage} className="MainImage" alt="" />
+                    <img
+                      data-aos="fade-in"
+                      src={mainImage}
+                      className="MainImage"
+                      alt=""
+                    />
                   </div>
                 </Col>
                 <Col sm={4}>
                   <div className="BajuDetail">
                     <div className="RincianDetail">
                       <img
+                        data-aos="fade-in"
                         src={product.main_img}
                         onClick={() => setMainImage(product.main_img)}
                         className="SubImage"
@@ -168,6 +174,7 @@ function Detailpage(props) {
                     </div>
                     <div className="RincianDetail">
                       <img
+                        data-aos="fade-in"
                         src={product.img1}
                         onClick={() => setMainImage(product.img1)}
                         className="SubImage"
@@ -176,6 +183,7 @@ function Detailpage(props) {
                     </div>
                     <div className="RincianDetail">
                       <img
+                        data-aos="fade-in"
                         src={product.img2}
                         onClick={() => setMainImage(product.img2)}
                         className="SubImage"
@@ -188,6 +196,7 @@ function Detailpage(props) {
             </div>
           </Col>
         )}
+
         <Col lg="6" className="DetailKanan">
           <div className="JudulBaju">
             <p>
@@ -205,7 +214,8 @@ function Detailpage(props) {
                     <Dropdown.Toggle
                       variant="success"
                       id="dropdown-basic"
-                      className="UkuranDropDown">
+                      className="UkuranDropDown"
+                    >
                       {size}
                     </Dropdown.Toggle>
 
@@ -240,7 +250,8 @@ function Detailpage(props) {
                   <Button
                     variant="success"
                     onClick={() => handleSubmit()}
-                    className="Btn-addtocart">
+                    className="Btn-addtocart"
+                  >
                     ADD TO CART
                   </Button>
 
@@ -254,7 +265,8 @@ function Detailpage(props) {
                       <Button
                         onClick={() => console.log(listProductCart, " yey")}
                         variant="dark"
-                        className="Btn-SoldOut">
+                        className="Btn-SoldOut"
+                      >
                         SOLD OUT
                       </Button>
                     )}

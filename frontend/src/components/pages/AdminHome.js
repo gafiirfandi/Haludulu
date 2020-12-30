@@ -1,5 +1,6 @@
 import React from "react";
 import Homepage from "../Homepage";
+import "./AdminHome.css";
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -18,8 +19,11 @@ function Home({ products, setShowSearch }) {
     );
   else {
     return (
-      <div>
-        <h1>You dont have access to this page</h1>
+      <div className="AdminHomeContainer">
+        <h1 className="IsiAdminHome">
+          {" "}
+          <b>You dont have access to this page</b>{" "}
+        </h1>
       </div>
     );
   }

@@ -44,6 +44,25 @@ function Cartpage() {
     alert("Succesfully add product");
   };
 
+  const getPrice = (price) => {
+    // console.log(price, "- price");
+    let str_price = price.toString().split("").reverse().join("");
+    let str_price_idr = "";
+    let counter = 1;
+    // console.log(str_price, "- str price");
+    let len = str_price.length;
+    for (let char in str_price) {
+      str_price_idr += str_price[char];
+      if (counter == 3 && char != len - 1) {
+        counter = 0;
+        str_price_idr += ".";
+      }
+      counter++;
+    }
+    // console.log(str_price_idr.split().reverse().join(""));
+    return str_price_idr.split("").reverse().join("");
+  };
+
   const handleRemove = (id) => {
     const cart = currentCart;
     delete cart[id];
@@ -81,7 +100,8 @@ function Cartpage() {
               <Col xs={6} sm={2} md={2} xl={3} className="ColProduk">
                 <div className="DetailBaju">
                   <p className="TitleBaju">
-                    <b>{currentCart[key].name}</b>
+                    <b>{currentCart[key].name}</b> (Size {currentCart[key].size}
+                    )
                   </p>
                   <p className="Hapus" onClick={() => handleRemove(key)}>
                     Remove
@@ -93,13 +113,14 @@ function Cartpage() {
                 sm={3}
                 md={2}
                 xl={2}
-                className="ColProduk ColHargaQuantity"
-              >
+                className="ColProduk ColHargaQuantity">
                 <div className="PriceHarga">
                   <p className="JudulTable">
                     <b>Price</b>
                   </p>
-                  <p className="HargaBaju">Rp.{currentCart[key].price}</p>
+                  <p className="HargaBaju">
+                    Rp{getPrice(currentCart[key].price)}
+                  </p>
                 </div>
               </Col>
               <Col
@@ -107,8 +128,7 @@ function Cartpage() {
                 sm={3}
                 md={2}
                 xl={2}
-                className="ColProduk ColHargaQuantity"
-              >
+                className="ColProduk ColHargaQuantity">
                 <div className="PriceHarga">
                   <p className="JudulTable">
                     <b>Quantity</b>
@@ -130,7 +150,8 @@ function Cartpage() {
                     <b>Total</b>
                   </p>
                   <p className="HargaBaju">
-                    Rp.{currentCart[key].price * currentCart[key].stock}
+                    Rp
+                    {getPrice(currentCart[key].price * currentCart[key].stock)}
                   </p>
                 </div>
               </Col>
@@ -152,8 +173,7 @@ function Cartpage() {
           <Button
             onClick={() => handlePurchase()}
             variant="success"
-            className="Btn-Purchase"
-          >
+            className="Btn-Purchase">
             PURCHASE
           </Button>
           {/* <Spinner

@@ -52,7 +52,9 @@ function App() {
         console.log("else");
         const filterProduct = [...productsFixed];
         const filter = filterProduct.filter((product) => {
-          return product.name.includes(searchKeyword);
+          return product.name
+            .toLowerCase()
+            .includes(searchKeyword.toLowerCase());
         });
         console.log(filter, "- filter");
         setProducts([...filter]);

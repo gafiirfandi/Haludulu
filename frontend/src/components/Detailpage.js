@@ -30,6 +30,7 @@ function Detailpage(props) {
   const [windowWidth, windowHeight] = useWindowSize();
   const [size, handleSize] = useState("Size");
   const [stock, setStock] = useState(1);
+  const [price, setPrice] = useState("");
   const [product, setProduct] = useState([]);
   const currentCart = useSelector((state) => state.cart.currentCart);
   const dispatch = useDispatch();
@@ -59,6 +60,7 @@ function Detailpage(props) {
       setProduct(request.data[0]);
       setStock(request.data[0].size_s_stock);
       setMainImage(request.data[0].main_img);
+      setPrice(getPrice(request.data[0].price));
       // console.log(request.data[0].sizeSStock, " stock s");
       // setMovies(request.data.results);
       return request;
@@ -80,6 +82,25 @@ function Detailpage(props) {
 
   const sleep = (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
+  };
+
+  const getPrice = (price) => {
+    // console.log(price, "- price");
+    let str_price = price.toString().split("").reverse().join("");
+    let str_price_idr = "";
+    let counter = 1;
+    // console.log(str_price, "- str price");
+    let len = str_price.length;
+    for (let char in str_price) {
+      str_price_idr += str_price[char];
+      if (counter == 3 && char != len - 1) {
+        counter = 0;
+        str_price_idr += ".";
+      }
+      counter++;
+    }
+    // console.log(str_price_idr.split().reverse().join(""));
+    return str_price_idr.split("").reverse().join("");
   };
 
   const handleSubmit = () => {
@@ -224,7 +245,7 @@ function Detailpage(props) {
             <p>
               <b className="JudulBajuBold">{product.name}</b>
             </p>
-            <p className="TextDetail">Rp.{product.price}</p>
+            <p className="TextDetail">Rp{price}</p>
           </div>
 
           <Row>
@@ -236,8 +257,7 @@ function Detailpage(props) {
                     <Dropdown.Toggle
                       variant="success"
                       id="dropdown-basic"
-                      className="UkuranDropDown"
-                    >
+                      className="UkuranDropDown">
                       {size}
                     </Dropdown.Toggle>
 
@@ -289,8 +309,7 @@ function Detailpage(props) {
                     <Button
                       variant="success"
                       onClick={() => handleSubmit()}
-                      className="Btn-addtocart"
-                    >
+                      className="Btn-addtocart">
                       ADD TO CART
                     </Button>
                   )}
@@ -305,8 +324,7 @@ function Detailpage(props) {
                       <Button
                         onClick={() => alert("Sorry it's sold out")}
                         variant="dark"
-                        className="Btn-SoldOut"
-                      >
+                        className="Btn-SoldOut">
                         SOLD OUT
                       </Button>
                     )}

@@ -122,7 +122,9 @@ function Homepage({ products, admin, setShowSearch, setSearchKeyword }) {
                 </div>
               </Link>
               <div className="ProductHeader">
-                <p className="ProductNameHomepage">{product.name}</p>
+                <p className="ProductNameHomepage">
+                  <b>{product.name}</b>
+                </p>
                 <p className="ProductPriceHomepage">
                   Rp{getPrice(product.price)}
                 </p>

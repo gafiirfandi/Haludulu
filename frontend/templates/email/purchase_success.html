@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HALUDULU</title>
-    </head>
-    <body>
-    <p style="background-color: red;">Hi! Thank you for purchasing at Haludulu, </p>
-    <p>Details of your purchasement can be seen below:</p> 
-    {% for values in products %} 
-    {{ forloop.counter }} {{values.name}} 
-    <img src={{values.main_img}} alt="product image" />
-    <p>Size: {{values.size}}<p>
-    <p>Stock: {{values.stock}}<p>
-    <p>Price: {{values.price}}<p>
-    {% endfor %}
-    <p>
-    Payment can be done by making a transfer to this account below:
-
-    - BCA: 160954620 an Haludulu
-
-    After completing the payment please Whatsapp this number below and send the payment confirmation:
-    Whatsapp: 081239468122
-
-    Thank you for shopping at Haludulu!
-
-    Best regards,
-    Haludulu
+  </head>
+  <body>
+    <p style="background-color: red">
+      Hi! Thank you for purchasing at Haludulu,
     </p>
-</body>
+    <p>Details of your purchasement can be seen below:</p>
+    <br />
+    {% for values in products %} {{ forloop.counter }}. {{values.name}}
+    <img src="{{values.main_img}}" alt="product image" />
+    <p>Size: {{values.size}}</p>
+    <p></p>
+    <p>Stock: {{values.stock}}</p>
+    <p></p>
+    <p>Price: {{values.price}}</p>
+    <br />
+    <p>{% endfor %}</p>
+
+    <p>
+      Payment can be done by making a transfer to this account below: <br />
+      - BCA: 160954620 an Haludulu <br />
+      <br />
+      After completing the payment please Whatsapp this number below and send
+      the payment confirmation: <br />
+      Whatsapp: 081239468122
+      <br />
+      Thank you for shopping at Haludulu!
+      <br /><br />
+      Best regards, <br />
+      Haludulu
+    </p>
+  </body>
 </html>

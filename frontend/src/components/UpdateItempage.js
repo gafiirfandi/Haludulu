@@ -219,7 +219,7 @@ function UpdateItempage(props) {
                   </Col>
                 </Form.Row>
                 <br />
-                <Form.Row className="SebarisInput">
+                {/* <Form.Row className="SebarisInput">
                   <Form.Label column lg={2}>
                     <p className="Label-Input">
                       <b>3rd Demo Image</b>
@@ -239,7 +239,7 @@ function UpdateItempage(props) {
                     </Form>
                   </Col>
                 </Form.Row>
-                <br />
+                <br /> */}
                 <Form.Row className="SebarisInput">
                   <Form.Label column lg={2}>
                     <p className="Label-Input">
@@ -248,37 +248,12 @@ function UpdateItempage(props) {
                   </Form.Label>
                   <Col>
                     <Form.Control
-                      as="select"
-                      size="lg"
-                      custom
-                      className="Input-Box-Size"
-                      onChange={(ev) => setSizeSStock(ev.target.value)}>
-                      {sizeSStock == 1 ? (
-                        <option selected>1</option>
-                      ) : (
-                        <option>1</option>
-                      )}
-                      {sizeSStock == 2 ? (
-                        <option selected>2</option>
-                      ) : (
-                        <option>2</option>
-                      )}
-                      {sizeSStock == 3 ? (
-                        <option selected>3</option>
-                      ) : (
-                        <option>3</option>
-                      )}
-                      {sizeSStock == 4 ? (
-                        <option selected>4</option>
-                      ) : (
-                        <option>4</option>
-                      )}
-                      {sizeSStock == 5 ? (
-                        <option selected>5</option>
-                      ) : (
-                        <option>5</option>
-                      )}
-                    </Form.Control>
+                      className="Input-Box"
+                      type="number"
+                      placeholder="Size S"
+                      min="0"
+                      onChange={(ev) => setSizeSStock(ev.target.value)}
+                    />
                   </Col>
                 </Form.Row>
                 <br />
@@ -290,37 +265,12 @@ function UpdateItempage(props) {
                   </Form.Label>
                   <Col>
                     <Form.Control
-                      as="select"
-                      size="lg"
-                      custom
-                      className="Input-Box-Size"
-                      onChange={(ev) => setSizeMStock(ev.target.value)}>
-                      {sizeMStock == 1 ? (
-                        <option selected>1</option>
-                      ) : (
-                        <option>1</option>
-                      )}
-                      {sizeMStock == 2 ? (
-                        <option selected>2</option>
-                      ) : (
-                        <option>2</option>
-                      )}
-                      {sizeMStock == 3 ? (
-                        <option selected>3</option>
-                      ) : (
-                        <option>3</option>
-                      )}
-                      {sizeMStock == 4 ? (
-                        <option selected>4</option>
-                      ) : (
-                        <option>4</option>
-                      )}
-                      {sizeMStock == 5 ? (
-                        <option selected>5</option>
-                      ) : (
-                        <option>5</option>
-                      )}
-                    </Form.Control>
+                      className="Input-Box"
+                      type="number"
+                      placeholder="Size M"
+                      min="0"
+                      onChange={(ev) => setSizeMStock(ev.target.value)}
+                    />
                   </Col>
                 </Form.Row>
                 <br />
@@ -332,37 +282,12 @@ function UpdateItempage(props) {
                   </Form.Label>
                   <Col>
                     <Form.Control
-                      as="select"
-                      size="lg"
-                      custom
-                      className="Input-Box-Size"
-                      onChange={(ev) => setSizeLStock(ev.target.value)}>
-                      {sizeLStock == 1 ? (
-                        <option selected>1</option>
-                      ) : (
-                        <option>1</option>
-                      )}
-                      {sizeLStock == 2 ? (
-                        <option selected>2</option>
-                      ) : (
-                        <option>2</option>
-                      )}
-                      {sizeLStock == 3 ? (
-                        <option selected>3</option>
-                      ) : (
-                        <option>3</option>
-                      )}
-                      {sizeLStock == 4 ? (
-                        <option selected>4</option>
-                      ) : (
-                        <option>4</option>
-                      )}
-                      {sizeLStock == 5 ? (
-                        <option selected>5</option>
-                      ) : (
-                        <option>5</option>
-                      )}
-                    </Form.Control>
+                      className="Input-Box"
+                      type="number"
+                      placeholder="Size L"
+                      min="0"
+                      onChange={(ev) => setSizeLStock(ev.target.value)}
+                    />
                   </Col>
                 </Form.Row>
                 <br />
@@ -374,37 +299,12 @@ function UpdateItempage(props) {
                   </Form.Label>
                   <Col>
                     <Form.Control
-                      as="select"
-                      size="lg"
-                      custom
-                      className="Input-Box-Size"
-                      onChange={(ev) => setSizeXLStock(ev.target.value)}>
-                      {sizeXLStock == 1 ? (
-                        <option selected>1</option>
-                      ) : (
-                        <option>1</option>
-                      )}
-                      {sizeXLStock == 2 ? (
-                        <option selected>2</option>
-                      ) : (
-                        <option>2</option>
-                      )}
-                      {sizeXLStock == 3 ? (
-                        <option selected>3</option>
-                      ) : (
-                        <option>3</option>
-                      )}
-                      {sizeXLStock == 4 ? (
-                        <option selected>4</option>
-                      ) : (
-                        <option>4</option>
-                      )}
-                      {sizeXLStock == 5 ? (
-                        <option selected>5</option>
-                      ) : (
-                        <option>5</option>
-                      )}
-                    </Form.Control>
+                      className="Input-Box"
+                      type="number"
+                      placeholder="Size XL"
+                      min="0"
+                      onChange={(ev) => setSizeXLStock(ev.target.value)}
+                    />
                   </Col>
                 </Form.Row>
               </Form.Group>
@@ -416,7 +316,8 @@ function UpdateItempage(props) {
         <Button
           onClick={() => handleSubmit()}
           variant="success"
-          className="Btn-AddItem">
+          className="Btn-AddItem"
+        >
           UPDATE
         </Button>{" "}
       </div>

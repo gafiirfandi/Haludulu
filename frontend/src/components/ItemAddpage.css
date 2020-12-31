@@ -1,6 +1,6 @@
 .AddItemContainer {
   margin-top: 50px;
-  height: 500px;
+  height: 600px;
 }
 
 .TitleAddItem {
@@ -41,6 +41,7 @@
   /* box-sizing: border-box; */
   border-radius: 5px;
   line-height: 1.5;
+  font-size: 14px;
 }
 .Input-FileAddItem {
   width: 75%;
@@ -67,8 +68,8 @@
 
 /* Button */
 .ButtonAddItem {
-  margin-top: 30px;
-  margin-bottom: 50px;
+  margin-top: 100px !important;
+  margin-bottom: 50px !important;
 }
 
 .Btn-AddItem {
@@ -85,10 +86,10 @@
 @media only screen and (max-width: 991px) {
   .AddItemContainer {
     margin-top: 50px;
-    height: 1200px;
+    height: 1250px;
   }
   .ColumnKanan {
-    margin-top: 150px;
+    margin-top: 250px !important;
   }
   .ButtonAddItem {
     margin-top: 250px !important;

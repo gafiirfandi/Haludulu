@@ -89,6 +89,9 @@ pembagian 2 column utama */
   background-color: transparent;
   color: #111111;
   border-color: black;
+  width: 56px;
+  font-size: 14px;
+  border-radius: 5px;
 }
 
 .UkuranDropDown:hover {
@@ -106,7 +109,8 @@ pembagian 2 column utama */
 .ButtonQuantity {
   border: 1px solid #111111;
   border-radius: 5px;
-  width: 100px;
+  width: min-content;
+  padding: 5px;
   transition: 0.3s;
 }
 .CounterInputCart {
@@ -122,7 +126,7 @@ pembagian 2 column utama */
 
 .DuaButton {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 
   /* column-gap: 30px;
 } */
@@ -154,7 +158,7 @@ pembagian 2 column utama */
 }
 
 .SubImage {
-  width: 50%;
+  width: 59.5%;
   height: auto;
 }
 
@@ -172,11 +176,80 @@ pembagian 2 column utama */
 .showChecked {
   display: inline-block;
   visibility: visible;
+  font-size: 28px;
+  margin-left: 10px;
 }
 
 .hideChecked {
   display: inline-block;
   visibility: hidden;
+}
+
+.CounterInputStock {
+  width: 20px !important;
+}
+
+.ImageFade {
+  animation: fadeInFromNone 1s ease-in;
+  /* transition: opacity 1s ease-in; */
+}
+
+.ImageNoFade {
+  opacity: 1;
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    display: block;
+    opacity: 0;
+  }
+
+  10% {
+    display: block;
+    opacity: 0.1;
+  }
+
+  20% {
+    display: block;
+    opacity: 0.2;
+  }
+
+  30% {
+    display: block;
+    opacity: 0.3;
+  }
+
+  40% {
+    display: block;
+    opacity: 0.4;
+  }
+
+  50% {
+    display: block;
+    opacity: 0.5;
+  }
+
+  60% {
+    display: block;
+    opacity: 0.6;
+  }
+  70% {
+    display: block;
+    opacity: 0.7;
+  }
+  80% {
+    display: block;
+    opacity: 0.8;
+  }
+  90% {
+    display: block;
+    opacity: 0.9;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 600px) {

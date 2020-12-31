@@ -72,7 +72,7 @@ function AdminLogin(props) {
               type="button"
               onClick={() => handleLogin()}
             >
-              Login
+              <b>Login</b>
             </Button>
             <Spinner
               animation="border"

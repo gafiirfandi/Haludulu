@@ -208,7 +208,7 @@ function ItemAddpage() {
                     </Form>
                   </Col>
                 </Form.Row>
-                <br />
+                {/* <br />
                 <Form.Row className="SebarisInput">
                   <Form.Label column lg={2}>
                     <p className="Label-Input">
@@ -229,6 +229,7 @@ function ItemAddpage() {
                     </Form>
                   </Col>
                 </Form.Row>
+                <br /> */}
                 <br />
                 <Form.Row className="SebarisInput">
                   <Form.Label column lg={2}>
@@ -307,7 +308,8 @@ function ItemAddpage() {
           type="submit"
           variant="success"
           onClick={() => handleSubmit()}
-          className="Btn-AddItem">
+          className="Btn-AddItem"
+        >
           ADD ITEM
         </Button>
       </div>

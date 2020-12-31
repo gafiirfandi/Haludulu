@@ -63,6 +63,15 @@ function Cartpage() {
     return str_price_idr.split("").reverse().join("");
   };
 
+  const getSubTotal = () => {
+    let subtotal = 0;
+    Object.keys(currentCart).map((key) => {
+      subtotal += currentCart[key].price * currentCart[key].stock;
+    });
+
+    return subtotal;
+  };
+
   const handleRemove = (id) => {
     const cart = currentCart;
     delete cart[id];
@@ -144,7 +153,7 @@ function Cartpage() {
                   </p>
                 </div>
               </Col>
-              <Col xs={12} sm={12} md={2} xl={2} className="ColProduk">
+              <Col xs={12} sm={12} md={2} xl={2} className="ColProduk ColTotal">
                 <div className="PriceHarga">
                   <p className="JudulTable">
                     <b>Total</b>
@@ -159,7 +168,20 @@ function Cartpage() {
           );
         })}
       </Row>
+      {/* <div className="SubTotal"></div> */}
+      <Row>
+        <Col xs={6} sm={4} md={4} xl={3} className="ColSubtotal"></Col>
+        <Col xs={6} sm={2} md={2} xl={3} className="ColSubtotal"></Col>
+        <Col xs={6} sm={3} md={2} xl={2} className="ColSubtotal"></Col>
+        <Col xs={6} sm={3} md={1} xl={2} className="ColSubtotal"></Col>
+        <Col xs={12} sm={12} md={3} xl={2} className="ColSubtotal">
+          <p align="center">
+            <b>Subtotal</b>: Rp{getPrice(getSubTotal())}
+          </p>
+        </Col>
+      </Row>
       <div className="ButtonDanEmail">
+        <br />
         <p className="IsiEmail">
           <b>Please input your email for further detail about the payment</b>
         </p>

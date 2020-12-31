@@ -131,7 +131,7 @@
   width: max-content;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 30vh !important;
+  /* margin-top: 30vh !important; */
 }
 .Btn-Purchase {
   width: 300px;
@@ -152,7 +152,7 @@
 }
 
 .Input-Email:hover {
-  color: #025202;
+  /* color: #025202; */
   box-shadow: 0 1px 0 0 #025202 !important;
 
   border: 1px solid #025202;
@@ -196,6 +196,12 @@
   visibility: hidden;
 }
 
+.ColSubtotal {
+  margin-top: 20vh !important;
+  width: min-content;
+  height: min-content;
+}
+
 @media only screen and (max-width: 600px) {
   .IsiEmail {
     font-size: 4vw;
@@ -209,6 +215,11 @@
   .ButtonDanEmail {
     width: min-content;
     margin-top: 10vh;
+  }
+
+  .ColSubtotal {
+    /* margin-top: 20vh !important; */
+    margin-top: 0px !important;
   }
 
   .HargaBaju {
@@ -265,5 +276,19 @@
   .ButtonandSpinner {
     margin: auto;
     text-align: center !important;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  .PriceHarga {
+    height: 100px !important;
+  }
+
+  .HargaBaju {
+    margin-top: 0px !important;
+  }
+
+  .ColTotal {
+    height: 100px !important;
   }
 }

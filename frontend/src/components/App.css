@@ -2,6 +2,10 @@
   font-family: "Roboto";
 }
 
+input {
+  font-size: 14px !important;
+}
+
 body {
   font-size: initial;
 }

@@ -62,7 +62,7 @@ def purchase(request):
             'products': cart_list
         })
         message_strip = strip_tags(message)
-        to_email = "gafiirfandi45@gmail.com"
+        to_email = email
         email_send = EmailMultiAlternatives(
             mail_subject, message_strip, settings.EMAIL_HOST_USER, [to_email]
         )

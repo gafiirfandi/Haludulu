@@ -40,6 +40,7 @@ function Cartpage() {
     console.log("hello");
     setIsLoading(false);
     setIsFinished(true);
+    dispatch(setCurrentCart({}));
 
     alert("Succesfully add product");
   };
@@ -169,36 +170,40 @@ function Cartpage() {
         })}
       </Row>
       {/* <div className="SubTotal"></div> */}
-      <Row>
-        <Col xs={6} sm={4} md={4} xl={3} className="ColSubtotal"></Col>
-        <Col xs={6} sm={2} md={2} xl={3} className="ColSubtotal"></Col>
-        <Col xs={6} sm={3} md={2} xl={2} className="ColSubtotal"></Col>
-        <Col xs={6} sm={3} md={1} xl={2} className="ColSubtotal"></Col>
-        <Col xs={12} sm={12} md={3} xl={2} className="ColSubtotal">
-          <p align="center">
-            <b>Subtotal</b>: Rp{getPrice(getSubTotal())}
-          </p>
-        </Col>
-      </Row>
-      <div className="ButtonDanEmail">
-        <br />
-        <p className="IsiEmail">
-          <b>Please input your email for further detail about the payment</b>
-        </p>
-        <Form.Control
-          className="Input-Email"
-          type="text"
-          placeholder="Email"
-          onChange={(ev) => setEmail(ev.target.value)}
-        />
-        <div className="ButtonandSpinner">
-          <Button
-            onClick={() => handlePurchase()}
-            variant="success"
-            className="Btn-Purchase">
-            PURCHASE
-          </Button>
-          {/* <Spinner
+      {currentCart.length > 0 ? (
+        <>
+          <Row>
+            <Col xs={6} sm={4} md={4} xl={3} className="ColSubtotal"></Col>
+            <Col xs={6} sm={2} md={2} xl={3} className="ColSubtotal"></Col>
+            <Col xs={6} sm={3} md={2} xl={2} className="ColSubtotal"></Col>
+            <Col xs={6} sm={3} md={1} xl={2} className="ColSubtotal"></Col>
+            <Col xs={12} sm={12} md={3} xl={2} className="ColSubtotal">
+              <p align="center">
+                <b>Subtotal</b>: Rp{getPrice(getSubTotal())}
+              </p>
+            </Col>
+          </Row>
+          <div className="ButtonDanEmail">
+            <br />
+            <p className="IsiEmail">
+              <b>
+                Please input your email for further detail about the payment
+              </b>
+            </p>
+            <Form.Control
+              className="Input-Email"
+              type="text"
+              placeholder="Email"
+              onChange={(ev) => setEmail(ev.target.value)}
+            />
+            <div className="ButtonandSpinner">
+              <Button
+                onClick={() => handlePurchase()}
+                variant="success"
+                className="Btn-Purchase">
+                PURCHASE
+              </Button>
+              {/* <Spinner
             animation="border"
             role="status"
             className={`loadingSpinner ${
@@ -206,13 +211,21 @@ function Cartpage() {
             }`}>
             <span className="sr-only">Loading...</span>
           </Spinner> */}
-          <div className="Checklist">
-            <FcCheckmark
-              className={`${isFinished ? "showItemCart" : "hideItemCart"}`}
-            />
+              <div className="Checklist">
+                <FcCheckmark
+                  className={`${isFinished ? "showItemCart" : "hideItemCart"}`}
+                />
+              </div>
+            </div>
           </div>
+        </>
+      ) : (
+        <div className="InformationEmptyCart">
+          <h1 className="CartEmptyTitle">
+            <b>YOUR CART IS CURRENTLY EMPTY</b>{" "}
+          </h1>
         </div>
-      </div>
+      )}
     </div>
   );
 }

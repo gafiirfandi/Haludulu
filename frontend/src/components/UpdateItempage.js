@@ -12,7 +12,6 @@ function UpdateItempage(props) {
   const [mainImg, setMainImg] = useState("");
   const [img1, setImg1] = useState("");
   const [img2, setImg2] = useState("");
-  const [img3, setImg3] = useState("");
   const [sizeSStock, setSizeSStock] = useState(0);
   const [sizeMStock, setSizeMStock] = useState(0);
   const [sizeLStock, setSizeLStock] = useState(0);
@@ -38,7 +37,6 @@ function UpdateItempage(props) {
       setMainImg(request.data[0].main_img);
       setImg1(request.data[0].img1);
       setImg2(request.data[0].img2);
-      setImg3(request.data[0].img3);
       setSizeSStock(request.data[0].size_s_stock);
       setSizeMStock(request.data[0].size_m_stock);
       setSizeLStock(request.data[0].size_l_stock);
@@ -219,27 +217,7 @@ function UpdateItempage(props) {
                   </Col>
                 </Form.Row>
                 <br />
-                {/* <Form.Row className="SebarisInput">
-                  <Form.Label column lg={2}>
-                    <p className="Label-Input">
-                      <b>3rd Demo Image</b>
-                    </p>
-                  </Form.Label>
-                  <Col>
-                    <Form>
-                      <Form.File
-                        className="Input-FileAddItem"
-                        label=""
-                        custom
-                        onChange={(ev) => {
-                          setLabelImg3(ev.target.value);
-                          setImg3(ev.target.files[0]);
-                        }}
-                      />
-                    </Form>
-                  </Col>
-                </Form.Row>
-                <br /> */}
+
                 <Form.Row className="SebarisInput">
                   <Form.Label column lg={2}>
                     <p className="Label-Input">
@@ -316,8 +294,7 @@ function UpdateItempage(props) {
         <Button
           onClick={() => handleSubmit()}
           variant="success"
-          className="Btn-AddItem"
-        >
+          className="Btn-AddItem">
           UPDATE
         </Button>{" "}
       </div>

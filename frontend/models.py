@@ -9,7 +9,6 @@ class Product(models.Model):
     main_img = models.ImageField()
     img1 = models.ImageField()
     img2 = models.ImageField()
-    img3 = models.ImageField()
     size_s_stock = models.IntegerField()
     size_m_stock = models.IntegerField()
     size_l_stock = models.IntegerField()

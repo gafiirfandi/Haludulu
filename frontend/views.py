@@ -99,7 +99,6 @@ def add_item(request):
         main_img = request.FILES['mainImg']
         img1 = request.FILES['img1']
         img2 = request.FILES['img2']
-        img3 = request.FILES['img3']
         size_s_stock = request.POST['sizeSStock']
         size_m_stock = request.POST['sizeMStock']
         size_l_stock = request.POST['sizeLStock']
@@ -136,12 +135,6 @@ def db_update_item(request):
         else:
             img2 = request.FILES['img2']
             product.img2 = img2
-
-        if 'img3' in request.POST:
-            img3 = request.POST['img3']
-        else:
-            img3 = request.FILES['img3']
-            product.img3 = img3
         
         # img1 = request.POST['img1']
         # img2 = request.POST['img2']

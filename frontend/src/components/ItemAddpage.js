@@ -12,7 +12,6 @@ function ItemAddpage() {
   const [mainImg, setMainImg] = useState("");
   const [img1, setImg1] = useState("");
   const [img2, setImg2] = useState("");
-  const [img3, setImg3] = useState("");
   const [sizeSStock, setSizeSStock] = useState(0);
   const [sizeMStock, setSizeMStock] = useState(0);
   const [sizeLStock, setSizeLStock] = useState(0);
@@ -45,7 +44,6 @@ function ItemAddpage() {
     formData.append("mainImg", mainImg);
     formData.append("img1", img1);
     formData.append("img2", img2);
-    formData.append("img3", img3);
     formData.append("sizeSStock", sizeSStock);
     formData.append("sizeMStock", sizeMStock);
     formData.append("sizeLStock", sizeLStock);
@@ -308,8 +306,7 @@ function ItemAddpage() {
           type="submit"
           variant="success"
           onClick={() => handleSubmit()}
-          className="Btn-AddItem"
-        >
+          className="Btn-AddItem">
           ADD ITEM
         </Button>
       </div>

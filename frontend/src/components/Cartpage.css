@@ -2,7 +2,8 @@
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  height: max-content;
+  min-height: 300px;
+  max-height: max-content;
   margin-bottom: 20vh;
 }
 
